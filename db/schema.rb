@@ -10,9 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_175423) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_140614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.bigint "reward_type_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "card_style_id", null: false
+    t.string "name"
+    t.text "description"
+    t.text "menu"
+    t.string "website"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_style_id"], name: "index_brands_on_card_style_id"
+    t.index ["category_id"], name: "index_brands_on_category_id"
+    t.index ["reward_type_id"], name: "index_brands_on_reward_type_id"
+  end
+
+  create_table "card_styles", force: :cascade do |t|
+    t.string "theme"
+    t.integer "max_stamps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.integer "stamps", default: 0, null: false
+    t.bigint "brand_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_cards_on_brand_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.string "phone_number"
+    t.bigint "brand_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_locations_on_brand_id"
+  end
+
+  create_table "reward_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.boolean "claimed", default: false
+    t.bigint "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_rewards_on_card_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +91,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_175423) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brands", "card_styles"
+  add_foreign_key "brands", "categories"
+  add_foreign_key "brands", "reward_types"
+  add_foreign_key "cards", "brands"
+  add_foreign_key "cards", "users"
+  add_foreign_key "locations", "brands"
+  add_foreign_key "rewards", "cards"
 end
