@@ -137,11 +137,11 @@ end
 
 puts "Creating users..."
 
-daniel = { first_name: "Daniel", last_name: "Shaw", email: "daniel@lewagon.com", encrypted_password: "123456", business: false }
-alejandro = { first_name: "Alejandro", last_name: "Sanz", email: "alejandro@lewagon.com", encrypted_password: "123456", business: false }
-anup = { first_name: "Anup", last_name: "Ale", email: "anup@lewagon.com", encrypted_password: "123456", business: false }
-mark = { first_name: "Mark", last_name: "O'Connor", email: "mark@lewagon.com", encrypted_password: "123456", business: false }
-miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com", encrypted_password: "123456", business: false }
+daniel = { first_name: "Daniel", last_name: "Shaw", email: "daniel@lewagon.com", password: "123456", business: false }
+alejandro = { first_name: "Alejandro", last_name: "Sanz", email: "alejandro@lewagon.com", password: "123456", business: false }
+anup = { first_name: "Anup", last_name: "Ale", email: "anup@lewagon.com", password: "123456", business: false }
+mark = { first_name: "Mark", last_name: "O'Connor", email: "mark@lewagon.com", password: "123456", business: false }
+miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com", password: "123456", business: false }
 
 # Cards & Rewards
 
