@@ -12,8 +12,18 @@ class BrandsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html #continue getting the view file as usual
-      format.text {render partial: "brands/list", locals: {brands: @brands}, formats: [:html]}
+      format.html
+      format.text { render partial: "brands/list", locals: {brands: @brands}, formats: [:html] }
     end
+  end
+
+  def update_location
+    @latitude = params[:latitude]
+    @longitude = params[:longitude]
+
+    # Process the latitude and longitude as needed
+    # (e.g., save to the database, perform calculations, etc.)
+
+    render json: { status: 'success' }
   end
 end

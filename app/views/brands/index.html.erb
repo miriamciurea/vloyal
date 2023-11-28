@@ -1,9 +1,11 @@
 <h1>brands index</h1>
 
+<p data-controller="geocoding">I am waiting for the location...</p>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class="h2 my-3 d-flex justify-content-center">Movies to watch 🍿</h1>
+      <h1 class="h2 my-3 d-flex justify-content-center">Brands</h1>
 
       <div data-controller="search-brands">
         <%= form_with url: brands_path, method: :get, html: {class: "mb-4", data: {search_brands_target: "form"}} do |f| %>
@@ -14,16 +16,9 @@
                            data: {search_brands_target: "input", action:"keyup->search-brands#search"}
                            %>
         <% end %>
-
+        <%# itirate through each og them by category %>
         <%= render "list", brands: @brands %>
       </div>
     </div>
   </div>
 </div>
-
-
-<%# itirate thru each og them by category %>
-<% @brands.each do |brand| %>
-<%= brand.name %>
-<%= brand.rating %>
-<% end %>
