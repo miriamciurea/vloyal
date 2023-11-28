@@ -18,15 +18,17 @@
 
       <% @cards.each do |card| %>
         <div class="loyalty-card">
-          <% stamps = card.stamps %>
-          <% card.card_style.max_stamps.times do %>
-            <div class="stamp-area">
-              <p>stamp area: <%= stamps.positive? ? 'stamped' :  'empty' %> </p>
-            </div>
-            <% stamps -= 1%>
-          <% end %>
-        </div>
+          <div class="brand-name">
+            <%= card.brand.name %>
+          </div>
+
+          <div class="user-date">
+            <h6><%= card.user.first_name %> <%= card.user.last_name %></h6>
+            <%= card.created_at.strftime('%m%Y') %>
+          </div>
+
       <% end %>
+        </div>
 
     <% end %>
 
