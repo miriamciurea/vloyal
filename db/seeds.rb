@@ -167,4 +167,15 @@ end
 
 puts "Creating rewards..."
 
+nutmeg_reward = { card_id: nutmeg_card.id, claimed: false }
+cates_reward = { card_id: cates_card.id, claimed: false }
+fabrique_reward = { card_id: fabrique_card.id, claimed: false }
+bloom_reward = { card_id: bloom_card.id, claimed: false }
+legacy_reward = { card_id: legacy_card.id, claimed: false }
+
+[nutmeg_reward, cates_reward, fabrique_reward, bloom_reward, legacy_reward].each do |attributes|
+  reward = Reward.create!(attributes)
+  puts "Created #{reward.id}"
+end
+
 puts "Finished!"
