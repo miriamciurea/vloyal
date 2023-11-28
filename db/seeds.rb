@@ -63,9 +63,9 @@ end
 puts "Creating brands..."
 
 nutmeg_n_koffee = {
-  category_id: coffee_shop.id,
-  reward_type_id: coffee.id,
-  card_style_id: classic.id,
+  category_id: Category.find_by(name: "Coffee Shop").id,
+  reward_type_id: RewardType.find_by(name: "Coffee").id,
+  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Nutmeg n' Koffee",
   description: "Nutmeg n' Koffee is a mobile coffee company we sell organic/free trade coffees from around the world. Our products are sold from a 1956 Citroen Hy Van",
   menu: "Flat White: £3",
@@ -73,9 +73,9 @@ nutmeg_n_koffee = {
   rating: 5
 }
 coffee_and_cates = {
-  category_id: coffee_shop.id,
-  reward_type_id: coffee.id,
-  card_style_id: classic.id,
+  category_id: Category.find_by(name: "Coffee Shop").id,
+  reward_type_id: RewardType.find_by(name: "Coffee").id,
+  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Coffee & Cates",
   description: "Coffee Shop within a historic Victorian Stables Building. Original features mixed with a vibrant artist look.",
   menu: "Latte: £3",
@@ -83,9 +83,9 @@ coffee_and_cates = {
   rating: 4
 }
 fabrique = {
-  category_id: coffee_shop.id,
-  reward_type_id: coffee.id,
-  card_style_id: classic.id,
+  category_id: Category.find_by(name: "Coffee Shop").id,
+  reward_type_id: RewardType.find_by(name: "Coffee").id,
+  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Fabrique",
   description: "Our concept is simple, but far from the ordinary: only fresh, natural ingredients and traditional methods are used to make our artisanal sourdough and pastries.",
   menu: "Mocha: £3",
@@ -93,9 +93,9 @@ fabrique = {
   rating: 4.5
 }
 rise_and_bloom = {
-  category_id: coffee_shop.id,
-  reward_type_id: coffee.id,
-  card_style_id: classic.id,
+  category_id: Category.find_by(name: "Coffee Shop").id,
+  reward_type_id: RewardType.find_by(name: "Coffee").id,
+  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Rise & Bloom",
   description: "Modern, minimalist espresso bar specialising in carefully sourced, single origin coffee. Handcrafted breads, pastries and cakes.",
   menu: "Americano: £3",
@@ -103,9 +103,9 @@ rise_and_bloom = {
   rating: 3.5
 }
 legacy_cafe = {
-  category_id: coffee_shop.id,
-  reward_type_id: coffee.id,
-  card_style_id: classic.id,
+  category_id: Category.find_by(name: "Coffee Shop").id,
+  reward_type_id: RewardType.find_by(name: "Coffee").id,
+  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Legacy Cafe",
   description: "We offer specialty coffee as well as juices and smoothies made to order from fresh ingredients.",
   menu: "Macchiato: £3",
@@ -113,7 +113,7 @@ legacy_cafe = {
   rating: 4
 }
 
-[nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each do |attributes|
+[nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].map do |attributes|
   brand = Brand.create!(attributes)
   puts "Created #{brand.name}"
 end
@@ -122,11 +122,11 @@ end
 
 puts "Creating locations..."
 
-nutmeg_location = { brand_id: nutmeg_n_koffee.id, address: "Hoxton Train Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
-cates_location = { brand_id: coffee_and_cates.id, address: "138 Kingsland Rd, London E2 8DY", phone_number: "020 4783 2398" }
-fabrique_location = { brand_id: fabrique.id, address: "385 Geffrye St, London E2 8HZ", phone_number: "020 4839 2308" }
-bloom_location = { brand_id: rise_and_bloom.id, address: "28 Hackney Rd, London E2 7DZ", phone_number: "020 2439 5498" }
-legacy_location = { brand_id: legacy_cafe.id, address: "Railway Arches, Cremer St, London E2 8HB", phone_number: "020 4372 3489" }
+nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Train Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
+cates_location = { brand_id: Brand.find_by(name: "Coffee & Cates").id, address: "138 Kingsland Rd, London E2 8DY", phone_number: "020 4783 2398" }
+fabrique_location = { brand_id: Brand.find_by(name: "Fabrique").id, address: "385 Geffrye St, London E2 8HZ", phone_number: "020 4839 2308" }
+bloom_location = { brand_id: Brand.find_by(name: "Rise & Bloom").id, address: "28 Hackney Rd, London E2 7DZ", phone_number: "020 2439 5498" }
+legacy_location = { brand_id: Brand.find_by(name: "Legacy Cafe").id, address: "Railway Arches, Cremer St, London E2 8HB", phone_number: "020 4372 3489" }
 
 [nutmeg_location, cates_location, fabrique_location, bloom_location, legacy_location].each do |attributes|
   location = Location.create!(attributes)
@@ -143,39 +143,27 @@ anup = { first_name: "Anup", last_name: "Ale", email: "anup@lewagon.com", encryp
 mark = { first_name: "Mark", last_name: "O'Connor", email: "mark@lewagon.com", encrypted_password: "123456", business: false }
 miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com", encrypted_password: "123456", business: false }
 
+# Cards & Rewards
+
+nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 0 }
+cates_card = { brand_id: Brand.find_by(name: "Coffee & Cates").id, stamps: 0 }
+fabrique_card = { brand_id: Brand.find_by(name: "Fabrique").id, stamps: 0 }
+bloom_card = { brand_id: Brand.find_by(name: "Rise & Bloom").id, stamps: 0 }
+legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
+
 [daniel, alejandro, anup, mark, miriam].each do |attributes|
   user = User.create!(attributes)
   puts "Created #{user.first_name}"
-end
-
-# Cards
-
-puts "Creating cards..."
-
-nutmeg_card = { brand_id: nutmeg_n_koffee.id, user_id: daniel.id, stamps: 0 }
-cates_card = { brand_id: coffee_and_cates.id, user_id: alejandro.id, stamps: 0 }
-fabrique_card = { brand_id: fabrique.id, user_id: anup.id, stamps: 0 }
-bloom_card = { brand_id: rise_and_bloom.id, user_id: mark.id, stamps: 0 }
-legacy_card = { brand_id: legacy_cafe.id, user_id: miriam.id, stamps: 0 }
-
-[nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |attributes|
-  card = Card.create!(attributes)
-  puts "Created #{card.id}"
-end
-
-# Rewards
-
-puts "Creating rewards..."
-
-nutmeg_reward = { card_id: nutmeg_card.id, claimed: false }
-cates_reward = { card_id: cates_card.id, claimed: false }
-fabrique_reward = { card_id: fabrique_card.id, claimed: false }
-bloom_reward = { card_id: bloom_card.id, claimed: false }
-legacy_reward = { card_id: legacy_card.id, claimed: false }
-
-[nutmeg_reward, cates_reward, fabrique_reward, bloom_reward, legacy_reward].each do |attributes|
-  reward = Reward.create!(attributes)
-  puts "Created #{reward.id}"
+  puts "Creating cards..."
+  [nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
+    card = Card.new(card_attributes)
+    card.user = user
+    card.save!
+    puts "Created #{card.id}"
+    puts "Creating rewards..."
+    reward = Reward.create!(card:)
+    puts "Created #{reward.id}"
+  end
 end
 
 puts "Finished!"
