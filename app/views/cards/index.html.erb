@@ -1,0 +1,37 @@
+<div class="card-index-body">
+
+  <header></header>
+
+  <h2 class="card-heading">My Wallet</h2>
+
+  <div class="loyalty-cards-container">
+
+    <% if @cards.blank? %>
+
+      <div class="loyalty-card">
+        <%= link_to brands_path do %>
+          <%# <%= image_tag "image.jpg", class: "some css class here" %>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <% @cards.each do |card| %>
+        <div class="loyalty-card">
+          <% stamps = card.stamps %>
+          <% card.card_style.max_stamps.times do %>
+            <div class="stamp-area">
+              <p>stamp area: <%= stamps.positive? ? 'stamped' :  'empty' %> </p>
+            </div>
+            <% stamps -= 1%>
+          <% end %>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+  <footer></footer>
+
+</div>
