@@ -9,7 +9,9 @@
 }
 
 .card-heading {
-  font-family: Lexend Giga;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-family: LexendGiga-VariableFont_wght;
   font-size: 26px;
   font-weight: 400;
   line-height: 33px;
@@ -30,15 +32,30 @@
   box-shadow: 0px 4px 4px 0px #00000099;
   box-shadow: 0px -1px 4px 0px #00000040;
   margin: auto;
+  padding-top: 12px;
 }
 
 .loyalty-card {
   width: 244px;
   height: 156px;
+  border: solid 3px gray;
   border-radius: 20px;
   margin: auto;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #A4E9FF, #A4E9FF);
 }
 
+.brand-name {
+  margin-left: 6px;
+}
+
+.user-date {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
 .stamp-area {
   width: 20%;
   border: solid 3px red;
