@@ -1,5 +1,11 @@
 <h1>brands index</h1>
 
+        <% @locations.each do |loc| %>
+        <%= loc.brand.name %>
+          <%= loc.longitude %>
+          <%= loc.latitude %>
+          <br>
+        <% end %>
 <p data-controller="geocoding">I am waiting for the location...</p>
 
 <div class="container">
@@ -17,7 +23,7 @@
                            %>
         <% end %>
         <%# itirate through each og them by category %>
-        <%= render "list", brands: @brands %>
+
       </div>
     </div>
   </div>

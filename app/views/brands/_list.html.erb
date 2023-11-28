@@ -8,9 +8,9 @@
   </p>
   <div class="brands">
     <% brands.each do |brand| %>
-      <% brand.name%>
+      <%= brand.name%>
       <%# link_to brand.name, to: brand_path %>
-      <% brand.near(@user_location, 10) %>
+      <%= Location.brand.near(@user_location, 10) %>
     <% end %>
   </div>
 </div>

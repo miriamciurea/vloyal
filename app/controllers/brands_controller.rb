@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   def index
+    @locations = Location.all
     @brands = Brand.order(rating: :desc, name: :asc)
 
     if params[:query].present?
