@@ -1,9 +1,18 @@
+$card-height: 182px;
+$card-offset: ($card-height * 0.75);
+
 .loyalty-card {
   background-color: transparent;
   width: 285.54px;
-  height: 182.56px;
+  height: $card-height;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
+  margin-bottom: -$card-offset;
+  transition: margin .3s ease;
+  &.focus {
+    order: -1;
+    margin-bottom: 50px;
+  }
 }
 
 .loyalty-card-inner {
