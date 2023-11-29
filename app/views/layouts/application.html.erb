@@ -16,7 +16,9 @@
 
   <%= yield %>
 
+  <% if user_signed_in? %>
   <%= render "components/bottom_navbar" %>
+  <% end %>
   </body>
 
 </html>

@@ -36,6 +36,6 @@ class BrandsController < ApplicationController
 
   def map
     @locations = Location.all
-    @page_brands = true
+    @page_map_brands = true
   end
 end
