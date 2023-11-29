@@ -4,6 +4,7 @@
 
   <h2 class="wallet-title">My Wallet</h2>
 
+  <p class="coffee-shops">Coffee shops</p>
   <div class="loyalty-cards-container">
 
     <% if @cards.blank? %>
@@ -19,12 +20,12 @@
       <% @cards.each do |card| %>
         <div class="loyalty-card">
           <div class="brand-name">
-            <%= card.brand.name %>
+            <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
           </div>
 
           <div class="user-date">
             <h6><%= card.user.first_name %> <%= card.user.last_name %></h6>
-            <%= card.created_at.strftime('%m/%Y') %>
+            <%= card.created_at.strftime('%m/%y') %>
           </div>
 
       <% end %>

@@ -3,20 +3,25 @@
   height: 932px;
   margin: auto;
   border: 1px solid #F0F0F3;
-  box-shadow: 0px 4px 4px 0px #00000099;
-  box-shadow: 0px -1px 4px 0px #00000040;
+
 
 }
 
 .wallet-title {
-  margin-top: 24px;
-  margin-bottom: 12px;
-  font-family: 'Lexend Giga';
-  font-size: 26px;
+font-family: Lexend Giga;
+font-size: 26px;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: center;
+}
+
+.coffee-shops {
+  font-family: Lexend Exa;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 33px;
-  letter-spacing: 0em;
   text-align: center;
+
 }
 
 
