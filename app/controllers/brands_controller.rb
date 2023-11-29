@@ -27,4 +27,9 @@ class BrandsController < ApplicationController
 
     render json: { status: 'success' }
   end
+  
+  def show
+    @brand = Brand.find(params[:id])
+    @location = Location.find(params[:id])
+  end
 end
