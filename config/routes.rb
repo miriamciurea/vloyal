@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :cards, only: [:create]
   end
   patch "brands/:id", to: "brands#increment", as: :increment_stamps
-  post "brands/update_location", to: "brands#update_location"
+  post "update_user_location", to: "brands#update_user_location"
   resources :cards, only: [:index, :destroy]
   resources :rewards, only: [:index]
   patch "rewards/:id", to: "rewards#claim", as: :claim_reward

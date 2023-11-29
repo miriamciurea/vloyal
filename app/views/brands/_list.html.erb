@@ -1,4 +1,4 @@
-<div data-search-brands-target="list">
+<div data-geocoding-target="list">
   <p class="h3">
     <% if params[:query].blank? %>
       <%= pluralize brands.count, "brand" %> available
@@ -8,9 +8,16 @@
   </p>
   <div class="brands">
     <% brands.each do |brand| %>
-      <%= brand.name%>
-      <%# link_to brand.name, to: brand_path %>
-      <%= Location.brand.near(@user_location, 10) %>
+      <%# brand.name%>
+      <%= link_to brand.name, brand_path(brand) %>
+      <% locations = Location.where("brand_id = #{brand.id}") %>
+      <% locations.each do |loc| %>
+        <%# loc.address %>
+        <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km from you"  : "we don't know" %>
+      <% end %>
+      <br>
+      <br>
+      <br>
     <% end %>
   </div>
 </div>

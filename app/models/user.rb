@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   has_many :cards, dependent: :destroy
-  has_many :rewards, through: :cards
+  has_many :rewards, through: :cards, dependent: :destroy
 end
