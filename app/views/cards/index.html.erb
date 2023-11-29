@@ -10,9 +10,9 @@
     <% if @cards.blank? %>
 
       <div class="loyalty-card">
-        <%= link_to brands_path do %>
-          <%# <%= image_tag "image.jpg", class: "some css class here" %>
-        <% end %>
+          <%= link_to brands_path do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
       </div>
 
     <% else %>
@@ -24,8 +24,8 @@
           </div>
 
           <div class="user-date">
-            <h6><%= card.user.first_name %> <%= card.user.last_name %></h6>
-            <%= card.created_at.strftime('%m/%y') %>
+            <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+            <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
           </div>
 
       <% end %>
