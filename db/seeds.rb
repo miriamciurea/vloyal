@@ -122,11 +122,11 @@ end
 
 puts "Creating locations..."
 
-nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Train Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
+nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
 cates_location = { brand_id: Brand.find_by(name: "Coffee & Cates").id, address: "138 Kingsland Rd, London E2 8DY", phone_number: "020 4783 2398" }
 fabrique_location = { brand_id: Brand.find_by(name: "Fabrique").id, address: "385 Geffrye St, London E2 8HZ", phone_number: "020 4839 2308" }
 bloom_location = { brand_id: Brand.find_by(name: "Rise & Bloom").id, address: "28 Hackney Rd, London E2 7DZ", phone_number: "020 2439 5498" }
-legacy_location = { brand_id: Brand.find_by(name: "Legacy Cafe").id, address: "Railway Arches, Cremer St, London E2 8HB", phone_number: "020 4372 3489" }
+legacy_location = { brand_id: Brand.find_by(name: "Legacy Cafe").id, address: "Cremer St, London E2 8HB", phone_number: "020 4372 3489" }
 
 [nutmeg_location, cates_location, fabrique_location, bloom_location, legacy_location].each do |attributes|
   location = Location.create!(attributes)

@@ -1,0 +1,39 @@
+<div class="card-index-body">
+
+  <header></header>
+
+  <h2 class="wallet-title">My Wallet</h2>
+
+  <div class="loyalty-cards-container">
+
+    <% if @cards.blank? %>
+
+      <div class="loyalty-card">
+        <%= link_to brands_path do %>
+          <%# <%= image_tag "image.jpg", class: "some css class here" %>
+        <% end %>
+      </div>
+
+    <% else %>
+
+      <% @cards.each do |card| %>
+        <div class="loyalty-card">
+          <div class="brand-name">
+            <%= card.brand.name %>
+          </div>
+
+          <div class="user-date">
+            <h6><%= card.user.first_name %> <%= card.user.last_name %></h6>
+            <%= card.created_at.strftime('%m/%Y') %>
+          </div>
+
+      <% end %>
+        </div>
+
+    <% end %>
+
+  </div>
+
+  <footer></footer>
+
+</div>

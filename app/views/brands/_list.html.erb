@@ -1,0 +1,16 @@
+<div data-search-brands-target="list">
+  <p class="h3">
+    <% if params[:query].blank? %>
+      <%= pluralize brands.count, "brand" %> available
+    <% else %>
+      <%= pluralize brands.count, "result" %> for <code><%= params[:query] %></code>
+    <% end %>
+  </p>
+  <div class="brands">
+    <% brands.each do |brand| %>
+      <%= brand.name%>
+      <%# link_to brand.name, to: brand_path %>
+      <%= Location.brand.near(@user_location, 10) %>
+    <% end %>
+  </div>
+</div>
