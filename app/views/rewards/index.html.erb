@@ -1,1 +1,23 @@
 <h1 class="rewards-title">My Rewards</h1>
+
+<% num = 0 %>
+<% @rewards.each do |reward| %>
+<% if reward.claimed %>
+  <div class="loyalty-card">
+  <div class="brand-name">
+    <%= reward.card.brand.name %>
+  </div>
+  <div class="reward-message">
+  <p><strong>Congratulations!</strong> You have one free (category name) in (brand name). Press show to display your QR code.</p>
+  <%= link_to "Show", "#" %>
+  </div>
+  </div>
+<% else %>
+  <% num +=1 %>
+<% end %>
+<% end %>
+<% if num == @cards.count %>
+  <div class="no-reward-message">
+  <h2>You have no rewards right now...</h2>
+  </div>
+<% end %>
