@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="geocoding"
 export default class extends Controller {
-  static targets = ['location', 'list']
+  static targets = ['location', 'list', "input", "form", 'loading', 'listCont']
 
   connect() {
     console.log('getting location')
@@ -45,11 +45,37 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         console.log(data)
+        this.loadingTarget.classList.add('away')
+        setTimeout(() => {
+          this.loadingTarget.classList.add('d-none')
+          this.listContTarget.classList.remove('hidden')
+        }, 300);
         this.listTarget.innerHTML = data
       })
   }
 
   showError(error) {
     this.element.innerHTML = `Error: ${error.message}`;
+  }
+
+
+  search() {
+    if (this.inputTarget.value !== '') {
+      fetch(`${this.formTarget.action}?query=${this.inputTarget.value}`, {
+        headers: { accept: "text/plain" },
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          this.listTarget.outerHTML = data;
+        });
+    } else {
+      fetch(`${this.formTarget.action}`, {
+        headers: { accept: "text/plain" },
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          this.listTarget.outerHTML = data;
+        });
+    }
   }
 }

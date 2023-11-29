@@ -32,6 +32,8 @@ class BrandsController < ApplicationController
     location = [current_user.latitude, current_user.longitude]
 
     p "Locaton is #{location}"
+
+    sleep(2)
     respond_to do |format|
       format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location}, formats: [:html] }
     end
