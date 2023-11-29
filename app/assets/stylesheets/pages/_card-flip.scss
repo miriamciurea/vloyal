@@ -11,7 +11,7 @@ $card-offset: ($card-height * 0.75);
   transition: margin .3s ease;
   &.focus {
     order: -1;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
   }
 }
 
