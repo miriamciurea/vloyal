@@ -15,36 +15,47 @@
   transform-style: preserve-3d;
 }
 
+.loyalty-card.flipped .loyalty-card-inner {
+  transform: rotateY(180deg);
+}
+
+.loyalty-card-front, .loyalty-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
 .loyalty-card-front {
 
   border-radius: 20px;
   border: solid 2px white;
-  margin: auto;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #A4E9FF, #A4E9FF);
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  // position: absolute;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
 
-.loyalty-card:hover .loyalty-card-inner {
-transform: rotateY(180deg);
-}
+
 
 .loyalty-card-back {
-  border-radius: 20px;
-  border: solid 2px white;
-  margin: auto;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #A4E9FF, #A4E9FF);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
+  // border-radius: 20px;
+  // border: solid 2px white;
+  // margin: auto;
+  // background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  // linear-gradient(0deg, #A4E9FF, #A4E9FF);
+  // position: absolute;
+  // width: 100%;
+  // height: 100%;
+  // -webkit-backface-visibility: hidden; /* Safari */
+  // backface-visibility: hidden;
+  // transform: rotate(180deg);
+  transform: rotateY(180deg);
+  display: flex;
+
 }
+
 
 
 .stamp-area {

@@ -11,7 +11,7 @@
 
     <% if @cards.blank? %>
 
-      <div class="loyalty-card">
+      <div class="empty-loyalty-card">
           <%= link_to brands_path do %>
             <i class="fa-solid fa-plus"></i>
           <% end %>
@@ -20,7 +20,7 @@
     <% else %>
 
       <% @cards.each do |card| %>
-        <div class="loyalty-card">
+        <div class="loyalty-card" onclick="this.classList.toggle('flipped')">
           <div class="loyalty-card-inner">
 
             <div class="loyalty-card-front">
@@ -36,29 +36,15 @@
 
             </div>
 
-                <% @cards.each do |card| %>
-                  <div class="loyalty-card-back">
+            <div class="loyalty-card-back">
+              <h2>back of card</h2>
+            </div>
 
-                    <div class="brand-name">
-                      <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-                    </div>
-
-                    <% stamps = card.stamps %>
-                    <% card.card_style.max_stamps.times do %>
-
-                      <div class="stamp-area">
-                        <p><%= stamps.positive? ? <i class="fa-regular fa-circle-xmark"></i> :  <i class="fa-regular fa-circle"></i> %> </p>
-                      </div>
-
-                      <% stamps -= 1%>
-                    <% end %>
-                  </div>
-                <% end %>
 
           </div>
-      <% end %>
-        </div>
 
+        </div>
+      <% end %>
     <% end %>
 
   </div>
