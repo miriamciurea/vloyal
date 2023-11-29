@@ -9,12 +9,12 @@
 #   end
 
 puts "Cleaning database..."
+RewardType.destroy_all
 Brand.destroy_all
 Card.destroy_all
 CardStyle.destroy_all
 Location.destroy_all
 Category.destroy_all
-RewardType.destroy_all
 Reward.destroy_all
 User.destroy_all
 

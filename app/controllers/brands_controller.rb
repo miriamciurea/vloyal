@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def index
     @locations = Location.all
     @brands = Brand.order(rating: :desc, name: :asc)
@@ -12,22 +14,29 @@ class BrandsController < ApplicationController
       @brands = @brands.joins(:category).where(sql_subquery, query: params[:query])
     end
 
+    location = [current_user.latitude, current_user.longitude]
+
     respond_to do |format|
       format.html
-      format.text { render partial: "brands/list", locals: {brands: @brands}, formats: [:html] }
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location }, formats: [:html] }
     end
   end
 
-  def update_location
-    @latitude = params[:latitude]
-    @longitude = params[:longitude]
+  def update_user_location
+    @brands = Brand.order(rating: :desc, name: :asc)
+    current_user.update(
+      latitude: params[:user_location][:latitude],
+      longitude: params[:user_location][:longitude]
+    )
 
-    # Process the latitude and longitude as needed
-    # (e.g., save to the database, perform calculations, etc.)
+    location = [current_user.latitude, current_user.longitude]
 
-    render json: { status: 'success' }
+    p "Locaton is #{location}"
+    respond_to do |format|
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location}, formats: [:html] }
+    end
   end
-  
+
   def show
     @brand = Brand.find(params[:id])
     @location = Location.find(params[:id])
