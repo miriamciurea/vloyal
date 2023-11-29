@@ -4,6 +4,7 @@ class BrandsController < ApplicationController
   def index
     @locations = Location.all
     @brands = Brand.order(rating: :desc, name: :asc)
+    @page_brands = true
 
     if params[:query].present?
       sql_subquery = <<~SQL
@@ -42,5 +43,10 @@ class BrandsController < ApplicationController
   def show
     @brand = Brand.find(params[:id])
     @location = Location.find(params[:id])
+  end
+
+  def map
+    @locations = Location.all
+    @page_map_brands = true
   end
 end

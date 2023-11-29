@@ -9,3 +9,32 @@
         <% end %>
       </div>
     <% end %>
+
+
+
+ <% @cards.each do |card| %>
+                  <div class="loyalty-card-back">
+
+                    <div class="brand-name">
+                      <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                    </div>
+
+                    <% stamps = card.stamps %>
+                    <% card.card_style.max_stamps.times do %>
+
+                      <div class="stamp-area">
+                        <% if stamps.positive? %>
+                          <i class="fa-regular fa-circle-xmark"></i>
+                        <% else %>
+                          <i class="fa-regular fa-circle"></i>
+                        <% end %>
+
+
+
+                        <%# <p><%= stamps.positive? ? <i class="fa-regular fa-circle-xmark"></i>.html_safe :  <i class="fa-regular fa-circle"></i>.html_safe %>
+                      </div>
+
+                      <% stamps -= 1%>
+                    <% end %>
+                  </div>
+                <% end %>
