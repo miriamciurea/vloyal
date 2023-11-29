@@ -1,0 +1,30 @@
+<h1>brands index</h1>
+
+        <% @locations.each do |loc| %>
+        <%= loc.brand.name %>
+          <%= loc.longitude %>
+          <%= loc.latitude %>
+          <br>
+        <% end %>
+<p data-controller="geocoding">I am waiting for the location...</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="h2 my-3 d-flex justify-content-center">Brands</h1>
+
+      <div data-controller="search-brands">
+        <%= form_with url: brands_path, method: :get, html: {class: "mb-4", data: {search_brands_target: "form"}} do |f| %>
+          <%= f.label :query, "Type a brand name" %>
+          <%= f.text_field :query,
+                           class: "form-control",
+                           value: params[:query],
+                           data: {search_brands_target: "input", action:"keyup->search-brands#search"}
+                           %>
+        <% end %>
+        <%# itirate through each og them by category %>
+
+      </div>
+    </div>
+  </div>
+</div>
