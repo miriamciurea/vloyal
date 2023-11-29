@@ -2,34 +2,49 @@
 
   <header></header>
 
-  <h2 class="wallet-title">My Wallet</h2>
+  <div class="logo-and-wallet">
+    <h2 class="wallet-title">My Wallet</h2>
+  </div>
 
+  <p class="coffee-shops">Coffee shops</p>
   <div class="loyalty-cards-container">
 
     <% if @cards.blank? %>
 
-      <div class="loyalty-card">
-        <%= link_to brands_path do %>
-          <%# <%= image_tag "image.jpg", class: "some css class here" %>
-        <% end %>
+      <div class="empty-loyalty-card">
+          <%= link_to brands_path do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
       </div>
 
     <% else %>
 
       <% @cards.each do |card| %>
-        <div class="loyalty-card">
-          <div class="brand-name">
-            <%= card.brand.name %>
+        <div class="loyalty-card" onclick="this.classList.toggle('flipped')">
+          <div class="loyalty-card-inner">
+
+            <div class="loyalty-card-front">
+
+              <div class="brand-name">
+                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+              </div>
+
+              <div class="user-date">
+                <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+                <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+              </div>
+
+            </div>
+
+            <div class="loyalty-card-back">
+              <h2>back of card</h2>
+            </div>
+
+
           </div>
 
-          <div class="user-date">
-            <h6><%= card.user.first_name %> <%= card.user.last_name %></h6>
-            <%= card.created_at.strftime('%m/%Y') %>
-          </div>
-
-      <% end %>
         </div>
-
+      <% end %>
     <% end %>
 
   </div>
