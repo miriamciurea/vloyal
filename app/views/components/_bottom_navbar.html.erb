@@ -1,0 +1,6 @@
+<div class="bottom-navbar">
+  <%= link_to "Rewards", rewards_path, class: "#{@page_rewards ? 'active' : ''}" %>
+  <%= link_to "MyWallet", root_path, class: "#{@page_cards ? 'active' : ''}" %>
+  <%= link_to "Shops", brands_path, class: "#{@page_brands ? 'active' : ''}" %>
+  <%= link_to "Map", map_brands_path, class: "#{@page_map_brands ? 'active' : ''}" %>
+</div>
