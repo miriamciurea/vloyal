@@ -14,6 +14,12 @@
       <% locations.each do |loc| %>
         <%# loc.address %>
         <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km from you"  : "we don't know" %>
+        <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
+          sdfsdfsdsdfsdf
+        <% else %>
+        <%= link_to "add Card", brand_cards_path(brand), data: {turbo_method: :post} %>
+        <% end %>
+
       <% end %>
       <br>
       <br>
