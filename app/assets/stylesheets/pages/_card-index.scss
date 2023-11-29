@@ -7,6 +7,10 @@
 
 }
 
+.logo-and-wallet {
+  background-image: url(../app/assets/images/logo_v.svg);
+}
+
 .wallet-title {
 font-family: Lexend Giga;
 font-size: 26px;
@@ -21,6 +25,15 @@ text-align: center;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
+
+}
+
+.fa-plus {
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  line-height: 56px;
+  color: #A3ADB299;
 
 }
 
@@ -40,15 +53,7 @@ text-align: center;
   padding-top: 12px;
 }
 
-.loyalty-card {
-  width: 244px;
-  height: 156px;
-  border: solid 3px gray;
-  border-radius: 20px;
-  margin: auto;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #A4E9FF, #A4E9FF);
-}
+
 
 .brand-name {
   margin-left: 6px;
@@ -81,14 +86,5 @@ text-align: center;
   color: #6C7276;
   text-shadow: 0px 4px 4px 0px #0000000D;
 
-
-
 }
 
-
-.stamp-area {
-  width: 20%;
-  border: solid 3px red;
-  flex-shrink:none;
-  height: 150px;
-}

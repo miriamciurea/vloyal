@@ -2,7 +2,9 @@
 
   <header></header>
 
-  <h2 class="wallet-title">My Wallet</h2>
+  <div class="logo-and-wallet">
+    <h2 class="wallet-title">My Wallet</h2>
+  </div>
 
   <p class="coffee-shops">Coffee shops</p>
   <div class="loyalty-cards-container">
@@ -19,15 +21,41 @@
 
       <% @cards.each do |card| %>
         <div class="loyalty-card">
-          <div class="brand-name">
-            <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-          </div>
+          <div class="loyalty-card-inner">
 
-          <div class="user-date">
-            <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-            <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
-          </div>
+            <div class="loyalty-card-front">
 
+              <div class="brand-name">
+                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+              </div>
+
+              <div class="user-date">
+                <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+                <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+              </div>
+
+            </div>
+
+                <% @cards.each do |card| %>
+                  <div class="loyalty-card-back">
+
+                    <div class="brand-name">
+                      <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                    </div>
+
+                    <% stamps = card.stamps %>
+                    <% card.card_style.max_stamps.times do %>
+
+                      <div class="stamp-area">
+                        <p><%= stamps.positive? ? <i class="fa-regular fa-circle-xmark"></i> :  <i class="fa-regular fa-circle"></i> %> </p>
+                      </div>
+
+                      <% stamps -= 1%>
+                    <% end %>
+                  </div>
+                <% end %>
+
+          </div>
       <% end %>
         </div>
 
