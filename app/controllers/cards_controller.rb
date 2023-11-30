@@ -14,7 +14,8 @@ class CardsController < ApplicationController
     @card.brand = @brand
     @card.user = current_user
     @card.save
-    redirect_to brands_path, notice: "card created successfully!"
+    # redirect_to brands_path, notice: "card created successfully!"
+    head :ok
   end
 
 

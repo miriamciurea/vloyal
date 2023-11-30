@@ -16,17 +16,16 @@
             <i class="fa-solid fa-mug-saucer"></i>
           <% end %>
 <br>
-          <i class="fa-solid fa-star"></i> <%= brand.rating %>
-        </div>
-
           <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
             <i class="fa-solid fa-circle-check"></i>
           <% else %>
-            <%= link_to brand_cards_path(brand), data: {turbo_method: :post}, style: "color: black;" do %>
+            <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
               <i class="fa-regular fa-circle-check"></i>
             <% end %>
           <% end %>
-
+        </div>
+          <i class="fa-solid fa-star"></i> <%= brand.rating %>
+<br>
           <% locations = Location.where("brand_id = #{brand.id}") %>
           <% locations.each do |loc| %>
           <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %>
