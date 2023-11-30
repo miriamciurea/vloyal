@@ -29,7 +29,7 @@ export default class extends Controller {
     formData.append("qr_code_json_data", JSON.stringify(qrCodeParams));
 
     // Send the QR code data as JSON to the qr_codes#create action using fetch
-    fetch('/qr_codes', {
+    fetch('/basic_qr_codes', {
       method: 'POST',
       body: formData
     })
