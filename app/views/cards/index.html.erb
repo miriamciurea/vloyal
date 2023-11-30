@@ -5,53 +5,53 @@
   <div class="logo-and-wallet">
     <h2 class="wallet-title">My Wallet</h2>
   </div>
-
-  <p class="coffee-shops">Coffee shops</p>
-  <div class="loyalty-cards-container">
+  <%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
 
     <% if @cards.blank? %>
-
-      <div class="empty-loyalty-card">
-          <%= link_to brands_path do %>
-            <i class="fa-solid fa-plus"></i>
-          <% end %>
+      <p class="coffee-shops">Empty Wallet</p>
+      <div class="loyalty-cards-container">
+       <div class="empty-loyalty-card">
+            <%= link_to brands_path do %>
+              <%= image_tag 'cross', alt: "empty-wallet-cross", class: "vector-cross"%>
+            <% end %>
+        </div>
       </div>
 
     <% else %>
 
       <% @cards.each do |card| %>
-        <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
-          <div class="loyalty-card-inner">
+        <p class="coffee-shops"><%= card.category.name %> shop</p>
+        <div class="loyalty-cards-container">
+          <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
+            <div class="loyalty-card-inner">
 
-            <div class="loyalty-card-front">
+              <div class="loyalty-card-front">
 
-              <div class="brand-name">
-                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                <div class="brand-name">
+                  <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                </div>
+
+                <div class="user-date">
+                  <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+                  <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+                </div>
+
               </div>
 
-              <div class="user-date">
-                <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-                <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+              <div class="loyalty-card-back">
+                <div class="brand-name">
+                  <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                </div>
+                <div class="stamp-area">
+                </div>
               </div>
+
 
             </div>
-
-            <div class="loyalty-card-back">
-              <div class="brand-name">
-                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-              </div>
-              <div class="stamp-area">
-              </div>
-            </div>
-
-
           </div>
-
         </div>
       <% end %>
     <% end %>
-
-  </div>
 
   <footer></footer>
 
