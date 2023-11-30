@@ -42,10 +42,11 @@
               </div>
 
               <% stamps = card.stamps %>
+              <%# <% stamps = 3 %> 
               <div class="stamp-area">
                 <% card.card_style.max_stamps.times do %>
                   <% if stamps.positive? %>
-                    <i class="fa-light fa-circle-xmark" style="color: #6c7276;"></i>
+                    <i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i>
                   <% else %>
                     <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
                   <% end %>

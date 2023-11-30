@@ -90,7 +90,7 @@ $card-offset: ($card-height * 0.75);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  .fa-circle {
+  .fa-circle, .fa-circle-xmark {
     width: 22%;
     padding-top: 11px;
   }
