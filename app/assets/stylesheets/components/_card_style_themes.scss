@@ -1,0 +1,41 @@
+#classic {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #D0DCDD, #D0DCDD);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#contemporary {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #A4E9FF, #A4E9FF);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#elegant {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #424242, #424242);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#minimalist {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #FFA4A4, #FFA4A4);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+// <%= card.brand.card_style.theme.downcase %>
