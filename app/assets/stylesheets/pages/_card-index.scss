@@ -1,6 +1,7 @@
 .card-index-body {
   width: 430px;
-  height: 932px;
+  min-height: 932px;
+  overflow: hidden;
   margin: auto;
   border: 1px solid #F0F0F3;
 
@@ -61,8 +62,14 @@ text-align: center;
   text-align: left;
   color: #6C7276;
   text-shadow: 0px 4px 1.5px 0px #00000014;
+  .fa-plus {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    color: #A3ADB299;
 
-
+  }
 
 }
 

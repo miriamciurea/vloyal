@@ -1,4 +1,4 @@
-<div class="card-index-body">
+<div class="card-index-body" data-controller='card' data-action='click->card#reset'>
 
   <header></header>
 
@@ -20,7 +20,7 @@
     <% else %>
 
       <% @cards.each do |card| %>
-        <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
+        <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
             <div class="loyalty-card-front">
@@ -42,7 +42,7 @@
               </div>
 
               <% stamps = card.stamps %>
-              <%# <% stamps = 3 %> 
+              <%# <% stamps = 3 %>
               <div class="stamp-area">
                 <% card.card_style.max_stamps.times do %>
                   <% if stamps.positive? %>
