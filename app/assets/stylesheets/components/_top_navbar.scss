@@ -1,4 +1,50 @@
-.settings-list {
-  position: relative;
-  left: 85%;
+$nav-height: 86px;
+
+.navbar-top {
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  padding: 40px 43px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $vbody-color;
+
+  .menu-toggle {
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 40px;
+    background: #F0F0F3;
+    box-shadow: 4px 4px 12px 0px rgba(187, 195, 206, 0.60), -4px -4px 12px 0px rgba(253, 255, 255, 0.80);
+    .fa-gear {
+      color: #546E7A;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px 2px rgba($color: black, $alpha: 0.1);
+    background: $vbody-color;
+    padding: 0px;
+    top: calc(100% - 20px);
+    right: 20px;
+    list-style-type: none;
+    transition: all .3s ease;
+    overflow: hidden;
+    height: 0px;
+    &.open {
+      padding: 20px;
+      height: fit-content;
+    }
+  }
+}
+
+
+.top-nav-spacer {
+  height: $nav-height + 40;
 }
