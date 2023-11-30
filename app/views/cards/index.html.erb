@@ -20,7 +20,7 @@
     <% else %>
 
       <% @cards.each do |card| %>
-        <p class="coffee-shops"><%= card.category.name %> shop</p>
+        <p class="coffee-shops"><%= card.brand.category.name %></p>
         <div class="loyalty-cards-container">
           <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
             <div class="loyalty-card-inner">
