@@ -6,21 +6,16 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  position: fixed;
-  top: 14%;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  text-align: center;
 }
 
 .no-reward-message h2 {
-  position: fixed;
-  top: 25%;
   color: #000;
   font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  text-align: center;
+  padding-top: 32px;
 }
