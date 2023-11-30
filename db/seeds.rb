@@ -69,7 +69,7 @@ nutmeg_n_koffee = {
   name: "Nutmeg n' Koffee",
   description: "Nutmeg n' Koffee is a mobile coffee company we sell organic/free trade coffees from around the world. Our products are sold from a 1956 Citroen Hy Van",
   menu: "Flat White: £3",
-  website: "https://www.instagram.com/nutmegnkoffee_ltd/",
+  website: "https://www.google.com/maps/dir/51.5436735,-0.0910529/nutmeg_n_koffee/@51.5380881,-0.1054934,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x48761d65bfb9e4e7:0xb39fb1b0dc96353d!2m2!1d-0.075763!2d51.5310155?entry=ttu",
   rating: 5
 }
 coffee_and_cates = {
@@ -89,7 +89,7 @@ fabrique = {
   name: "Fabrique",
   description: "Our concept is simple, but far from the ordinary: only fresh, natural ingredients and traditional methods are used to make our artisanal sourdough and pastries.",
   menu: "Mocha: £3",
-  website: "https://fabrique.co.uk/",
+  website: "https://www.google.com/maps/place/Fabrique+Bakery+Hoxton/@51.5317721,-0.0768924,17.01z/data=!4m6!3m5!1s0x48761cbebd55d781:0xf2797818b76e4a10!8m2!3d51.5320634!4d-0.0757079!16s%2Fg%2F124sqdszc?entry=ttu",
   rating: 4.5
 }
 rise_and_bloom = {
