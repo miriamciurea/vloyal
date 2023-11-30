@@ -46,6 +46,7 @@
                 input_html: { autocomplete: "new-password", class: "email-form" },
                 placeholder: "Confirm password",
                 label: false %>
+    <%= f.input :business, wrapper_html: {class: "d-none"},input_html: {checked: @business} %>
   </div>
 
   <div class="form-actions d-flex justify-content-center my-4">
