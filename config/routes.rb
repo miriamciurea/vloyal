@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "cards#index"
+  get 'basic-qr-code-reader', to: 'basic_qr_codes#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
