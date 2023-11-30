@@ -24,7 +24,7 @@
         <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
-            <div class="loyalty-card-front">
+            <div class="loyalty-card-front" id="<%= card.brand.card_style.theme.downcase %>">
 
               <div class="brand-name">
                 <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
@@ -37,7 +37,7 @@
 
             </div>
 
-            <div class="loyalty-card-back">
+            <div class="loyalty-card-back" id="<%= card.brand.card_style.theme.downcase %>">
               <div class="brand-name">
                 <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
               </div>
