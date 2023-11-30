@@ -88,8 +88,12 @@
     opacity: 50%;
   }
 }
-.form-check {
+.form-check, .form-text {
   margin-left: 10px;
   font-family: Lexend Giga;
   color: #546E7A;
+}
+
+.form-control {
+  margin: 23px auto;
 }

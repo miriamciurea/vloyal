@@ -1,15 +1,15 @@
 <div class="login-container">
 <h2 class="login-header">Welcome back</h2>
 <%= image_tag 'main-v', alt: 'heading-image', class: "main-image"%>
-  <div class="d-flex btn-container align-items-center p-4 justify-content-between">
+  <div class="d-flex btn-container align-items-center px-5 py-4 justify-content-between">
     <button class="btn-style" style="width: 50px; height: 50px;">
-      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-facebook-f fa-xl"></i>
     </button>
     <button class="btn-style" style="width: 50px; height: 50px;">
-      <i class="fa-brands fa-x-twitter"></i>
+      <i class="fa-brands fa-x-twitter fa-xl"></i>
     </button>
     <button class="btn-style" style="width: 50px; height: 50px;">
-      <i class="fa-brands fa-google"></i>
+      <i class="fa-brands fa-google fa-xl"></i>
     </button>
   </div>
 
@@ -19,10 +19,12 @@
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email", class: "email-form" },
+                placeholder: "Email",
                 label: false %>
     <%= f.input :password,
                 required: false,
                 label: false,
+                placeholder: "Passwword",
                 input_html: { autocomplete: "current-password", class: "email-form", } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
