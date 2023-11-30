@@ -2,7 +2,6 @@
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
-@import "navbar";
 @import 'brands';
 @import "login";
 @import "direction_button";
@@ -11,5 +10,5 @@
 @import "top_navbar";
 
 body {
-  background-color: #F8F8F8;
+  background-color: $vbody-color;
 }

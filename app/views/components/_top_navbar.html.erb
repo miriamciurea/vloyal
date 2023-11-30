@@ -1,22 +1,32 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid m-4">
+<div class="navbar-top" data-controller='navbar'>
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "v_navbar" %>
+      <% if current_user %>
+        <%= image_tag "v_navbar" %>
+      <% else %>
+       <%= image_tag "vloyal-logo" %>
+      <% end %>
     <% end %>
 
-    <button style="padding-top: 6px; padding-bottom: 6px; width: 40px;" id="settings" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class='menu-toggle' data-action='click->navbar#toggleMenu' type="button" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-gear"></i>
     </button>
 
-    <div class="collapse navbar-collapse settings-list" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <li class="nav-item">
+    <ul class='menu d-none' data-navbar-target='menu'>
+
+          <% if current_user %>
+           <li class="nav-item">
             <%= link_to "My Profile", "#", class: "nav-link" %>
-          </li>
+           </li>
           <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
-      </ul>
-    </div>
-  </div>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+    </ul>
 </div>
