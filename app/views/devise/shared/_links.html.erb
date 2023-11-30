@@ -4,7 +4,7 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="d-flex justify-content-center new-here-div">
-  <p class="new-here">New here?&nbsp;</p><%= link_to "Create account", new_registration_path(resource_name), class:"create-account-txt"%><br />
+  <p class="new-here">New here?&nbsp;</p><%= link_to "Create account", new_registration_path(resource_name), class:"create-account-txt", data: {action: "click->prompt#showPrompt"}%><br />
   </div>
 <% end %>
 

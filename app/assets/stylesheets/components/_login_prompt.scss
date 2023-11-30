@@ -1,0 +1,58 @@
+.prompt-div {
+  background-color: #AAAA;
+  opacity: 70%;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+.prompt-image {
+  width: 343.519px;
+  height: 452.443px;
+  position: fixed;
+  top: 20%;
+  z-index: 5;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.70));
+}
+.prompt-btn {
+  position: fixed;
+  width: 129px;
+  height: 54px;
+  padding: 16px 16px;
+  text-align: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: Lexend Giga;
+  color: #fff;
+  border-radius: 16px;
+  border: 1px solid #5CD8E5;
+  background: linear-gradient(90deg, rgba(92, 216, 229, 0.30) 0%, rgba(183, 248, 255, 0.30) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(2px);
+  z-index: 6;
+  text-decoration: none;
+
+  &:active {
+    background: linear-gradient(90deg, rgba(183, 248, 255, 0.30) 100%, rgba(92, 216, 229, 0.30) 0%);
+  }
+}
+
+.prompt {
+  opacity: 0;
+  transition: opacity .3s ease;
+  &.show {
+    opacity: 1;
+  }
+}
+
+.business-btn {
+  top: 35%;
+  left: 33%;
+}
+
+.guest-btn {
+  top: 50%;
+  left: 33%;
+}
