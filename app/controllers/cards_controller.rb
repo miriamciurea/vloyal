@@ -1,9 +1,9 @@
 class CardsController < ApplicationController
   def index
-    cards = current_user.cards
+    @cards = current_user.cards
     @categories = {}
 
-    cards.each do |card|
+    @cards.each do |card|
       if @categories[card.brand.category.name]
         @categories[card.brand.category.name] << card
       else
