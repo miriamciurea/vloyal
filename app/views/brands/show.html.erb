@@ -26,7 +26,7 @@
   </div>
 
   <div class="direction-link">
-    <%= link_to "Direction", @brand.website,target: :_blank,class: 'direction-link' %>
+    <%= link_to "Direction", map_brands_path(address: @location.address), class: 'direction-link' %>
   </div>
 
 </div>
