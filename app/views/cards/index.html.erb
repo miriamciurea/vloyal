@@ -20,7 +20,7 @@
     <% else %>
 
       <% @cards.each do |card| %>
-        <div class="loyalty-card" onclick="this.classList.toggle('flipped')">
+        <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
             <div class="loyalty-card-front">
@@ -37,7 +37,11 @@
             </div>
 
             <div class="loyalty-card-back">
-              <h2>back of card</h2>
+              <div class="brand-name">
+                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+              </div>
+              <div class="stamp-area">
+              </div>
             </div>
 
 
