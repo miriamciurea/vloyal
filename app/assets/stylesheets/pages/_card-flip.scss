@@ -87,16 +87,17 @@ $card-offset: ($card-height * 0.75);
   border: 1px solid #A3ADB2;
   margin-top: 12px;
   margin-left: 26.5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  .fa-circle, .fa-circle-xmark {
+    width: 22%;
+    padding-top: 11px;
+  }
 
 }
 
 .fa-circle-xmark {
-  width: 18px;
-  height: 18px;
-  border: 3px;
-}
-
-.fa-circle {
   width: 18px;
   height: 18px;
   border: 3px;

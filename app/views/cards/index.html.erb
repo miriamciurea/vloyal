@@ -1,4 +1,4 @@
-<div class="card-index-body">
+<div class="card-index-body" data-controller='card' data-action='click->card#reset'>
 
   <header></header>
 
@@ -21,10 +21,11 @@
       <% @categories.each do |name, cards| %>
         <p class="<%= name%>-shops"><%= name.capitalize %> shops</p>
         <div class="loyalty-cards-container">
-          <% cards.each do |card| %>
-            <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
-              <div class="loyalty-card-inner">
 
+      <% @cards.each do |card| %>
+        <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
+          <div class="loyalty-card-inner">
+           
                 <div class="loyalty-card-front">
 
                   <div class="brand-name">
@@ -38,16 +39,26 @@
 
                 </div>
 
-                <div class="loyalty-card-back">
-                  <div class="brand-name">
-                    <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-                  </div>
-                  <div class="stamp-area">
-                  </div>
-                </div>
+            <div class="loyalty-card-back">
+              <div class="brand-name">
+                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+              </div>
 
+              <% stamps = card.stamps %>
+              <%# <% stamps = 3 %>
+              <div class="stamp-area">
+                <% card.card_style.max_stamps.times do %>
+                  <% if stamps.positive? %>
+                    <i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i>
+                  <% else %>
+                    <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
+                  <% end %>
+                  <% stamps -= 1%>
+                <% end %>
 
               </div>
+
+
             </div>
           <% end %>
         </div>
