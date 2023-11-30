@@ -41,13 +41,29 @@ class BrandsController < ApplicationController
   end
 
   def show
+    @locations = Location.all
     @brand = Brand.find(params[:id])
     @location = Location.find(params[:id])
     @page_brands = true
   end
 
   def map
-    @locations = Location.all
+    # if there is a location in the params, we only use that for the marker
+    @brand = Brand.all
+    if params[:address]
+      @locations = Location.where(address: params[:address])
+    else
+      @locations = Location.all
+    end
     @page_map_brands = true
+
+    @markers = @locations.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {location: location})
+        # info_window_html: render_to_string(partial: "info_window", locals: { location: location})
+      }
+    end
   end
 end
