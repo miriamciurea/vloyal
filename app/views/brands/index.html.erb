@@ -1,14 +1,9 @@
-<h1>brands index</h1>
-
-
-<%  %>
-
 <div class="container">
   <div class="row">
     <div class="col" data-controller="geocoding">
       <h1 class="h2 my-3 d-flex justify-content-center">Brands</h1>
 
-      <p data-geocoding-target="location">Waiting for location...</p>
+      <p data-geocoding-target="location" class="d-none">Waiting for location...</p>
 
       <div>
         <%= form_with url: brands_path, method: :get, html: {class: "mb-4", data: {geocoding_target: "form"}} do |f| %>

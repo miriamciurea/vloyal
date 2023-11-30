@@ -8,17 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
-   <%= render "shared/navbar" %>
-   <%= render "shared/flashes" %>
+    <%= render "components/top_navbar" %>
+    <%= render "shared/flashes" %>
 
-   <%= yield %>
+    <div class='top-nav-spacer'></div>
+    <%= yield %>
 
-   <% if user_signed_in? %>
-   <%= render "components/bottom_navbar" %>
-   <% end %>
+    <% if user_signed_in? %>
+    <%= render "components/bottom_navbar" %>
+    <% end %>
   </body>
 
 </html>

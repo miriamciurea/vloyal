@@ -5,36 +5,39 @@
   <div class="logo-and-wallet">
     <h2 class="wallet-title">My Wallet</h2>
   </div>
+  <%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
 
-  <p class="coffee-shops">Coffee shops</p>
-  <div class="loyalty-cards-container">
-
-    <% if @cards.blank? %>
-
-      <div class="empty-loyalty-card">
-          <%= link_to brands_path do %>
-            <i class="fa-solid fa-plus"></i>
-          <% end %>
+    <% if @categories.empty? %>
+      <p class="coffee-shops">Empty Wallet</p>
+      <div class="loyalty-cards-container">
+       <div class="empty-loyalty-card">
+            <%= link_to brands_path do %>
+              <%= image_tag 'cross', alt: "empty-wallet-cross", class: "vector-cross"%>
+            <% end %>
+        </div>
       </div>
 
     <% else %>
+      <% @categories.each do |name, cards| %>
+        <p class="<%= name%>-shops"><%= name.capitalize %> shops</p>
+        <div class="loyalty-cards-container">
 
       <% @cards.each do |card| %>
         <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
+           
+                <div class="loyalty-card-front">
 
-            <div class="loyalty-card-front">
+                  <div class="brand-name">
+                    <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                  </div>
 
-              <div class="brand-name">
-                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-              </div>
+                  <div class="user-date">
+                    <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+                    <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+                  </div>
 
-              <div class="user-date">
-                <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-                <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
-              </div>
-
-            </div>
+                </div>
 
             <div class="loyalty-card-back">
               <div class="brand-name">
@@ -52,19 +55,15 @@
                   <% end %>
                   <% stamps -= 1%>
                 <% end %>
+
               </div>
 
 
             </div>
-
-
-          </div>
-
+          <% end %>
         </div>
       <% end %>
     <% end %>
-
-  </div>
 
   <footer></footer>
 

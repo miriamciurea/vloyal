@@ -1,15 +1,17 @@
 .direction-link {
-  flex-shrink: 0;
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
   text-decoration: none;
   background-color: black;
-  padding: 24px;
-  border-radius: 16px;
+  border-radius: 24px;
+  width: 50%;
+  text-align: center;
+  padding: 12px;
+  margin: 0px auto;
+
 }
 
 .shop-detail {
@@ -17,21 +19,6 @@
     font-weight: bold;
     padding: 0px;
     display: flex;
-  }
-
-  .phone {
-    display: flex;
-
-  }
-
-  .address {
-    display: flex;
-
-  }
-
-  .open-time {
-    font-size: 16px;
-    text-align: start;
   }
 }
 
@@ -44,11 +31,6 @@
   text-align: center;
 }
 
-.direction-link {
-  text-align: center;
-  width: 100%;
-  margin-top: 32px;
-}
 
 .phone-num {
 
@@ -63,4 +45,9 @@
   text-align: start;
   font-size: 16px;
   margin-left: 12px;
+}
+
+.address,
+.phone {
+  display: block;
 }
