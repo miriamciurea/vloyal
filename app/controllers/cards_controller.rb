@@ -17,7 +17,6 @@ class CardsController < ApplicationController
     redirect_to brands_path, notice: "card created successfully!"
   end
 
-private
 
 # def card_params
 #   params.require(:card).permit(:stamps, :brand_id, :brand_id, :user_id)
