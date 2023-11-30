@@ -1,29 +1,30 @@
-<div class="card-index-body">
-
-  <header></header>
-
+<div class="card-index-body" data-controller='card' data-action='click->card#reset'>
   <div class="logo-and-wallet">
     <h2 class="wallet-title">My Wallet</h2>
   </div>
+  <%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
 
-  <p class="coffee-shops">Coffee shops</p>
-  <div class="loyalty-cards-container">
-
-    <% if @cards.blank? %>
-
+  <% if @categories.empty? %>
+    <p class="coffee-shops">Empty Wallet</p>
+    <div class="loyalty-cards-container">
       <div class="empty-loyalty-card">
           <%= link_to brands_path do %>
-            <i class="fa-solid fa-plus"></i>
+            <%= image_tag 'cross', alt: "empty-wallet-cross", class: "vector-cross"%>
           <% end %>
       </div>
+    </div>
 
-    <% else %>
+  <% else %>
+    <% @categories.each do |name, cards| %>
+      <p class="loyalty-reward-categories"><%= name.capitalize %>s</p>
 
-      <% @cards.each do |card| %>
-        <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
+      <div class="loyalty-cards-container">
+
+        <% @cards.each do |card| %>
+        <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
-            <div class="loyalty-card-front">
+            <div class="loyalty-card-front" id="<%= card.brand.card_style.theme.downcase %>">
 
               <div class="brand-name">
                 <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
@@ -36,23 +37,30 @@
 
             </div>
 
-            <div class="loyalty-card-back">
+            <div class="loyalty-card-back" id="<%= card.brand.card_style.theme.downcase %>">
               <div class="brand-name">
                 <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
               </div>
+
+              <% stamps = card.stamps %>
+              <%# <% stamps = 3 %>
               <div class="stamp-area">
+                <% card.card_style.max_stamps.times do %>
+                  <% if stamps.positive? %>
+                    <i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i>
+                  <% else %>
+                    <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
+                  <% end %>
+                  <% stamps -= 1%>
+                <% end %>
+
               </div>
+
             </div>
-
-
           </div>
-
         </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
-
-  </div>
-
-  <footer></footer>
-
+  <% end %>
 </div>

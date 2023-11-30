@@ -1,13 +1,14 @@
 .card-index-body {
   width: 430px;
-  height: 932px;
+  min-height: 932px;
+  overflow: hidden;
   margin: auto;
   border: 1px solid #F0F0F3;
 
 }
 
 .logo-and-wallet {
-  background-image: url(../app/assets/images/logo_v.svg);
+  background-image: url();
 }
 
 .wallet-title {
@@ -18,13 +19,22 @@ line-height: 33px;
 letter-spacing: 0em;
 text-align: center;
 }
-
+.under-txt-logo {
+  width: 33%;
+  position: absolute;
+  left: 50%;
+  top: 9%;
+  z-index: -100;
+  transform: translate(-50%);
+}
 .coffee-shops {
   font-family: Lexend Exa;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
-
+  margin-top: 60px;
+  width: 30%;
+  margin-left: 15%;
 }
 
 .fa-plus {
@@ -40,19 +50,33 @@ text-align: center;
   display: flex;
   margin: 0px auto 100px auto;
   max-width: 1000px;
+  width: 327px;
+  height: 50vh;
+  overflow: hidden;
+  min-height: fit-content;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   align-content: space-between;
   position: relative;
   padding: 10px;
-
+  border: 1px solid #F0F0F3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60), 0px -1px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 46px;
 }
-
+// .loyalty-cards-container {
+//   width: 327px;
+//   height: 50%;
+//   justify-content: flex-start;
+//   border-radius: 46px;
+//   border: 1px solid #F0F0F3;
+//   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.60), 0px -1px 4px 0px rgba(0, 0, 0, 0.25);
+// }
 
 
 .brand-name {
-  margin-left: 6px;
+  margin-left: 9px;
+  margin-top: 6px;
   font-family: Lexend Exa;
   font-size: 18px;
   font-weight: 500;
@@ -61,9 +85,13 @@ text-align: center;
   text-align: left;
   color: #6C7276;
   text-shadow: 0px 4px 1.5px 0px #00000014;
-
-
-
+  .fa-plus {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    color: #A3ADB299;
+  }
 }
 
 
@@ -71,8 +99,8 @@ text-align: center;
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 9px;
+  padding-right: 9px;
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 400;
@@ -82,4 +110,33 @@ text-align: center;
   color: #6C7276;
   text-shadow: 0px 4px 4px 0px #0000000D;
 
+}
+
+.vector-cross {
+  position: absolute;
+  top: 27%;
+  left: 36%;
+}
+
+.empty-loyalty-card {
+  position: relative;
+  width: 281px;
+  height: 180px;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  background: #F0F0F3;
+  box-shadow: 5px 5px 10px 0px rgba(174, 174, 192, 0.10), -5px -5px 5px 0px rgba(255, 255, 255, 0.30), 2px 2px 4px 0px rgba(255, 255, 255, 0.40) inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.08) inset;
+}
+
+.loyalty-reward-categories {
+  margin-left: 19%;
+  margin-bottom: 6px;
+  margin-top: 56px;
+  color: #6C7276;
+  text-shadow: 0px 4px 1.5px rgba(0, 0, 0, 0.10);
+  font-family: Lexend Exa;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

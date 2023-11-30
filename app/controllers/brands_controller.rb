@@ -44,6 +44,7 @@ class BrandsController < ApplicationController
     @locations = Location.all
     @brand = Brand.find(params[:id])
     @location = Location.find(params[:id])
+    @page_brands = true
   end
 
   def map

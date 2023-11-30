@@ -1,23 +1,33 @@
-<h1 class="rewards-title">My Rewards</h1>
+<h1 class="wallet-title">My Rewards</h1>
+<%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
 
 <% num = 0 %>
-<% @rewards.each do |reward| %>
-<% if reward.claimed %>
-  <div class="loyalty-card">
-  <div class="brand-name">
-    <%= reward.card.brand.name %>
-  </div>
-  <div class="reward-message">
-  <p><strong>Congratulations!</strong> You have one free (category name) in (brand name). Press show to display your QR code.</p>
-  <%= link_to "Show", "#" %>
-  </div>
-  </div>
-<% else %>
-  <% num +=1 %>
-<% end %>
-<% end %>
-<% if num == @cards.count %>
-  <div class="no-reward-message">
-  <h2>You have no rewards right now...</h2>
-  </div>
-<% end %>
+<div class="loyalty-cards-container">
+  <% @rewards.each do |reward| %>
+
+    <% if reward.card.card_style.max_stamps == reward.card.stamps %>
+      <% reward.claimed = true %>
+      <% reward.save %>
+    <% end %>
+    <% if reward.claimed %>
+      <div class="brand-name">
+        <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
+      </div>
+      <div class="loyalty-card">
+      </div>
+      <div class="reward-message">
+        <p><strong>Congratulations!</strong> You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>
+        <%= link_to "Show", "#" %>
+      </div>
+      </div>
+    <% else %>
+      <% num +=1 %>
+    <% end %>
+  <% end %>
+  <% if num == @cards.count %>
+    <div class="no-reward-message">
+    <h2>You have no rewards right now...</h2>
+    </div>
+  <% end %>
+
+</div>

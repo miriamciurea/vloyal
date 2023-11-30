@@ -10,17 +10,19 @@
     <%= javascript_importmap_tags %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
-   <%= render "shared/navbar" %>
-   <%= render "shared/flashes" %>
+    <%= render "components/top_navbar" %>
+    <%= render "shared/flashes" %>
 
-   <%= yield %>
+    <div class='top-nav-spacer'></div>
+    <%= yield %>
 
-   <% if user_signed_in? %>
-   <%= render "components/bottom_navbar" %>
-   <% end %>
+    <% if user_signed_in? %>
+    <%= render "components/bottom_navbar" %>
+    <% end %>
   </body>
 
 </html>
