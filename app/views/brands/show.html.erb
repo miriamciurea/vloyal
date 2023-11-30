@@ -6,7 +6,12 @@
   <div class="shop-info">
     <div class="brand-detail my-3">
       <h1><%= @brand.name %></h1>
-      <%= @location.address %>
+      <div class="address">
+        <%= @location.address %>
+      </div>
+       <div class="phone">
+          <%= @location.phone_number %>
+      </div>
     </div>
 
     <div class="brand-description my-3">
@@ -18,36 +23,10 @@
       <%= @brand.menu %>
     </div>
 
-    <div class="direction-link my-3">
-      <%= link_to "Direction", @brand.website,target: :_blank,class: 'direction-link' %>
-    </div>
-
-
-    <h3>Shop Information</h3>
-    <div class="shop-detail my-4 row">
-      <div class="col-6" >
-
-        <div class="phone">
-          <h4>Phone:</h4> <div class="phone-num"><%= @location.phone_number %></div>
-        </div>
-        <div class="address">
-          <h4>Address:</h4><div class="shop-address"><%= @location.address %></div>
-        </div>
-      </div>
-
-
-      <div class="col-6">
-        <h4>Opening times:</h4>
-      <div class="open-time">
-        Monday: 07:00-17:00
-        Tuesday: 07:00-17:00
-        Wednesday: 07:00-17:00
-        Thursday: 07:00-17:00
-        Friday: 07:00-17:00
-        Saturday: 09:00-16:00
-        Sunday: 09:00-16:00
-     </div>
-    </div>
-   </div>
   </div>
+
+  <div class="direction-link">
+    <%= link_to "Direction", @brand.website,target: :_blank,class: 'direction-link' %>
+  </div>
+
 </div>
