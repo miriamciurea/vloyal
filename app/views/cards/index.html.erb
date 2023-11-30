@@ -7,7 +7,7 @@
   </div>
   <%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
 
-    <% if @cards.blank? %>
+    <% if @categories.empty? %>
       <p class="coffee-shops">Empty Wallet</p>
       <div class="loyalty-cards-container">
        <div class="empty-loyalty-card">
@@ -18,37 +18,38 @@
       </div>
 
     <% else %>
-
-      <% @cards.each do |card| %>
-        <p class="coffee-shops"><%= card.brand.category.name %></p>
+      <% @categories.each do |name, cards| %>
+        <p class="<%= name%>-shops"><%= name.capitalize %> shops</p>
         <div class="loyalty-cards-container">
-          <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
-            <div class="loyalty-card-inner">
+          <% cards.each do |card| %>
+            <div class="loyalty-card" data-controller='card' data-action='click->card#flipCard'>
+              <div class="loyalty-card-inner">
 
-              <div class="loyalty-card-front">
+                <div class="loyalty-card-front">
 
-                <div class="brand-name">
-                  <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                  <div class="brand-name">
+                    <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                  </div>
+
+                  <div class="user-date">
+                    <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
+                    <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+                  </div>
+
                 </div>
 
-                <div class="user-date">
-                  <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-                  <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+                <div class="loyalty-card-back">
+                  <div class="brand-name">
+                    <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                  </div>
+                  <div class="stamp-area">
+                  </div>
                 </div>
+
 
               </div>
-
-              <div class="loyalty-card-back">
-                <div class="brand-name">
-                  <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-                </div>
-                <div class="stamp-area">
-                </div>
-              </div>
-
-
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     <% end %>
