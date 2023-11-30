@@ -40,8 +40,20 @@
               <div class="brand-name">
                 <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
               </div>
+
+              <% stamps = card.stamps %>
               <div class="stamp-area">
+                <% card.card_style.max_stamps.times do %>
+                  <% if stamps.positive? %>
+                    <i class="fa-light fa-circle-xmark" style="color: #6c7276;"></i>
+                  <% else %>
+                    <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
+                  <% end %>
+                  <% stamps -= 1%>
+                <% end %>
               </div>
+
+
             </div>
 
 
