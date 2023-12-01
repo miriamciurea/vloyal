@@ -8,24 +8,46 @@
   bottom: 39px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 90%;
+  width: 96%;
   height: 50px;
   display: flex;
   justify-content: space-evenly;
-  a {
+  align-items: center;
+  .bottom-navbar-left, .bottom-navbar-right {
+    flex: 40%;
+  }
+  .bottom-navbar-center {
+    flex: 20%;
+  }
+  .navbar-btn {
     color: #919B9F;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 8px !important;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
+    // width: 58.3px !important;
     &.active {
       color: #485054;
       font-family: "Montserrat";
       border-radius: 20px;
       border: 2px solid rgba(0, 0, 0, 0.05);
-      padding: 12px 16px;
+      padding: 12px 8px;
       background: #F0F0F3;
       box-shadow: 5px 5px 10px 0px rgba(174, 174, 192, 0.20), -5px -5px 5px 0px rgba(255, 255, 255, 0.40), 2px 2px 4px 0px #FFF inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.10) inset;
+    }
+  }
+  .camera-btn {
+    border-radius: 50px;
+    width: 80px !important;
+    height: 80px !important;
+    text-decoration: none;
+    text-align: center !important;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    background: #F0F0F3;
+    box-shadow: 5px 5px 10px 0px rgba(174, 174, 192, 0.20), -5px -5px 5px 0px rgba(255, 255, 255, 0.40), 2px 2px 4px 0px #FFF inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.10) inset;
+    &:active {
+      background: rgb(235, 235, 240);
+      box-shadow: 2px 2px 4px 0px #FFF inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.10) inset, -5px -5px 5px 0px rgba(255, 255, 255, 0.40), 5px 5px 10px 0px rgba(174, 174, 192, 0.20);
     }
   }
 }
