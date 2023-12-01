@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require "open-uri"
+
 puts "Cleaning database..."
 RewardType.destroy_all
 Brand.destroy_all
@@ -62,6 +64,8 @@ end
 
 puts "Creating brands..."
 
+images = []
+
 nutmeg_n_koffee = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
@@ -72,36 +76,49 @@ nutmeg_n_koffee = {
   website: "https://www.google.com/maps/dir/51.5436735,-0.0910529/nutmeg_n_koffee/@51.5380881,-0.1054934,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x48761d65bfb9e4e7:0xb39fb1b0dc96353d!2m2!1d-0.075763!2d51.5310155?entry=ttu",
   rating: 5
 }
+
+images << { file: URI.open('https://balancecoffee.co.uk/cdn/shop/articles/coffee-shop-london-bridge.jpg?v=1663783874'), filename: 'nutmeg.jpg' }
+
+
 coffee_and_cates = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
+  card_style_id: CardStyle.find_by(theme: "Contemporary").id,
   name: "Coffee & Cates",
   description: "Coffee Shop within a historic Victorian Stables Building. Original features mixed with a vibrant artist look.",
   menu: "Latte: £3",
   website: "https://www.google.com/maps/place/Coffee+%26+Cates/@51.5326409,-0.0794862,17z/data=!3m1!4b1!4m6!3m5!1s0x48761d7735d40a75:0xfe1f5a67002a65d2!8m2!3d51.5326409!4d-0.0769113!16s%2Fg%2F11sgchnwwj?entry=ttu",
   rating: 4
 }
+
+images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploads/2018/09/nafinia-putra-Kwdp-0pok-I-unsplash-600x400.jpg'), filename: 'cates.jpg' }
+
 fabrique = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
+  card_style_id: CardStyle.find_by(theme: "Elegant").id,
   name: "Fabrique",
   description: "Our concept is simple, but far from the ordinary: only fresh, natural ingredients and traditional methods are used to make our artisanal sourdough and pastries.",
   menu: "Mocha: £3",
   website: "https://www.google.com/maps/place/Fabrique+Bakery+Hoxton/@51.5317721,-0.0768924,17.01z/data=!4m6!3m5!1s0x48761cbebd55d781:0xf2797818b76e4a10!8m2!3d51.5320634!4d-0.0757079!16s%2Fg%2F124sqdszc?entry=ttu",
   rating: 4.5
 }
+
+images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploads/2017/04/find-allpress-cafe.jpg'), filename: 'fabrique.jpg' }
+
 rise_and_bloom = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
+  card_style_id: CardStyle.find_by(theme: "Minimalist").id,
   name: "Rise & Bloom",
   description: "Modern, minimalist espresso bar specialising in carefully sourced, single origin coffee. Handcrafted breads, pastries and cakes.",
   menu: "Americano: £3",
   website: "https://www.google.com/maps/place/Rise+%26+Bloom/@51.5277068,-0.0811676,17z/data=!3m1!4b1!4m6!3m5!1s0x48761d9c623f8dc7:0x52f654e11e4054f0!8m2!3d51.5277036!4d-0.0762967!16s%2Fg%2F11tjlsgm2f?entry=ttu",
   rating: 3.5
 }
+
+images << { file: URI.open('https://brewround.com/wp-content/uploads/2020/07/independant-coffee-shops.jpg'), filename: 'rise.jpg' }
+
 legacy_cafe = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
@@ -113,8 +130,13 @@ legacy_cafe = {
   rating: 4
 }
 
-[nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].map do |attributes|
-  brand = Brand.create!(attributes)
+images << { file: URI.open('https://charlieontravel.com/wp-content/uploads/2019/08/Flour-Pot-Bakery-Best-Coffee-Shops-Brighton-570x410.jpg'), filename: 'legacy.jpg' }
+
+[nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
+  brand = Brand.new(attributes)
+  image = images[index]
+  brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/jpeg")
+  brand.save!
   puts "Created #{brand.name}"
 end
 
@@ -145,10 +167,10 @@ miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com
 
 # Cards & Rewards
 
-nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 0 }
-cates_card = { brand_id: Brand.find_by(name: "Coffee & Cates").id, stamps: 0 }
-fabrique_card = { brand_id: Brand.find_by(name: "Fabrique").id, stamps: 0 }
-bloom_card = { brand_id: Brand.find_by(name: "Rise & Bloom").id, stamps: 0 }
+nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 7 }
+cates_card = { brand_id: Brand.find_by(name: "Coffee & Cates").id, stamps: 5 }
+fabrique_card = { brand_id: Brand.find_by(name: "Fabrique").id, stamps: 3 }
+bloom_card = { brand_id: Brand.find_by(name: "Rise & Bloom").id, stamps: 1 }
 legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
 
 [daniel, alejandro, anup, mark, miriam].each do |attributes|
