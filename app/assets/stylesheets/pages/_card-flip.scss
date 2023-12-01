@@ -5,10 +5,10 @@ $card-offset: ($card-height * 0.75);
   background-color: transparent;
   width: 285.54px;
   height: $card-height;
-  border: 1px solid #f1f1f1;
   perspective: 1000px;
   margin-bottom: -$card-offset;
   transition: margin .3s ease;
+  padding: 10px;
   &.focus {
     order: -1;
     margin-bottom: 16px;
