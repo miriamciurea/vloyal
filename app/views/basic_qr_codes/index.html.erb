@@ -1,10 +1,12 @@
-<h1>QR Code Reader Demo</h1>
+<div class="qr-code">
+<h1>QR Code Scanner</h1>
 
 <div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>'>
 <div>
   <video id="video" width="430" height="500"></video>
 </div>
 
-<label>Result:</label>
+<%# <label>Result:</label> %>
 <pre><code data-basic-qr-code-reader-target="result"></code></pre>
+</div>
 </div>
