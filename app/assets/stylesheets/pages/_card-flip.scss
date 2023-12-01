@@ -12,6 +12,7 @@ $card-offset: ($card-height * 0.75);
   &.focus {
     order: -1;
     margin-bottom: 16px;
+    height: 182px !important;
   }
 }
 
@@ -83,8 +84,8 @@ $card-offset: ($card-height * 0.75);
   border-radius: 46px;
   border: 1px;
   border: 1px solid #A3ADB2;
-  margin-top: 12px;
-  margin-left: 26.5px;
+  margin-top: 2%;
+  margin-left: 7%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
