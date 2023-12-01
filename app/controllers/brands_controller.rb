@@ -66,4 +66,25 @@ class BrandsController < ApplicationController
       }
     end
   end
+
+  def increment
+    brand = Brand.find(params[:id])
+    user = User.find(params[:user_id])
+    card = user.cards.find_by(brand_id: brand.id)
+    @reward = nil
+
+    if card
+      card.stamps += 1
+      if card.stamps == card.brand.card_style.max_stamps
+        # add reward
+        @reward = true
+        card.stamps = 0
+      end
+      card.save
+    end
+
+    respond_to do |format|
+      format.json
+    end
+  end
 end

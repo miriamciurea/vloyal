@@ -4,6 +4,9 @@ import { BrowserQRCodeReader } from '@zxing/library';
 // Connects to data-controller="basic-qr-code-reader"
 export default class extends Controller {
   static targets = ["result"]
+  static values = {
+    user: Number
+  }
 
   connect() {
     // console.log("hello this is working")
@@ -14,28 +17,29 @@ export default class extends Controller {
     .then((result) => {
     // process the result
     // console.log(result.text)
-    let qrDataFromReader = result.text;
+    // let qrDataFromReader = result.text;
 
     // Prepare a post request so it can be sent to the Rails controller
     // Create a new FormData object
     let formData = new FormData();
 
-    // Prepare the data params
-    let qrCodeParams = {
-      qr_data: qrDataFromReader
-    };
+    // // Prepare the data params
+    // let qrCodeParams = {
+    //   qr_data: qrDataFromReader
+    // };
 
     // Add the params to the FormData object, making sure to convert it to JSON
-    formData.append("qr_code_json_data", JSON.stringify(qrCodeParams));
+    formData.append("user_id", this.userValue);
 
     // Send the QR code data as JSON to the qr_codes#create action using fetch
-    fetch('/basic_qr_codes', {
-      method: 'POST',
+    fetch(result.text, {
+      method: 'PATCH',
+      'content-type': 'application/json',
       body: formData
     })
-      .then(response => {
-        // Handle the response here if needed
-        console.log(response)
+      .then(response => response.json()).then( data => {
+        console.log(data);
+        this.resultTarget.innerText = data.message
       })
       .catch(error => {
         console.error('Error:', error);
