@@ -15,28 +15,34 @@ class BrandsController < ApplicationController
       @brands = @brands.joins(:category).where(sql_subquery, query: params[:query])
     end
 
-    location = [current_user.latitude, current_user.longitude]
-
+    @location = [session[:lat], session[:lng]]
     respond_to do |format|
       format.html
       format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location }, formats: [:html] }
     end
   end
 
-  def update_user_location
+  def get_user_location
+    @brands = Brand.order(rating: :desc, name: :asc)
+    respond_to do |format|
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: [session[:lat], session[:lng]]}, formats: [:html] }
+    end
+  end
+
+  def set_user_location
     @brands = Brand.order(rating: :desc, name: :asc)
     current_user.update(
       latitude: params[:user_location][:latitude],
       longitude: params[:user_location][:longitude]
     )
 
-    location = [current_user.latitude, current_user.longitude]
+    session[:lat] = current_user.latitude
+    session[:lng] = current_user.longitude
 
     p "Locaton is #{location}"
 
-    sleep(2)
     respond_to do |format|
-      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location}, formats: [:html] }
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: [session[:lat], session[:lng]]}, formats: [:html] }
     end
   end
 

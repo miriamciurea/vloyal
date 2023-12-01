@@ -3,15 +3,26 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="geocoding"
 export default class extends Controller {
   static targets = ['location', 'list', "input", "form", 'loading', 'listCont']
+  static values = {
+    location: Array
+  }
 
   connect() {
-    console.log('getting location')
-
+    // console.log('getting location')
+    console.log(this.locationValue);
+    this.locationSet = this.locationValue.length > 0
     this.getLocation();
   }
 
   getLocation() {
-    if (navigator.geolocation) {
+    if (this.locationSet) {
+      console.log('--- location already set, showing list ---')
+      this.loadingTarget.classList.add('away')
+      this.loadingTarget.classList.add('d-none')
+      this.listContTarget.classList.remove('hidden')
+    }
+    else if (navigator.geolocation) {
+      console.log('--- no location set, updating/setting user location and retreiving list ---')
       navigator.geolocation.getCurrentPosition(
         this.showPosition.bind(this),
         this.showError.bind(this)
@@ -22,18 +33,15 @@ export default class extends Controller {
   }
 
   showPosition(position) {
-    this.locationTarget.innerHTML = `Latitude: ${position.coords.latitude}<br>Longitude: ${position.coords.longitude}`;
+    // this.locationTarget.innerHTML = `Latitude: ${position.coords.latitude}<br>Longitude: ${position.coords.longitude}`;
 
     // Make an AJAX request to the Rails controller to update the @user_location variable
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
     const userLocation = {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
-    };
-
-    console.log('--- calling update_user_location ---')
-
-    fetch("/update_user_location", {
+    }
+    fetch("/set_user_location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,12 +54,11 @@ export default class extends Controller {
       .then((data) => {
         console.log(data)
         this.loadingTarget.classList.add('away')
-        setTimeout(() => {
-          this.loadingTarget.classList.add('d-none')
-          this.listContTarget.classList.remove('hidden')
-        }, 300);
+        this.loadingTarget.classList.add('d-none')
+        this.listContTarget.classList.remove('hidden')
         this.listTarget.innerHTML = data
       })
+
   }
 
   showError(error) {

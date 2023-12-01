@@ -5,15 +5,18 @@
 <div class="loyalty-cards-container">
   <% @rewards.each do |reward| %>
 
+      <div class="loyalty-card">
     <% if reward.card.card_style.max_stamps == reward.card.stamps %>
       <% reward.claimed = true %>
       <% reward.save %>
     <% end %>
     <% if reward.claimed %>
+    <div class="loyalty-card-inner">
+
+            <div class="loyalty-card-front">
       <div class="brand-name">
         <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
       </div>
-      <div class="loyalty-card">
       </div>
       <div class="reward-message">
         <p><strong>Congratulations!</strong> You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>

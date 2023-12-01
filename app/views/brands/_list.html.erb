@@ -20,7 +20,7 @@
             <i class="fa-solid fa-circle-check"></i>
           <% else %>
             <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
-              <i class="fa-regular fa-circle-check"></i>
+              <i class="fa-solid fa-circle-plus"></i>
             <% end %>
           <% end %>
         </div>
