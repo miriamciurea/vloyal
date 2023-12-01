@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 
+
 // Connects to data-controller="map"
 export default class extends Controller {
   static values = {
@@ -18,13 +19,20 @@ export default class extends Controller {
 
     this.#addMarkerToMap();
     this.#fitMapToMarker();
+
   }
 
   #addMarkerToMap() {
 
     this.markersValue.forEach(marker => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup({ closeOnClick: false }).setHTML(marker.info_window_html)
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+      // .setLngLat([marker.lng, marker.lat])
+      // .setHTML(marker.info_window_html)
+      // .addTo(this.map);
+      // popup._container.style.top = '-50px';
+      new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(this.map);
