@@ -7,4 +7,5 @@ class Brand < ApplicationRecord
   validates :description, length: { minimum: 60 }
   has_many :cards, dependent: :destroy
   has_many :locations, dependent: :destroy
+  has_one_attached :photo
 end
