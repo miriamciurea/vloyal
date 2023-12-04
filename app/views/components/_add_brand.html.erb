@@ -1,0 +1,17 @@
+
+<%= simple_form_for (@brand) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :menu, placeholder: "List your courses here" %>
+  <%= f.input :website %>
+  <%= f.input :description %>
+  <%= f.input :rating, as: :integer %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.association :reward_type %>
+  <%= f.association :card_style, label_method: :theme %>
+  <%= f.association :category, label_method: :name %>
+  <%= f.submit class: "btn" %>
+<% end %>
+<br>
+<br>
+<br>
+<br>
