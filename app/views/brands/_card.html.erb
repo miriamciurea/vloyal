@@ -1,0 +1,39 @@
+<div class="loyalty-card" data-basic-qr-code-reader-target='card'>
+  <div class="loyalty-card-inner">
+
+    <div class="loyalty-card-front" id="<%= @card.brand.card_style.theme.downcase %>">
+
+      <div class="brand-name">
+        <p><i class="fa-regular fa-circle"></i> <%= @card.brand.name %></p>
+      </div>
+
+      <div class="user-date">
+        <h6 class="card-user-name"><%= @card.user.first_name %> <%= @card.user.last_name %></h6>
+        <%# <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %>
+        <h6 class="no-of-stamps"> <%= @card.stamps %>/<%= @card.card_style.max_stamps %> </h6>
+      </div>
+
+    </div>
+
+    <div class="loyalty-card-back" id="<%= @card.brand.card_style.theme.downcase %>">
+      <div class="brand-name">
+        <p><i class="fa-regular fa-circle"></i> <%= @card.brand.name %></p>
+      </div>
+
+      <% stamps = @card.stamps %>
+      <%# <% stamps = 3 %>
+      <div class="stamp-area">
+        <% @card.card_style.max_stamps.times do %>
+          <% if stamps.positive? %>
+            <i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i>
+          <% else %>
+            <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
+          <% end %>
+          <% stamps -= 1%>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
