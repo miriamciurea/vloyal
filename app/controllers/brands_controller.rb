@@ -87,7 +87,13 @@ class BrandsController < ApplicationController
         @reward = Reward.new(card_id: @card.id)
         @reward.save
         @reward.generate_qrcode
+        @card.stamps = 7
+        @card_partial = render_to_string(partial: 'card', card: @card)
         @card.stamps = 0
+      else
+        @card.stamps -= 1
+        @card_partial = render_to_string(partial: 'card', card: @card)
+        @card.stamps += 1
       end
       @card.save
     end
