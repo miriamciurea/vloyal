@@ -26,19 +26,37 @@ export default class extends Controller {
 
   #addMarkerToMap() {
 
-    this.markersValue.forEach(marker => {
-      const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(marker.info_window_html)
+    if (this.markersValue.length > 1) {
+      this.markersValue.forEach(marker => {
+
+        const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(marker.info_window_html)
+        const customMarker = document.createElement("div")
+        customMarker.innerHTML = marker.marker_html
+        // .setLngLat([marker.lng, marker.lat])
+        // .setHTML(marker.info_window_html)
+        // .addTo(this.map);
+        // popup._container.style.top = '-50px';
+        new mapboxgl.Marker(customMarker)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map);
+      })
+    } else {
+      this.markersValue[0]
+      const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(this.markersValue[0].info_window_html)
       const customMarker = document.createElement("div")
-      customMarker.innerHTML = marker.marker_html
+      customMarker.innerHTML = this.markersValue[0].marker_html
       // .setLngLat([marker.lng, marker.lat])
       // .setHTML(marker.info_window_html)
       // .addTo(this.map);
       // popup._container.style.top = '-50px';
-      new mapboxgl.Marker(customMarker)
-        .setLngLat([marker.lng, marker.lat])
+      const marker = new mapboxgl.Marker(customMarker)
+        .setLngLat([this.markersValue[0].lng, this.markersValue[0].lat])
         .setPopup(popup)
         .addTo(this.map);
-    });
+      marker.togglePopup();
+
+    }
   }
 
   #fitMapToMarker() {

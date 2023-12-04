@@ -1,20 +1,25 @@
 .direction-link {
-  color: #FFF;
-  font-family: Inter;
+
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
-  text-decoration: none;
-  background-color: black;
   border-radius: 24px;
   width: 50%;
   text-align: center;
   padding: 12px;
   margin: 0px auto;
   margin-top: 12px;
-  font-family: 'Lexend Exa';
+  box-shadow: 2px 5px 5px #888888;
+  background-color: #A4E9FF;
 
 }
+
+.direction-link-button {
+  font-weight: 400;
+  text-decoration: none;
+  font-family: 'Lexend Exa';
+  color: #1a1919;
+}
+
 
 .shop-detail {
   h4 {
@@ -31,6 +36,7 @@
 
   display: block;
   text-align: center;
+  // background-image: url(assets/images/main-v.png);
 }
 
 
