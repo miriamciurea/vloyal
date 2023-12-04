@@ -3,6 +3,7 @@ class BrandsController < ApplicationController
 
   def index
     @locations = Location.all
+    # @brand = Brand.find(params[:id])
     @brands = Brand.order(rating: :desc, name: :asc)
     @page_brands = true
 
