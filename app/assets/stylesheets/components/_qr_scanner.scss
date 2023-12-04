@@ -61,3 +61,15 @@
     }
   }
 }
+
+.scan-result {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border: 2px dashed red;
+  backdrop-filter: blur(10px);
+}
