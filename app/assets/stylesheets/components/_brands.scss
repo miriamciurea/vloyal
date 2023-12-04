@@ -35,11 +35,6 @@
   }
 }
 
-.brand-names {
-  color: black;
-  text-decoration: none;
-  font-family: Montserrat;
-}
 
 .brand-container {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -47,40 +42,46 @@
   border-radius: 20px;
   margin: 24px auto;
   position: relative;
-}
 
-.brand-info {
-  font-size: 20px;
+  .names {
+    color: black;
+    text-decoration: none;
+    font-family: Montserrat;
+  }
+
+  .info {
+    font-size: 20px;
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px;
+  }
+
+  .rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+  }
+
+  .add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 8px;
+  }
+
+  .distance {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 8px;
+  }
 }
 
 .brands-form {
   margin-top: 20%;
-}
-
-.brand-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 8px;
-}
-
-.brand-rating {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 8px;
-}
-
-.brand-add {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 8px;
-}
-
-.brand-distance {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 8px;
 }

@@ -1,0 +1,7 @@
+<% if @reward %>
+  <h3>Congratulations, you collected enough stamps for a free <%= @card.brand.reward_type.name %>!</h3>
+  <p>Check your rewards to claim it</p>
+<% else %>
+  <h3>You've added a stamp to your <%= @card.brand.name %> card!</h3>
+  <p>Collect <%= @card.brand.card_style.max_stamps - @card.stamps %> more for a free <%= @card.brand.reward_type.name %></p>
+<% end %>

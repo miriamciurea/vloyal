@@ -3,7 +3,7 @@ import { BrowserQRCodeReader } from '@zxing/library';
 
 // Connects to data-controller="basic-qr-code-reader"
 export default class extends Controller {
-  static targets = ["resultContainer"]
+  static targets = ["resultContainer", "alert"]
   static values = {
     user: Number
   }
@@ -40,8 +40,7 @@ export default class extends Controller {
       .then(response => response.json()).then( data => {
         console.log(data);
         this.resultContainerTarget.classList.remove('d-none')
-        this.resultContainerTarget.insertAdjacentHTML('beforeend', data.message)
-
+        this.alertTarget.innerHTML = data.alert
       })
       .catch(error => {
         console.error('Error:', error);

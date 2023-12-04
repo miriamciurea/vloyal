@@ -79,22 +79,22 @@ class BrandsController < ApplicationController
     user = User.find(params[:user_id])
     @card = user.cards.find_by(brand_id: brand.id)
 
-    if card
-      card.stamps += 1
-      if card.stamps == card.brand.card_style.max_stamps
+    if @card
+      @card.stamps += 1
+      if @card.stamps == @card.brand.card_style.max_stamps
         # add reward
-        @reward = Reward.new(card_id: card.id)
+        @reward = Reward.new(card_id: @card.id)
         @reward.save
         @reward.generate_qrcode
-        card.stamps = 0
+        @card.stamps = 0
       end
-      card.save
+      @card.save
     end
+
+    @alert = render_to_string(partial: 'alert', reward: @reward, card: @card)
 
     respond_to do |format|
       format.json
     end
   end
-
-
 end
