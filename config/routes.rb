@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     resources :cards, only: [:create]
   end
+
   patch "brands/:id", to: "brands#increment", as: :increment_stamps
   post "set_user_location", to: "brands#set_user_location"
   get "get_user_location", to: "brands#get_user_location"

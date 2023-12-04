@@ -23,3 +23,9 @@
     <h2>You have no rewards right now...</h2>
     </div>
   <% end %>
+
+  <h3 style='font-size: 200px;'>CODES</h3>
+
+  <% @rewards.each do |reward| %>
+    <%= cl_image_tag reward.qrcode.key, width: 500, class: 'mb-5' %>
+  <% end %>
