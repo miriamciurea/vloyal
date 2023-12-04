@@ -33,7 +33,8 @@
 
               <div class="user-date">
                 <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-                <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %> </h6>
+                <%# <h6 class="card-user-name"> <%= card.created_at.strftime('%m/%y') %>
+                <h6 class="no-of-stamps"> <%= card.stamps %>/<%= card.card_style.max_stamps %> </h6>
               </div>
 
             </div>
