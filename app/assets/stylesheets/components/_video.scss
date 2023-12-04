@@ -1,0 +1,63 @@
+.video {
+  position: relative;
+  width: 90vw;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  margin-top: 48px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px 3px rgba(0,0,0,.2);
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .guide {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    .boundary {
+      height: 50px;
+      width: 10px;
+      background: white;
+      position: absolute;
+      &:nth-child(1) {
+        width: 50px;
+        height: 10px;
+      }
+      &:nth-child(2) {
+        right: 0px;
+      }
+      &:nth-child(3) {
+        right: 0px;
+        width: 50px;
+        height: 10px;
+      }
+      &:nth-child(4) {
+        right: 0px;
+        bottom: 0px;
+      }
+      &:nth-child(5) {
+        right: 0px;
+        bottom: 0px;
+        width: 50px;
+        height: 10px;
+      }
+      &:nth-child(6) {
+        left: 0px;
+        bottom: 0px;
+      }
+      &:nth-child(7) {
+        left: 0px;
+        bottom: 0px;
+        width: 50px;
+        height: 10px;
+      }
+    }
+  }
+}

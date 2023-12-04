@@ -77,7 +77,7 @@ class BrandsController < ApplicationController
   def increment
     brand = Brand.find(params[:id])
     user = User.find(params[:user_id])
-    card = user.cards.find_by(brand_id: brand.id)
+    @card = user.cards.find_by(brand_id: brand.id)
 
     if card
       card.stamps += 1
