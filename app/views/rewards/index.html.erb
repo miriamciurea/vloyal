@@ -3,18 +3,18 @@
 
     <%# cl_image_tag reward.qrcode.key, width: 500, class: 'mb-5' %>
 <% num = 0 %>
+<div data-controller= "qrprompt" class="controller">
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
-      <div class="whole-card">
+      <div class="whole-card rewards">
           <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_style.theme.downcase %>">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
           </div>
           <div class="reward-message p-3 d-flex justify-content-between">
             <p><strong>Congratulations!</strong>  You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>
-            <%= link_to "Show", "#" %><i class="fa-solid fa-circle-chevron-down"></i>
+            <%= link_to "Show", "#",  data: { action: "click->qrprompt#showPrompt"} %><i class="fa-solid fa-circle-chevron-down"></i>
           </div>
         </div>
-      </div>
     <% else %>
       <% num +=1 %>
     <% end %>
@@ -24,3 +24,10 @@
     <h2>You have no rewards right now...</h2>
     </div>
   <% end %>
+    <div data-qrprompt-target="prompt" class="prompt d-none d-flex justify-content-center">
+    <div class="prompt-div qrprompt">
+    </div>
+    <%= image_tag("prompt-image.png", alt: "prompt-image", class: "prompt-image") %>
+    </div>
+</div>
+<div class="set-height"></div>
