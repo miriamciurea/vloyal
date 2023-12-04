@@ -1,24 +1,18 @@
 <h1 class="wallet-title">My Rewards</h1>
-<%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
+<%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
 <% num = 0 %>
-<div class="loyalty-cards-container">
   <% @rewards.each do |reward| %>
-
-    <% if reward.card.card_style.max_stamps == reward.card.stamps %>
-      <% reward.claimed = true %>
-      <% reward.save %>
-    <% end %>
-    <% if reward.claimed %>
-      <div class="brand-name">
-        <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
-      </div>
-      <div class="loyalty-card">
-      </div>
-      <div class="reward-message">
-        <p><strong>Congratulations!</strong> You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>
-        <%= link_to "Show", "#" %>
-      </div>
+    <% if !reward.claimed %>
+      <div class="whole-card">
+          <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_style.theme.downcase %>">
+            <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
+          </div>
+          <div class="reward-message p-3 d-flex justify-content-between">
+            <p><strong>Congratulations!</strong>  You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>
+            <%= link_to "Show", "#" %><i class="fa-solid fa-circle-chevron-down"></i>
+          </div>
+        </div>
       </div>
     <% else %>
       <% num +=1 %>
@@ -29,5 +23,3 @@
     <h2>You have no rewards right now...</h2>
     </div>
   <% end %>
-
-</div>

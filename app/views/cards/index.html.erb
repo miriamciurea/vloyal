@@ -3,14 +3,14 @@
   <div class="logo-and-wallet">
     <h2 class="wallet-title">My Wallet</h2>
   </div>
-  <%=  image_tag 'under-txt-logo', alt: "under-text-v", class: "under-txt-logo"%>
+  <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
   <% if @categories.empty? %>
     <p class="coffee-shops">Empty Wallet</p>
     <div class="loyalty-cards-container">
       <div class="empty-loyalty-card">
           <%= link_to brands_path do %>
-            <%= image_tag 'cross', alt: "empty-wallet-cross", class: "vector-cross"%>
+            <%= image_tag 'cross.svg', alt: "empty-wallet-cross", class: "vector-cross"%>
           <% end %>
       </div>
     </div>

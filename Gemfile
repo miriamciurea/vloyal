@@ -79,3 +79,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "rqrcode", "~> 2.2"
