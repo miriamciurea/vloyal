@@ -3,16 +3,16 @@ $card-offset: ($card-height * 0.75);
 
 .loyalty-card {
   background-color: transparent;
-  width: 285.54px;
-  height: $card-height;
+  width: 95%;
+  height: 25vh;
   perspective: 1000px;
-  margin-bottom: -$card-offset;
+  margin-bottom: -50%;
   transition: margin .3s ease;
-  padding: 10px;
+  padding: 2%;
   &.focus {
     order: -1;
-    margin-bottom: 16px;
-    height: 182px !important;
+    margin-bottom: 2%;
+    height: 25vh !important;
   }
 }
 
@@ -77,27 +77,26 @@ $card-offset: ($card-height * 0.75);
 
 
 .stamp-area {
-  width: 227px;
-  height: 79px;
+  width: 88%;
+  height: 60%;
   top: 204px;
   left: 48px;
   border-radius: 46px;
   border: 1px;
   border: 1px solid #A3ADB2;
-  margin-top: 2%;
-  margin-left: 7%;
+  margin-bottom: 1%;
+  margin-left: 6%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-left: 2%;
+  padding-right: 2%;
   .fa-circle, .fa-circle-xmark {
     width: 22%;
-    padding-top: 11px;
+    height: 20%;
+    border: 1%;
+    padding-top: 5%;
+    font-size: x-large;
   }
 
-}
-
-.fa-circle-xmark {
-  width: 18px;
-  height: 18px;
-  border: 3px;
 }
