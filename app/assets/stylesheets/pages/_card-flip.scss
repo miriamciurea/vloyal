@@ -3,16 +3,16 @@ $card-offset: ($card-height * 0.75);
 
 .loyalty-card {
   background-color: transparent;
-  width: 97%;
-  height: 20vh;
+  width: 95%;
+  height: 25vh;
   perspective: 1000px;
-  margin-bottom: -45%;
+  margin-bottom: -50%;
   transition: margin .3s ease;
   padding: 2%;
   &.focus {
     order: -1;
     margin-bottom: 2%;
-    height: 20vh !important;
+    height: 25vh !important;
   }
 }
 
