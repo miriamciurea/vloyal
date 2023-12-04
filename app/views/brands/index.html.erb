@@ -2,16 +2,17 @@
   <div class="row">
     <% @location = @location[0] ? @location : [] %>
     <div class="col" data-controller="geocoding" data-geocoding-location-value="<%= @location %>">
-      <h1 class="h2 mb-4 d-flex justify-content-center wallet-title">Brands</h1>
+      <h1 class="wallet-title">Shops</h1>
       <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
       <p data-geocoding-target="location" class="d-none">Waiting for location...</p>
 
-      <div>
+      <div class="brands-form">
         <%= form_with url: brands_path, method: :get, html: {class: "mb-4", data: {geocoding_target: "form"}} do |f| %>
-          <%= f.label :query, "Type a brand name" %>
+          <%# <%= f.label :query, "Type a brand name" %>
           <%= f.text_field :query,
                            class: "form-control",
+                           placeholder: "Search for a shop",
                            value: params[:query],
                            data: {geocoding_target: "input", action:"keyup->geocoding#search"}
                            %>

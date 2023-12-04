@@ -79,7 +79,6 @@ nutmeg_n_koffee = {
 
 images << { file: URI.open('https://balancecoffee.co.uk/cdn/shop/articles/coffee-shop-london-bridge.jpg?v=1663783874'), filename: 'nutmeg.jpg' }
 
-
 coffee_and_cates = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,

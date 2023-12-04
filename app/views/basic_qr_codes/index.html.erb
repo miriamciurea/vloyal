@@ -2,24 +2,25 @@
 <h1>Add a stamp</h1>
 <p class='p-3 text-center hint'>Scan the QR code provided at a partnered store to add a stamp to your card.</p>
 
-<div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>'>
+  <div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>'>
 
-<div class="video">
-  <div class="guide">
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
-    <div class="boundary"></div>
+    <div class="video">
+      <div class="guide">
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+        <div class="boundary"></div>
+      </div>
+
+      <video id="video"></video>
+    </div>
+
+  <%# <label>Result:</label> %>
+    <div class="scan-result d-none" data-basic-qr-code-reader-target='resultContainer'>
+    </div>
   </div>
-
-  <video id="video"></video>
-</div>
-
-<%# <label>Result:</label> %>
-<pre><code data-basic-qr-code-reader-target="result"></code></pre>
-</div>
 </div>
