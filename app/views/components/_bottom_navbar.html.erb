@@ -4,7 +4,9 @@
     <%= link_to "MyWallet", root_path, class: "#{@page_cards ? 'active' : ''} navbar-btn" %>
   </div>
   <div class="d-flex align-items-center justify-content-center bottom-navbar-center">
-    <%= link_to "", basic_qr_code_reader_path, class: "camera-btn" %>
+    <%= link_to basic_qr_code_reader_path, class: "camera-btn" do %>
+      <%= image_tag "camera-icon.png", alt: "camera-icon", class: "camera-icon" %>
+    <% end %>
   </div>
   <div class="d-flex justify-content-around align-items-center bottom-navbar-right">
     <%= link_to "Shops", brands_path, class: "#{@page_brands ? 'active' : ''} navbar-btn" %>

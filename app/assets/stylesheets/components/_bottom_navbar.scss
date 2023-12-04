@@ -42,12 +42,21 @@
     height: 80px !important;
     text-decoration: none;
     text-align: center !important;
-    border: 2px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid lightgrey;
     background: #F0F0F3;
+    position: relative;
     box-shadow: 5px 5px 10px 0px rgba(174, 174, 192, 0.20), -5px -5px 5px 0px rgba(255, 255, 255, 0.40), 2px 2px 4px 0px #FFF inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.10) inset;
     &:active {
       background: rgb(235, 235, 240);
-      box-shadow: 2px 2px 4px 0px #FFF inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.10) inset, -5px -5px 5px 0px rgba(255, 255, 255, 0.40), 5px 5px 10px 0px rgba(174, 174, 192, 0.20);
+      box-shadow: none;
+    }
+
+    img {
+      opacity: 13%;
+      width: 70%;
+      position: absolute;
+      top: 15%;
+      left: 15%;
     }
   }
 }
