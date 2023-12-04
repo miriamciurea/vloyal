@@ -1,9 +1,22 @@
 <div class="qr-code">
-<h1>QR Code Scanner</h1>
+<h1>Add a stamp</h1>
+<p class='p-3 text-center hint'>Scan the QR code provided at a partnered store to add a stamp to your card.</p>
 
 <div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>'>
-<div>
-  <video id="video" width="430" height="500"></video>
+
+<div class="video">
+  <div class="guide">
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+    <div class="boundary"></div>
+  </div>
+
+  <video id="video"></video>
 </div>
 
 <%# <label>Result:</label> %>

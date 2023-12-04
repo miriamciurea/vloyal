@@ -3,7 +3,7 @@
 
 <% num = 0 %>
   <% @rewards.each do |reward| %>
-    <% if reward.claimed %>
+    <% if !reward.claimed %>
       <div class="whole-card">
           <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_style.theme.downcase %>">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
