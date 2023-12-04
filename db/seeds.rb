@@ -24,9 +24,9 @@ User.destroy_all
 
 puts "Creating categories..."
 
-coffee_shop = { name: "Coffee Shop" }
-hairdresser = { name: "Hairdresser" }
-sandwich_shop = { name: "Sandwich Shop" }
+coffee_shop = { name: "Coffee Shop", file_name: 'bean.svg' }
+hairdresser = { name: "Hairdresser", file_name: 'scissors.svg' }
+sandwich_shop = { name: "Sandwich Shop", file_name: 'food.png'  }
 
 [coffee_shop, hairdresser, sandwich_shop].each do |attributes|
   category = Category.create!(attributes)
@@ -176,7 +176,7 @@ legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
   user = User.create!(attributes)
   puts "Created #{user.first_name}"
   puts "Creating cards..."
-  [nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
+  [nutmeg_card, cates_card, fabrique_card, blocm_card, legacy_card].each do |card_attributes|
     card = Card.new(card_attributes)
     card.user = user
     card.save!
