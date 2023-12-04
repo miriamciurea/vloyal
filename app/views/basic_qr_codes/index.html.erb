@@ -2,7 +2,7 @@
 <h1 class="text-center">Add a stamp</h1>
 <p class="p-3 text-center hint">Scan the QR code provided at a partnered store to add a stamp to your card.</p>
 
-  <div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>'>
+  <div data-controller="basic-qr-code-reader" data-basic-qr-code-reader-user-value='<%= current_user.id %>' data-action='click->basic-qr-code-reader#collapse'>
 
     <div class="video">
       <div class="guide">
@@ -19,14 +19,10 @@
       <video id="video"></video>
     </div>
 
-    <%= link_to 'test', '', data: {action: 'click->basic-qr-code-reader#test'} , class: 'btn btn-primary p-4'%>
-
     <div class="scan-result d-none" data-basic-qr-code-reader-target='resultContainer'>
       <div class="scan-alert" data-basic-qr-code-reader-target='alert'>
-        <%# <h3>test title sdfsdfsdfsdf</h3>
-        <p>test submessage sdfsdfsdf</p> %>
       </div>
-
+      <div data-basic-qr-code-reader-target='card'></div>
     </div>
   </div>
 </div>

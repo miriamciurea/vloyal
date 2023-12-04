@@ -115,6 +115,7 @@ $card-offset: ($card-height * 0.75);
       width: 40%;
       height: 40%;
       opacity: 0;
+      transition: opacity .3s ease;
       object-fit: contain;
     }
     &.stamped {
