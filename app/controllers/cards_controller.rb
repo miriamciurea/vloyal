@@ -28,7 +28,6 @@ class CardsController < ApplicationController
     head :ok
   end
 
-
 # def card_params
 #   params.require(:card).permit(:stamps, :brand_id, :brand_id, :user_id)
 # end

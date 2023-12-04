@@ -1,0 +1,8 @@
+<h1>My brand</h1>
+<% if @brand.nil? %>
+  you dont have brands
+  <% else %>
+<%= @brand.name %>
+<% end %>
+
+<%= link_to "add my brand", new_user_brand_path(params[:id]) %>

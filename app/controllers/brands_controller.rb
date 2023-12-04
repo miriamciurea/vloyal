@@ -96,5 +96,32 @@ class BrandsController < ApplicationController
     end
   end
 
+  def user_brand(user)
+    @user = user
+  end
+
+  def new
+    @brand = Brand.new
+    @reward_type = RewardType.new
+    @location = Location.new
+    @category = Category.new
+    @card_style = CardStyle.new
+  end
+
+  def create
+    brand = Brand.new(brand_params)
+    brand.user_id = params[:user_id]
+    if @brand.save
+      redirect_to user_path(params[:user_id]), notice: "brand created successfully!"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def brand_params
+    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id)
+  end
 
 end
