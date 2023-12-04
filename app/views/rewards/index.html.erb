@@ -1,6 +1,7 @@
 <h1 class="wallet-title">My Rewards</h1>
 <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
+    <%# cl_image_tag reward.qrcode.key, width: 500, class: 'mb-5' %>
 <% num = 0 %>
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
