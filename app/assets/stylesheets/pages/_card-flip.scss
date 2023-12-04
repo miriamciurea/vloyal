@@ -77,26 +77,51 @@ $card-offset: ($card-height * 0.75);
 
 
 .stamp-area {
-  width: 88%;
-  height: 60%;
+  width: 92%;
+  height: 70%;
   top: 204px;
   left: 48px;
   border-radius: 46px;
   border: 1px;
   border: 1px solid #A3ADB2;
   margin-bottom: 1%;
-  margin-left: 6%;
+  margin-left: 4%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding-left: 2%;
   padding-right: 2%;
-  .fa-circle, .fa-circle-xmark {
+  padding-bottom: 5%;
+  padding-top: 3%;
+  .fa-circle, .fa-circle-xmark, .fa-mug-hot {
     width: 22%;
     height: 20%;
     border: 1%;
     padding-top: 5%;
-    font-size: x-large;
+    font-size: 3.5em;
   }
 
+  .stamp {
+    display: block;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+    margin-bottom: 2%;
+    img {
+      width: 40%;
+      height: 40%;
+      opacity: 0;
+      transition: opacity .3s ease;
+      object-fit: contain;
+    }
+    &.stamped {
+      img {
+        opacity: .6;
+      }
+    }
+  }
 }

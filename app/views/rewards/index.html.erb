@@ -1,7 +1,6 @@
 <h1 class="wallet-title">My Rewards</h1>
 <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
-<% num = 0 %>
 <div data-controller= "qrprompt" class="controller">
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
@@ -14,15 +13,15 @@
             <%= link_to "Show", "#",  data: { action: "click->qrprompt#showPrompt"} %><i class="fa-solid fa-circle-chevron-down"></i>
           </div>
         </div>
-    <% else %>
-      <% num +=1 %>
-    <% end %>
-    <% if num == @cards.count %>
-      <div class="no-reward-message">
-      <h2>You have no rewards right now...</h2>
-      </div>
     <% end %>
   <% end %>
+
+  <% if @rewards.filter {|r| r.claimed == false }.empty? %>
+    <div class="no-reward-message">
+      <h2>You have no rewards right now...</h2>
+    </div>
+  <% end %>
+
     <div data-qrprompt-target="prompt" class="prompt qr d-none d-flex justify-content-center" style='position: absolute;
     left: 50%;
     top: 50%;

@@ -1,4 +1,4 @@
-<div data-geocoding-target="list">
+<div class="data-geocoding-list" data-geocoding-target="list">
   <p class="h3">
     <% if params[:query].blank? %>
       <%= pluralize brands.count, "shop" %> available
@@ -8,18 +8,18 @@
   </p>
   <div class="brands">
     <% brands.each do |brand| %>
-    <div class="brand-container">
-      <div class="brand-info">
-          <div class="brand-title">
-            <%= link_to brand.name, brand_path(brand), class: "brand-names" %>
-            <% if brand.category.name == "Coffee Shop" %>
-              <i class="fa-solid fa-mug-saucer"></i>
-            <% end %>
+    <%= link_to brand_path(brand), class: "names" do %>
+    <div class="brand-container card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, :alt => "img-bg", :style => " width:100%; height:300px; border-radius: 12px;"%>');"></div>
+    <div class="brand-container z-index-brand">
+      <div class="info p-1">
+          <div class="title">
+            <p><%= brand.name %></p>
           </div>
-          <div class="brand-rating">
+          <div class="rating">
             <%= brand.rating %> <i class="fa-solid fa-star"></i>
           </div>
-          <div class="brand-add">
+    <% end %>
+          <div class="add">
             <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
               <i class="fa-solid fa-circle-check"></i>
             <% else %>
@@ -28,11 +28,13 @@
               <% end %>
             <% end %>
           </div>
-          <div class="brand-distance">
+        <%= link_to brand_path(brand), class: "names" do %>
+          <div class="distance">
             <% locations = Location.where("brand_id = #{brand.id}") %>
             <% locations.each do |loc| %>
             <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %>
           </div>
+          <% end %>
         </div>
       </div>
       <% end %>
