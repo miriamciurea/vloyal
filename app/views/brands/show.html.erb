@@ -4,7 +4,9 @@
     <%= cl_image_tag @brand.photo.key, :alt => "rss feed", :style => " width:100%;height:300px; border-radius: 12px;"%>
   </div>
 
-  <div class="shop-info">
+  <img class="main-image" src="/assets/main-v-b0f007f0d8e080c612bd2e60ac5784fcb292926f34968ade87c7d9c5de556f34.png" alt="background-img">
+
+  <div class="shop-info" style="">
     <div class="brand-detail my-3">
       <h1><%= @brand.name %></h1>
       <div class="address">
@@ -20,14 +22,15 @@
     </div>
 
     <div class="brand-menu my-3">
+
       <h1>Menu</h1>
       <%= @brand.menu %>
-    </div>
+
 
   </div>
 
   <div class="direction-link">
-    <%= link_to "Direction", map_brands_path(address: @location.address), class: 'direction-link' %>
+    <%= link_to "Direction", map_brands_path(address: @location.address), class: 'direction-link-button' %>
   </div>
 
 </div>
