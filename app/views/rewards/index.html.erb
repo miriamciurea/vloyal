@@ -1,10 +1,10 @@
 <h1 class="wallet-title">My Rewards</h1>
 <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
+    <%# cl_image_tag reward.qrcode.key, width: 500, class: 'mb-5' %>
 <% num = 0 %>
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
-    <%= cl_image_tag reward.qrcode.key, width: 500, class: 'mb-5' %>
       <div class="whole-card">
           <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_style.theme.downcase %>">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
