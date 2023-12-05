@@ -91,12 +91,31 @@ transform: translate(-50%, -50%);
   text-align: left;
   color: #6C7276;
   text-shadow: 0px 4px 1.5px 0px #00000014;
+  display: flex;
   .fa-plus {
     width: 56px;
     height: 56px;
     text-align: center;
     line-height: 56px;
     color: #A3ADB299;
+  }
+  .card-front-logo-circle{
+    width: 36px;
+    height: 36px;
+    color: #A3ADB299;
+    border-radius: 50%;
+    // border: solid 2px #A3ADB299;
+    .inner-logo{
+      width: 40%;
+      height: 40%;
+      color: #A3ADB299;
+      margin-left: 30%;
+      margin-top: 17%;
+      opacity: .4;    }
+  }
+  p {
+    margin-left: 2%;
+    margin-top: 2%;
   }
 }
 

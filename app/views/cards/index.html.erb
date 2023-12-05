@@ -28,7 +28,10 @@
             <div class="loyalty-card-front" id="<%= card.brand.card_style.theme.downcase %>">
 
               <div class="brand-name">
-                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+                <div class="card-front-logo-circle">
+                 <%= image_tag card.brand.category.file_name, class: "inner-logo" %>
+                </div>
+                <p><%= card.brand.name %></p>
               </div>
 
               <div class="user-date">
