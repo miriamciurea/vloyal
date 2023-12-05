@@ -1,4 +1,5 @@
 class Brand < ApplicationRecord
+  # serialize :menu, JSON
   belongs_to :reward_type
   belongs_to :category
   has_many :card_styles
