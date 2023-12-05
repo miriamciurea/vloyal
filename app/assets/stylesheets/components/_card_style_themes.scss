@@ -38,4 +38,4 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-// <%= card.brand.card_style.theme.downcase %>
+// <%= card.brand.card_styles[0].theme.downcase %>
