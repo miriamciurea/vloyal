@@ -1,16 +1,76 @@
+<div class="profile-page-container">
+  <div class="profile-page-heading">
+    <h1>Hi <%= @user.first_name %>!</h1>
+  </div>
 
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-
-<h3>Your places</h3>
-
-<ul>
+  <% items_bought = [] %>
+  <% rewards_earned = [] %>
   <% @cards.each do |card| %>
-    <li><%= card.brand.name %></li>
-  <% end %>
-</ul>
+    <% items_bought << (card.stamps + (card.rewards.count * 8)) %>
+    <% rewards_earned << card.rewards.count %>
+  <%end%>
+  <div class="general-info">
+    <p>You have purchased <%= items_bought.sum %> items so far, earning <%= rewards_earned.sum %> rewards! </p>
 
-<h3>Your Spending</h3>
-<% @cards.each do |card| %>
+    <% shops_visited = [] %>
+    <% @cards.each do |card| %>
+      <% shops_visited << card %>
+    <% end %>
+    <% shops_visited.sort_by { |card| (card.stamps + (card.rewards.count * 8)) } %>
+    <% if shops_visited.first.rewards.count == 1 %>
+      <P>You're favourite spot is <%= shops_visited.first.brand.name %>, where you made <%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %> purchases and earned <%= shops_visited.first.rewards.count %> reward. </p>
+    <% else %>
+      <P>You're favourite spot is <%= shops_visited.first.brand.name %>, where you made <%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %> purchases and earned <%= shops_visited.first.rewards.count %> rewards. </p>
+    <% end %>
+  </div>
+
+  <div class="profile-boxes-container">
+
+    <div class="profile-info-box">
+      <div class="profiile-box-number"></div>
+      <div class="profile-box-text"></div>
+    </div>
+
+    <div class="profile-info-box">
+      <div class="profiile-box-number"></div>
+      <div class="profile-box-text"></div>
+    </div>
+
+    <div class="profile-info-box">
+      <div class="profiile-box-number"></div>
+      <div class="profile-box-text"></div>
+    </div>
+
+    <div class="profile-info-box">
+      <div class="profiile-box-number"></div>
+      <div class="profile-box-text"></div>
+    </div>
+
+  </div>
+
+
+  <h3>Your places</h3>
+
+  <ul>
+    <% @cards.each do |card| %>
+      <li><%= card.brand.name %></li>
+    <% end %>
+  </ul>
+
+  <h3>Your Spending</h3>
+  <% @cards.each do |card| %>
     <% total_purchases = card.stamps + (card.rewards.count * 8) %>
-    <p> You have made <%= total_purchases %> purchases from <%= card.brand.name %>.</p>
+    <p> You have made <%= total_purchases %> purchases from <%= card.brand.name %> and earned <%= card.rewards.count %> rewards.</p>
   <% end %>
+
+  <% items_bought = [] %>
+  <% rewards_earned = [] %>
+  <% @cards.each do |card| %>
+    <% items_bought << (card.stamps + (card.rewards.count * 8)) %>
+    <% rewards_earned << card.rewards.count %>
+  <%end%>
+
+  <p>You have purchased <%= items_bought.sum %> items so far, earning <%= rewards_earned.sum %> rewards! </p>
+
+
+</div>
