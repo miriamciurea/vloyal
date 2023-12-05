@@ -31,12 +31,12 @@ class Reward < ApplicationRecord
         resize_gte_to: false,
         size: 120,
         offset: 0
-    )
+      )
 
     self.qrcode.attach(
         io: StringIO.new(png.to_s),
         filename: "qrcode.png",
         content_type: "image/png"
-    )
+      )
   end
 end

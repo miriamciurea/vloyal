@@ -1,8 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 
-
-
 // Connects to data-controller="map"
 export default class extends Controller {
   static values = {
@@ -17,11 +15,8 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/anupale07/clpqu6p79015w01r5fsby2a0v"
     });
-
     this.#addMarkerToMap();
     this.#fitMapToMarker();
-
-
   }
 
   #addMarkerToMap() {
@@ -55,7 +50,6 @@ export default class extends Controller {
         .setPopup(popup)
         .addTo(this.map);
       marker.togglePopup();
-
     }
   }
 
