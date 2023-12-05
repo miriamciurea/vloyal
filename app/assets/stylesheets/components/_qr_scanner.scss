@@ -103,6 +103,9 @@
     transform: translate(-50%, 250%);
     transition: transform .3s ease;
     transition-delay: .3s;
+    .stamp-area {
+      column-gap: 16px;
+    }
     .stamp {
       animation: addStamp;
       animation-duration: .6s;
