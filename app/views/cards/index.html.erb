@@ -17,7 +17,8 @@
 
   <% else %>
     <% @categories.each do |name, cards| %>
-      <p class="loyalty-reward-categories"><%= name.capitalize %>s</p>
+      <p class="loyalty-reward-categories"></p>
+      <%# <%= name.capitalize %>
 
       <div class="loyalty-cards-container">
 
@@ -42,8 +43,12 @@
             </div>
 
             <div class="loyalty-card-back" id="<%= card.brand.card_style.theme.downcase %>">
-              <div class="brand-name">
-                <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+
+               <div class="brand-name">
+                <div class="card-front-logo-circle">
+                 <%= image_tag card.brand.category.file_name, class: "inner-logo" %>
+                </div>
+                <p><%= card.brand.name %></p>
               </div>
 
               <% stamps = card.stamps %>
