@@ -26,7 +26,7 @@
         <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
-            <div class="loyalty-card-front" id="<%= card.brand.card_style.theme.downcase %>">
+            <div class="loyalty-card-front" id="<%= card.brand.card_styles[0].theme.downcase %>" style="background-image: url('<%= cl_image_path card.brand.card_styles[0].background.key %>'); object-fit: scale-down;";>
 
               <div class="brand-name">
                 <div class="card-front-logo-circle">
@@ -37,12 +37,12 @@
 
               <div class="user-date">
                 <h6 class="card-user-name"><%= card.user.first_name %> <%= card.user.last_name %></h6>
-                <h6 class="no-of-stamps"> <%= card.stamps %>/<%= card.card_style.max_stamps %> </h6>
+                <h6 class="no-of-stamps"> <%= card.stamps %>/<%= card.card_styles[0].max_stamps %> </h6>
               </div>
 
             </div>
 
-            <div class="loyalty-card-back" id="<%= card.brand.card_style.theme.downcase %>">
+            <div class="loyalty-card-back" id="<%= card.brand.card_styles[0].theme.downcase %>">
 
                <div class="brand-name">
                 <div class="card-front-logo-circle">
@@ -53,7 +53,7 @@
 
               <% stamps = card.stamps %>
               <div class="stamp-area">
-                <% card.card_style.max_stamps.times do %>
+                <% card.card_styles[0].max_stamps.times do %>
                   <% if stamps.positive? %>
                     <div class="stamp stamped">
                       <%= image_tag card.brand.category.file_name %>
