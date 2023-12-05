@@ -6,13 +6,12 @@
       <%= pluralize brands.count, "result" %> for <code><%= params[:query] %></code>
     <% end %>
   </p>
-
   <div class="brands">
     <% brands.each do |brand| %>
     <%= link_to brand_path(brand), class: "names" do %>
     <div class="brand-container card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, :alt => "img-bg", :style => " width:100%; height:300px; border-radius: 12px;"%>');"></div>
-      <div class="brand-container z-index-brand">
-        <div class="info p-1">
+    <div class="brand-container z-index-brand">
+      <div class="info p-1">
           <div class="title">
             <p><%= brand.name %></p>
           </div>
@@ -27,17 +26,18 @@
               <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
                 <button class="btn add">Add&nbsp;&nbsp;<i class="fa-solid fa-circle-plus" style="color: #000000;"></i></button>
               <% end %>
-           <% end %>
-            </div>
-            <%= link_to brand_path(brand), class: "names" do %>
-            <div class="distance">
-              <% locations = Location.where("brand_id = #{brand.id}") %>
-              <% locations.each do |loc| %>
-              <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %>
-            </div>
-              <% end %>
+            <% end %>
+          </div>
+        <%= link_to brand_path(brand), class: "names" do %>
+          <div class="distance">
+            <% locations = Location.where("brand_id = #{brand.id}") %>
+            <% locations.each do |loc| %>
+            <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %>
+          </div>
+          <% end %>
         </div>
       </div>
-            <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
