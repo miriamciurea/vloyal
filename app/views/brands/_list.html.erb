@@ -9,35 +9,40 @@
 
   <div class="brands">
     <% brands.each do |brand| %>
-    <%= link_to brand_path(brand), class: "names" do %>
-    <div class="brand-container card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, :alt => "img-bg", :style => " width:100%; height:300px; border-radius: 12px;"%>');"></div>
-      <div class="brand-container z-index-brand">
-        <div class="info p-1">
-          <div class="title">
-            <p><%= brand.name %></p>
-          </div>
-          <div class="rating">
-            <%= brand.rating %> <i class="fa-solid fa-star"></i>
-          </div>
-    <% end %>
-          <div class="add">
-            <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
-              <i class="fa-solid fa-circle-check"></i>
-            <% else %>
-              <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
-                <i class="fa-solid fa-circle-plus"></i>
-            <% end %>
-    <% end %>
+      <div class="position-relative">
+        <%= link_to "", brand_path(brand), class: "names position-absolute top-0 bottom-0 start-0 end-0" %>
+        <% if brand.photo.attached? %>
+          <div class="brand-container card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, alt: "img-bg", style: " width:100%; height:300px; border-radius: 12px;" %>');"></div>
+        <% else %>
+          <div class="brand-container card-img-container" style="background-image: url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+        <% end %>
+        <div class="brand-container z-index-brand">
+          <div class="info p-1">
+            <div class="title">
+              <p><%= brand.name %></p>
             </div>
-            <%= link_to brand_path(brand), class: "names" do %>
-            <div class="distance">
-              <% locations = Location.where("brand_id = #{brand.id}") %>
-              <% locations.each do |loc| %>
-              <%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %>
+            <div class="rating">
+              <%= brand.rating %> <i class="fa-solid fa-star"></i>
             </div>
+            <div class="add">
+              <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
+                <i class="fa-solid fa-circle-check"></i>
+              <% else %>
+                <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
+                  <i class="fa-solid fa-circle-plus"></i>
+                <% end %>
               <% end %>
+            </div>
+            <%= link_to brand_path(brand), class: "names z-3" do %>
+              <div class="distance">
+                <% brand.locations.each do |loc| %>
+                  <p><%= loc.geocoded? ? "#{loc.distance_from(user_location).round(2)} km away"  : "..." %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-            <% end %>
+    <% end %>
   </div>
 </div>

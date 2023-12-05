@@ -1,0 +1,13 @@
+<h2>Edit <%= @brand.name %></h2>
+
+<%= render "components/add_brand", brands: @brand, location: @location %>
+
+
+<%= simple_form_for [@brand, @location] do |f|%>
+  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_key_value: ENV["MAPBOX_API_KEY"]}} %>
+  <%= f.input :phone_number %>
+  <%= f.submit %>
+<% end %>
+<br>
+<br><br><br><br><br>

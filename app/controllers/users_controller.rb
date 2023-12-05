@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @brand = Brand.find_by('user_id = ?', @user)
+    @brands = Brand.where('user_id = ?', current_user.id)
   end
 end
