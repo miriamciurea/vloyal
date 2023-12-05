@@ -1,7 +1,7 @@
 <% @cards.each do |card| %>
   <div class="loyalty-card">
     <% stamps = card.stamps %>
-    <% card.card_style.max_stamps.times do %>
+    <% card.card_styles[0].max_stamps.times do %>
       <div class="stamp-area">
         <p>stamp area: <%= stamps.positive? ? 'stamped' :  'empty' %> </p>
       </div>
@@ -18,7 +18,7 @@
   </div>
 
   <% stamps = card.stamps %>
-  <% card.card_style.max_stamps.times do %>
+  <% card.card_styles[0].max_stamps.times do %>
 
     <div class="stamp-area">
       <% if stamps.positive? %>
