@@ -4,7 +4,9 @@
 <div data-controller= "qrprompt" class="controller">
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
-      <div class="whole-card rewards" data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key%>.png'>
+      <% if reward.qrcode.key.present? %>
+      <div class="whole-card rewards" data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key%>'>
+      <% end %>
           <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_style.theme.downcase %>">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
           </div>
