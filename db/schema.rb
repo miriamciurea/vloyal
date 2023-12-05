@@ -53,7 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_111322) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.json "menu"
-    t.index ["card_style_id"], name: "index_brands_on_card_style_id"
     t.index ["category_id"], name: "index_brands_on_category_id"
     t.index ["reward_type_id"], name: "index_brands_on_reward_type_id"
     t.index ["user_id"], name: "index_brands_on_user_id"

@@ -26,7 +26,7 @@ puts "Creating categories..."
 
 coffee_shop = { name: "Coffee Shop", file_name: 'bean.svg' }
 hairdresser = { name: "Hairdresser", file_name: 'scissors.svg' }
-sandwich_shop = { name: "Sandwich Shop", file_name: 'food.png'  }
+sandwich_shop = { name: "Sandwich Shop", file_name: 'food.png' }
 
 [coffee_shop, hairdresser, sandwich_shop].each do |attributes|
   category = Category.create!(attributes)
@@ -55,7 +55,6 @@ images = []
 nando_sandwich_bar = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
   reward_type_id: RewardType.find_by(name: "Sandwich").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Nando Sandwich Bar",
   description: "Francesco and Giovanni in the context have loaded it up with “Goodies”. Better, “Mamma’s Goodies.",
   menu: [
@@ -75,7 +74,7 @@ nando_sandwich_bar = {
       name: "Authentic Sicilian Cannoli",
       price: "£4.5"
     }
-].to_json,
+  ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=nando+sandwich+bar&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
   rating: 4
 }
@@ -84,7 +83,6 @@ images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploa
 artist_cafe_london = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
   reward_type_id: RewardType.find_by(name: "Sandwich").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Artist Cafe London",
   description: "We are a small independent cafe in the heart of Shoreditch. We serve a range of hot and cold drinks, sandwiches, salads and cakes.",
   menu: [
@@ -316,7 +314,7 @@ legacy_cafe = {
 
 images << { file: URI.open('https://charlieontravel.com/wp-content/uploads/2019/08/Flour-Pot-Bakery-Best-Coffee-Shops-Brighton-570x410.jpg'), filename: 'legacy.jpg' }
 
-card_styles = [{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
+card_styles = [{ theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
 {theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
 {theme: 'Elegant' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
 {theme: 'Contemporary' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
@@ -329,7 +327,7 @@ card_styles = [{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disne
   brand.save!
   puts "Created #{brand.name}"
 
-  card_style = CardStyle.new({theme: card_styles[index][:theme], max_stamps: 8, brand_id: brand.id})
+  card_style = CardStyle.new({ theme: card_styles[index][:theme], max_stamps: 8, brand_id: brand.id })
   if card_styles[index][:local]
     style_image = File.open(card_styles[index][:local])
   else
