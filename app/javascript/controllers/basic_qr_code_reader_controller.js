@@ -79,7 +79,7 @@ export default class extends Controller {
     this.stampTargets.forEach((stamp, index) => {
       setTimeout(() => {
         stamp.classList.add('reward')
-      }, index * 300);
+      }, index * 200);
     })
   }
 
