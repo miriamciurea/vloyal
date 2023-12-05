@@ -60,9 +60,9 @@ export default class extends Controller {
             setTimeout(() => {
               stampTarget.classList.add('stamped')
               // check if it is last stamp
-              // console.log(this.stampTargets[7]);
-              if (this.stampTargets[7].contains("stamped")) {
-                this.#rewardAnimation(this.stampTargets)
+              let stampArray = Array.from(this.stampTargets).map(stamp => stamp.classList.toString())
+              if (stampArray[stampArray.length - 1].includes("stamped")) {
+                this.#rewardAnimation()
               }
               this.locked = false
             }, 300);
@@ -75,8 +75,12 @@ export default class extends Controller {
     // this.resultTarget.textContent = result.text
   }
 
-  #rewardAnimation(stamps) {
-
+  #rewardAnimation() {
+    this.stampTargets.forEach((stamp, index) => {
+      setTimeout(() => {
+        stamp.classList.add('reward')
+      }, index * 300);
+    })
   }
 
   // test(e) {
