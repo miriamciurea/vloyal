@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-
 // Connects to data-controller="check-icon"
 export default class extends Controller {
   connect() {

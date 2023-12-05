@@ -65,7 +65,6 @@ export default class extends Controller {
     this.element.innerHTML = `Error: ${error.message}`;
   }
 
-
   search() {
     if (this.inputTarget.value !== '') {
       fetch(`${this.formTarget.action}?query=${this.inputTarget.value}`, {
