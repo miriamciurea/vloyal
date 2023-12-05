@@ -84,7 +84,7 @@ class BrandsController < ApplicationController
 
     if @card
       @card.stamps += 1
-      if @card.stamps == @card.brand.card_style.max_stamps
+      if @card.stamps == @card.brand.card_styles[0].max_stamps
         # add reward
         @reward = Reward.new(card_id: @card.id)
         @reward.save
@@ -116,7 +116,7 @@ class BrandsController < ApplicationController
     @reward_type = RewardType.new
     @location = Location.new
     @category = Category.new
-    @card_style = CardStyle.new
+    @card_styles = CardStyle.new
   end
 
   def create
@@ -132,6 +132,6 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id)
+    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :reward_type_id, :user_id)
   end
 end

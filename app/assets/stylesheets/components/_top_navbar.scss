@@ -18,8 +18,12 @@ $nav-height: 86px;
     padding-top: 6px;
     padding-bottom: 6px;
     width: 40px;
+    height: 40px;
     background: #F0F0F3;
     box-shadow: 4px 4px 12px 0px rgba(187, 195, 206, 0.60), -4px -4px 12px 0px rgba(253, 255, 255, 0.80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .fa-gear {
       color: #546E7A;
     }
@@ -43,7 +47,6 @@ $nav-height: 86px;
     }
   }
 }
-
 
 .top-nav-spacer {
   height: $nav-height + 40px;

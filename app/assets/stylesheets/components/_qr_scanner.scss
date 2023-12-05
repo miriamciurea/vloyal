@@ -70,7 +70,6 @@
   top: 0;
   left: 0;
   z-index: 10;
-  // border: 2px dashed red;
   backdrop-filter: blur(10px);
   color: #FFF;
   font-family: Montserrat;
@@ -103,10 +102,20 @@
     transform: translate(-50%, 250%);
     transition: transform .3s ease;
     transition-delay: .3s;
+    .stamp-area {
+      column-gap: 16px;
+    }
     .stamp {
       animation: addStamp;
       animation-duration: .6s;
       animation-play-state: paused;
+      animation-name: addStamp;
+    }
+    .reward {
+      animation: reward;
+      animation-duration: .2s;
+      animation-name: reward;
+      animation-delay: .6s;
     }
   }
   &.show {
@@ -130,4 +139,22 @@
   100% {
     transform: scale(1);
   }
+}
+
+@keyframes reward {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+  // 75% {
+  //   transform: scale(0.8);
+  // }
+  // 100% {
+  //   transform: scale(1);
+  // }
 }

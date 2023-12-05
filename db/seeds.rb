@@ -46,20 +46,6 @@ sandwich = { name: "Sandwich" }
   puts "Created #{reward_type.name}"
 end
 
-# CardStyles
-
-puts "Creating card styles..."
-
-classic = { theme: "Classic", max_stamps: 8 }
-contemporary = { theme: "Contemporary", max_stamps: 8 }
-elegant = { theme: "Elegant", max_stamps: 8 }
-minimalist = { theme: "Minimalist", max_stamps: 8 }
-
-[classic, contemporary, elegant, minimalist].each do |attributes|
-  card_style = CardStyle.create!(attributes)
-  puts "Created #{card_style.theme}"
-end
-
 # Brands
 
 puts "Creating brands..."
@@ -128,7 +114,6 @@ images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploa
 nutmeg_n_koffee = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Nutmeg n' Koffee",
   description: "Nutmeg n' Koffee is a mobile coffee company we sell organic/free trade coffees from around the world. Our products are sold from a 1956 Citroen Hy Van",
   menu: [
@@ -170,7 +155,6 @@ images << { file: URI.open('https://balancecoffee.co.uk/cdn/shop/articles/coffee
 coffee_and_cates = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Contemporary").id,
   name: "Coffee & Cates",
   description: "Coffee Shop within a historic Victorian Stables Building. Original features mixed with a vibrant artist look.",
   menu: [
@@ -212,7 +196,6 @@ images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploa
 fabrique = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Elegant").id,
   name: "Fabrique",
   description: "Our concept is simple, but far from the ordinary: only fresh, natural ingredients and traditional methods are used to make our artisanal sourdough and pastries.",
   menu: [
@@ -254,7 +237,6 @@ images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploa
 rise_and_bloom = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Minimalist").id,
   name: "Rise & Bloom",
   description: "Modern, minimalist espresso bar specialising in carefully sourced, single origin coffee. Handcrafted breads, pastries and cakes.",
   menu: [
@@ -296,7 +278,6 @@ images << { file: URI.open('https://brewround.com/wp-content/uploads/2020/07/ind
 legacy_cafe = {
   category_id: Category.find_by(name: "Coffee Shop").id,
   reward_type_id: RewardType.find_by(name: "Coffee").id,
-  card_style_id: CardStyle.find_by(theme: "Classic").id,
   name: "Legacy Cafe",
   description: "We offer specialty coffee as well as juices and smoothies made to order from fresh ingredients.",
   menu: [
@@ -335,14 +316,29 @@ legacy_cafe = {
 
 images << { file: URI.open('https://charlieontravel.com/wp-content/uploads/2019/08/Flour-Pot-Bakery-Best-Coffee-Shops-Brighton-570x410.jpg'), filename: 'legacy.jpg' }
 
+card_styles = [{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
+{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
+{theme: 'Elegant' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
+{theme: 'Contemporary' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
+{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'}]
+
 [nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
   brand = Brand.new(attributes)
   image = images[index]
   brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/jpeg")
   brand.save!
   puts "Created #{brand.name}"
-end
 
+  card_style = CardStyle.new({theme: card_styles[index][:theme], max_stamps: 8, brand_id: brand.id})
+  if card_styles[index][:local]
+    style_image = File.open(card_styles[index][:local])
+  else
+    style_image = URI.open(card_styles[index][:url])
+  end
+  card_style.background.attach(io: style_image, filename: "goooooo.jpg", content_type: 'img/jpeg')
+  card_style.save
+  puts "Created #{card_style}"
+end
 # Locations
 
 puts "Creating locations..."

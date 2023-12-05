@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_111322) do
   create_table "brands", force: :cascade do |t|
     t.bigint "reward_type_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "card_style_id", null: false
     t.string "name"
     t.text "description"
     t.string "website"
@@ -63,8 +62,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_111322) do
   create_table "card_styles", force: :cascade do |t|
     t.string "theme"
     t.integer "max_stamps"
+    t.bigint "brand_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_card_styles_on_brand_id"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -128,10 +129,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_111322) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "brands", "card_styles"
   add_foreign_key "brands", "categories"
   add_foreign_key "brands", "reward_types"
   add_foreign_key "brands", "users"
+  add_foreign_key "card_styles", "brands"
   add_foreign_key "cards", "brands"
   add_foreign_key "cards", "users"
   add_foreign_key "locations", "brands"

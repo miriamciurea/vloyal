@@ -1,40 +1,36 @@
-    <% @cards.each do |card| %>
-      <div class="loyalty-card">
-        <% stamps = card.stamps %>
-        <% card.card_style.max_stamps.times do %>
-          <div class="stamp-area">
-            <p>stamp area: <%= stamps.positive? ? 'stamped' :  'empty' %> </p>
-          </div>
-          <% stamps -= 1%>
-        <% end %>
+<% @cards.each do |card| %>
+  <div class="loyalty-card">
+    <% stamps = card.stamps %>
+    <% card.card_styles[0].max_stamps.times do %>
+      <div class="stamp-area">
+        <p>stamp area: <%= stamps.positive? ? 'stamped' :  'empty' %> </p>
       </div>
+      <% stamps -= 1%>
     <% end %>
-
-
+  </div>
+<% end %>
 
  <% @cards.each do |card| %>
-                  <div class="loyalty-card-back">
+<div class="loyalty-card-back">
 
-                    <div class="brand-name">
-                      <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
-                    </div>
+  <div class="brand-name">
+    <p><i class="fa-regular fa-circle"></i> <%= card.brand.name %></p>
+  </div>
 
-                    <% stamps = card.stamps %>
-                    <% card.card_style.max_stamps.times do %>
+  <% stamps = card.stamps %>
+  <% card.card_styles[0].max_stamps.times do %>
 
-                      <div class="stamp-area">
-                        <% if stamps.positive? %>
-                          <i class="fa-regular fa-circle-xmark"></i>
-                        <% else %>
-                          <i class="fa-regular fa-circle"></i>
-                        <% end %>
+    <div class="stamp-area">
+      <% if stamps.positive? %>
+        <i class="fa-regular fa-circle-xmark"></i>
+      <% else %>
+        <i class="fa-regular fa-circle"></i>
+      <% end %>
 
+      <%# <p><%= stamps.positive? ? <i class="fa-regular fa-circle-xmark"></i>.html_safe :  <i class="fa-regular fa-circle"></i>.html_safe %>
+    </div>
 
-
-                        <%# <p><%= stamps.positive? ? <i class="fa-regular fa-circle-xmark"></i>.html_safe :  <i class="fa-regular fa-circle"></i>.html_safe %>
-                      </div>
-
-                      <% stamps -= 1%>
-                    <% end %>
-                  </div>
-                <% end %>
+    <% stamps -= 1%>
+  <% end %>
+</div>
+<% end %>
