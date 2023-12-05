@@ -12,6 +12,27 @@
 .profile-boxes-container {
   width: 92%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 6%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.profile-info-box {
+  color: white;
+  width: 48%;
+  padding: 3%;
+  margin-bottom: 4%;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  background: #FFA4A4;
+  box-shadow: 5px 5px 10px 0px rgba(174, 174, 192, 0.10), 2px 2px 4px 0px rgba(255, 255, 255, 0.40) inset, -2px -2px 4px 0px rgba(0, 0, 0, 0.08) inset;
+  .profile-box-number {
+    height: 30%;
+    margin-left: 6%;
+    margin-bottom: 1vh;
+    font-size: 2em;
+    font-weight: 500;
+  }
 }
