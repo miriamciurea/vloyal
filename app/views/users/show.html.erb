@@ -1,4 +1,18 @@
 
+<%# Business - Add below into partial, render in using if statement %>
+
+<%= link_to "add my brand", new_user_brand_path(params[:id]) %>
+
+<% @brands.each do |brand| %>
+<%= brand.name %>
+<br>
+ <%= link_to "edit my brand", edit_brand_path(brand) %>
+ <br>
+ <br>
+<% end %>
+
+<%# User - Add below into partial, render in using if statement %>
+
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <h3>Your places</h3>
