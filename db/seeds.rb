@@ -377,7 +377,7 @@ card_styles = [{theme: 'Gold' , url: 'https://static.wikia.nocookie.net/disney/i
 {theme: 'Space-grey' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: 'card-themes/space-grey-card.png'},
 {theme: 'Coral' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: 'card-themes/coral-card.png'}]
 
-[nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe, nando_sandwich_bar, artist_cafe_london].each_with_index do |attributes, index|
+[nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
   brand = Brand.new(attributes)
   image = images[index]
   brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/png")
