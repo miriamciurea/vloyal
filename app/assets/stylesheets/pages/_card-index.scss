@@ -80,10 +80,10 @@ transform: translate(-50%, -50%);
 // }
 
 .brand-name {
-  margin-left: 9px;
-  margin-top: 6px;
+  margin-left: 14px;
+  margin-top: 12px;
   font-family: Lexend Exa;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 23px;
   letter-spacing: 0em;
@@ -96,24 +96,23 @@ transform: translate(-50%, -50%);
     height: 56px;
     text-align: center;
     line-height: 56px;
-    color: #A3ADB299;
+    color: #6C7276;
   }
   .card-front-logo-circle{
     width: 36px;
     height: 36px;
-    color: #A3ADB299;
+    color: #6C7276;
     border-radius: 50%;
     // border: solid 2px #A3ADB299;
     .inner-logo{
       width: 40%;
       height: 40%;
-      color: #A3ADB299;
+      color: #6C7276;
       margin-left: 30%;
       margin-top: 17%;
-      opacity: .4;    }
+      opacity: 60%;    }
   }
   p {
-    margin-left: 2%;
     margin-top: 2%;
   }
 }
@@ -122,8 +121,9 @@ transform: translate(-50%, -50%);
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
-  padding-left: 9px;
-  padding-right: 9px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 3%;
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 400;
