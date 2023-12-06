@@ -8,7 +8,7 @@
         <% if reward.qrcode.key.present? %>
         <div data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key%>'>
         <% end %>
-          <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_styles[0].theme.downcase %>">
+          <div class="reward-brand-name px-3 pt-3" style="background-image: url('<%= cl_image_path reward.card.brand.card_styles[0].background.key %>'); background-size: cover; border-radius: 20px;">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
           </div>
           <div class="reward-message p-3 d-flex justify-content-between">
