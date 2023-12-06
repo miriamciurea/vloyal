@@ -314,18 +314,20 @@ legacy_cafe = {
 
 images << { file: URI.open('https://charlieontravel.com/wp-content/uploads/2019/08/Flour-Pot-Bakery-Best-Coffee-Shops-Brighton-570x410.jpg'), filename: 'legacy.jpg' }
 
-card_styles = [
-{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
-{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
-{theme: 'Elegant', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
-{theme: 'Contemporary', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
-{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''}
-]
+card_styles = [{theme: 'Gold' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/gold-card.png'},
+{theme: 'Red' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/red-card.png'},
+{theme: 'Sky-blue' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/sky-blue-card.png'},
+{theme: 'Grass' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/grass-card.png'},
+{theme: 'Navy-blue' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/navy-blue-card.png'},
+{theme: 'Purple' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/purple-card.png'},
+{theme: 'Silver' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/silver-card.png'},
+{theme: 'Space-grey' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/space-grey-card.png'},
+{theme: 'Coral' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: '/card-themes/coral-card.png'}]
 
 [nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
   brand = Brand.new(attributes)
   image = images[index]
-  brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/jpeg")
+  brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/png")
   brand.save!
   puts "Created #{brand.name}"
 
@@ -335,7 +337,7 @@ card_styles = [
   else
     style_image = URI.open(card_styles[index][:url])
   end
-  card_style.background.attach(io: style_image, filename: "goooooo.jpg", content_type: 'img/jpeg')
+  card_style.background.attach(io: style_image, filename: "card-style.png", content_type: 'img/png')
   card_style.save
   puts "Created #{card_style}"
 end
