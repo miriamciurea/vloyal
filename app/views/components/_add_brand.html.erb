@@ -1,16 +1,26 @@
+<div class="container" style='margin-bottom: 100px'>
+
+
 <%= simple_form_for (@brand) do |f| %>
   <%= f.input :name %>
-  <%= f.input :menu, placeholder: "List your courses here" %>
+  <%= f.input :menu, placeholder: "List your menu here" %>
   <%= f.input :website %>
   <%= f.input :description %>
-  <%= f.input :rating, as: :integer %>
+  <%# f.input :rating, as: :integer ???   %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.association :reward_type %>
-  <%= f.association :card_styles[0], label_method: :theme %>
   <%= f.association :category, label_method: :name %>
-  <%= f.submit class: "btn" %>
+  <%= f.association :reward_type %>
+  <%# f.association :card_style, label_method: :theme %>
+  <%= f.simple_fields_for :locations do |locations_form| %>
+      <%= locations_form.input :address,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <%= locations_form.input :phone_number %>
+      <%= locations_form.input :_destroy, as: :boolean %>
+  <% end %>
+  <%= f.submit %>
 <% end %>
-<br>
-<br>
-<br>
-<br>
+
+
+</div>

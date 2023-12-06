@@ -9,17 +9,17 @@ class BrandsController < ApplicationController
 
     if params[:query].present?
       sql_subquery = <<~SQL
-        brands.name @@ :query
-        OR brands.menu @@ :query
-        OR categories.name @@ :query
+        brands.name ILIKE :query
+        OR brands.menu::text ILIKE :query
+        OR categories.name ILIKE :query
       SQL
-      @brands = @brands.joins(:category).where(sql_subquery, query: params[:query])
+      @brands = @brands.joins(:category).where(sql_subquery, query: "%#{params[:query]}%")
     end
 
     @location = [session[:lat], session[:lng]]
     respond_to do |format|
       format.html
-      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location }, formats: [:html] }
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: @location }, formats: [:html] }
     end
   end
 
@@ -50,9 +50,8 @@ class BrandsController < ApplicationController
   def show
     @locations = Location.all
     @brand = Brand.find(params[:id])
-    @location = Location.find(params[:id])
+    @location = @brand.locations.first
     @categories = Category.all
-    # @category = Category.find(params[:id])
     @page_brands = true
   end
 
@@ -113,25 +112,33 @@ class BrandsController < ApplicationController
 
   def new
     @brand = Brand.new
-    @reward_type = RewardType.new
-    @location = Location.new
-    @category = Category.new
-    @card_styles = CardStyle.new
+    @brand.locations.build
   end
 
   def create
-    brand = Brand.new(brand_params)
-    brand.user_id = params[:user_id]
+    @brand = Brand.new(brand_params)
+    @brand.user_id = current_user.id
     if @brand.save
-      redirect_to user_path(params[:user_id]), notice: "brand created successfully!"
+      redirect_to user_path(current_user), notice: "brand created successfully!"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+    @brand = Brand.find(params[:id])
+    @location = Location.new
+  end
+
+  def update
+    @brand = Brand.find(params[:id])
+    @brand.update(brand_params)
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def brand_params
-    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :reward_type_id, :user_id)
+    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id, locations_attributes: [:address, :phone_number, :_destroy, :id])
   end
 end
