@@ -15,7 +15,7 @@
 .profile-boxes-container {
   width: 92%;
   margin: auto;
-  margin-top: 6%;
+  margin-top: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -44,4 +44,20 @@
   width: 95%;
   aspect-ratio: 1;
   top: 3%;
+}
+
+#box-one {
+  background-color: #FFA4A4;
+}
+
+#box-two {
+  background-color: #546E7A;
+}
+
+#box-three {
+  background-color: #546E7A;
+}
+
+#box-four {
+  background-color: #FFA4A4;
 }
