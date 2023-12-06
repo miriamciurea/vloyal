@@ -51,6 +51,7 @@ class BrandsController < ApplicationController
     @locations = Location.all
     @brand = Brand.find(params[:id])
     @location = @brand.locations.first
+    @categories = Category.all
     @page_brands = true
   end
 
@@ -82,7 +83,7 @@ class BrandsController < ApplicationController
 
     if @card
       @card.stamps += 1
-      if @card.stamps == @card.brand.card_style.max_stamps
+      if @card.stamps == @card.brand.card_styles[0].max_stamps
         # add reward
         @reward = Reward.new(card_id: @card.id)
         @reward.save

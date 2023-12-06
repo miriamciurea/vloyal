@@ -1,6 +1,6 @@
-#classic {
+#gold {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #D0DCDD, #D0DCDD);
+  linear-gradient(0deg, #e5d060, #e5d060);
   border: 2px solid;
   border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
   box-shadow: 5px 5px 10px 0px #AEAEC01A;
@@ -8,9 +8,9 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#contemporary {
+#red {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #A4E9FF, #A4E9FF);
+  linear-gradient(0deg, #c34d4d, #c34d4d);
   border: 2px solid;
   border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
   box-shadow: 5px 5px 10px 0px #AEAEC01A;
@@ -18,9 +18,9 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#elegant {
+#sky-blue {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #424242, #424242);
+  linear-gradient(0deg, #9ae6fe, #9ae6fe);
   border: 2px solid;
   border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
   box-shadow: 5px 5px 10px 0px #AEAEC01A;
@@ -28,9 +28,9 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#minimalist {
+#grass {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #FFA4A4, #FFA4A4);
+  linear-gradient(0deg, #bff9bb, #bff9bb);
   border: 2px solid;
   border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
   box-shadow: 5px 5px 10px 0px #AEAEC01A;
@@ -38,4 +38,52 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-// <%= card.brand.card_style.theme.downcase %>
+// <%= card.brand.card_styles[0].theme.downcase %>
+#navy-blue {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #2d538b, #2d538b);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#purple {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #4a2a89, #4a2a89);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#silver {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #9ae6fe, #9ae6fe);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+
+#space-grey {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #dcdcdc, #dcdcdc);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+#coral {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #ff9e9e, #ff9e9e);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}

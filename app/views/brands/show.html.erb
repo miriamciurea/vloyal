@@ -12,15 +12,13 @@
 
   <div class="shop-info" style="">
     <div class="brand-detail my-3">
-      <h1><%= @brand.name %></h1>
-      <% if @location.present? %>
-        <div class="address">
-          <%= @location.address %>
-        </div>
-        <div class="phone">
-            <%= @location.phone_number %>
-        </div>
-      <% end %>
+      <div class="shop-address">
+        <%= @location.address %>
+      </div>
+
+      <div class="phone-num">
+      <%= @location.phone_number %>
+      </div>
     </div>
 
     <div class="brand-description my-3">
@@ -38,4 +36,45 @@
     </div>
   <% end %>
 
+
+    <div class="brand-menu my-3">
+      <h1>Menu</h1>
+      <div class="menu-list">
+        <% if @brand.category.name == "Sandwich Shop" %>
+          <% JSON.parse(@brand.menu).each do |menu| %>
+            <div class="container text-center">
+              <div class="row align-items-start menu-items">
+                <div class="col menu-icon">
+                  <i class="fa-solid fa-bread-slice"></i>
+                </div>
+                <div class="col menu-name">
+                  <%= menu["name"] %>
+                </div>
+                <div class="col menu-price">
+                  <%= menu["price"] %>
+                </div>
+                  <% end %>
+              </div>
+            </div>
+            <% else %>
+              <% JSON.parse(@brand.menu).each do |menu| %>
+                <div class="container text-center">
+                  <div class="row align-items-start menu-items">
+                    <div class="col menu-icon">
+                      <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <div class="col menu-name">
+                      <%= menu["name"] %>
+                    </div>
+                    <div class="col menu-price">
+                      <%= menu["price"] %>
+                    </div>
+                      <% end %>
+                  </div>
+                </div>
+            <% end %>
+      </div>
+    </div>
+
 </div>
+<div class="set-height-shop-show"></div>

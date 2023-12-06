@@ -3,7 +3,7 @@ import { BrowserQRCodeReader } from '@zxing/library';
 
 // Connects to data-controller="basic-qr-code-reader"
 export default class extends Controller {
-  static targets = ["resultContainer", "alert", "card"]
+  static targets = ["resultContainer", "alert", "card", "stamp"]
   static values = {
     user: Number
   }
@@ -59,6 +59,11 @@ export default class extends Controller {
             stampTarget.style.animationPlayState = 'running'
             setTimeout(() => {
               stampTarget.classList.add('stamped')
+              // check if it is last stamp
+              let stampArray = Array.from(this.stampTargets).map(stamp => stamp.classList.toString())
+              if (stampArray[stampArray.length - 1].includes("stamped")) {
+                this.#rewardAnimation()
+              }
               this.locked = false
             }, 300);
           }, 850);
@@ -68,6 +73,14 @@ export default class extends Controller {
         console.error('Error:', error);
     });
     // this.resultTarget.textContent = result.text
+  }
+
+  #rewardAnimation() {
+    this.stampTargets.forEach((stamp, index) => {
+      setTimeout(() => {
+        stamp.classList.add('reward')
+      }, index * 200);
+    })
   }
 
   // test(e) {

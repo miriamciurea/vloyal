@@ -1,4 +1,6 @@
 
+<%# Business - Add below into partial, render in using if statement %>
+
 <%= link_to "add my brand", new_user_brand_path(params[:id]) %>
 
 <% @brands.each do |brand| %>
@@ -8,3 +10,21 @@
  <br>
  <br>
 <% end %>
+
+<%# User - Add below into partial, render in using if statement %>
+
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<h3>Your places</h3>
+
+<ul>
+  <% @cards.each do |card| %>
+    <li><%= card.brand.name %></li>
+  <% end %>
+</ul>
+
+<h3>Your Spending</h3>
+<% @cards.each do |card| %>
+    <% total_purchases = card.stamps + (card.rewards.count * 8) %>
+    <p> You have made <%= total_purchases %> purchases from <%= card.brand.name %>.</p>
+  <% end %>

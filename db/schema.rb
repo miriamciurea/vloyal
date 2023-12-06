@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_162253) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_111322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,16 +45,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_162253) do
   create_table "brands", force: :cascade do |t|
     t.bigint "reward_type_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "card_style_id", null: false
     t.string "name"
     t.text "description"
-    t.text "menu"
     t.string "website"
     t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["card_style_id"], name: "index_brands_on_card_style_id"
+    t.json "menu"
     t.index ["category_id"], name: "index_brands_on_category_id"
     t.index ["reward_type_id"], name: "index_brands_on_reward_type_id"
     t.index ["user_id"], name: "index_brands_on_user_id"
@@ -63,8 +61,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_162253) do
   create_table "card_styles", force: :cascade do |t|
     t.string "theme"
     t.integer "max_stamps"
+    t.bigint "brand_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_card_styles_on_brand_id"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -128,10 +128,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_162253) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "brands", "card_styles"
   add_foreign_key "brands", "categories"
   add_foreign_key "brands", "reward_types"
   add_foreign_key "brands", "users"
+  add_foreign_key "card_styles", "brands"
   add_foreign_key "cards", "brands"
   add_foreign_key "cards", "users"
   add_foreign_key "locations", "brands"
