@@ -9,17 +9,17 @@ class BrandsController < ApplicationController
 
     if params[:query].present?
       sql_subquery = <<~SQL
-        brands.name @@ :query
-        OR brands.menu @@ :query
-        OR categories.name @@ :query
+        brands.name ILIKE :query
+        OR brands.menu::text ILIKE :query
+        OR categories.name ILIKE :query
       SQL
-      @brands = @brands.joins(:category).where(sql_subquery, query: params[:query])
+      @brands = @brands.joins(:category).where(sql_subquery, query: "%#{params[:query]}%")
     end
 
     @location = [session[:lat], session[:lng]]
     respond_to do |format|
       format.html
-      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: location }, formats: [:html] }
+      format.text { render partial: "brands/list", locals: {brands: @brands, user_location: @location }, formats: [:html] }
     end
   end
 
