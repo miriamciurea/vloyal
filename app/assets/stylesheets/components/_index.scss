@@ -11,6 +11,7 @@
 @import "top_navbar";
 @import "login_prompt";
 @import "qr_scanner";
+@import "address_autocomplete";
 
 body {
   background-color: $vbody-color;

@@ -50,7 +50,8 @@ class BrandsController < ApplicationController
   def show
     @locations = Location.all
     @brand = Brand.find(params[:id])
-    @location = Location.find(params[:id])
+    @location = @brand.locations.first
+    @categories = Category.all
     @page_brands = true
   end
 
@@ -111,25 +112,33 @@ class BrandsController < ApplicationController
 
   def new
     @brand = Brand.new
-    @reward_type = RewardType.new
-    @location = Location.new
-    @category = Category.new
-    @card_styles = CardStyle.new
+    @brand.locations.build
   end
 
   def create
-    brand = Brand.new(brand_params)
-    brand.user_id = params[:user_id]
+    @brand = Brand.new(brand_params)
+    @brand.user_id = current_user.id
     if @brand.save
-      redirect_to user_path(params[:user_id]), notice: "brand created successfully!"
+      redirect_to user_path(current_user), notice: "brand created successfully!"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+    @brand = Brand.find(params[:id])
+    @location = Location.new
+  end
+
+  def update
+    @brand = Brand.find(params[:id])
+    @brand.update(brand_params)
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def brand_params
-    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :reward_type_id, :user_id)
+    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id, locations_attributes: [:address, :phone_number, :_destroy, :id])
   end
 end
