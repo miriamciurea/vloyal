@@ -113,12 +113,17 @@ class BrandsController < ApplicationController
   def new
     @brand = Brand.new
     @brand.locations.build
+    @themes = ['red', 'gold', 'navy-blue', 'sky-blue', 'grass', 'space-grey', 'coral', 'silver']
   end
 
   def create
     @brand = Brand.new(brand_params)
     @brand.user_id = current_user.id
-    if @brand.save
+    @location = Location.new(brand_params[:locations_attributes]['0'])
+    @style = CardStyle.new({theme: params[:brand][:card_style][:theme], background: params[:brand][:card_style][:background], max_stamps: 8})
+    @location.brand = @brand
+    @style.brand = @brand
+    if @brand.save && @location.save && @style.save
       redirect_to user_path(current_user), notice: "brand created successfully!"
     else
       render :new, status: :unprocessable_entity
@@ -139,6 +144,6 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id, locations_attributes: [:address, :phone_number, :_destroy, :id])
+    params.require(:brand).permit(:category_id, :name, :description, :menu, :website, :rating, :card_style_id, :reward_type_id, :user_id, :photo, locations_attributes: [:address, :phone_number])
   end
 end

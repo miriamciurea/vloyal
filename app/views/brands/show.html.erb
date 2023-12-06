@@ -22,14 +22,8 @@
     </div>
 
     <div class="brand-description my-3">
-      <%= @brand.description %>
+      <p class='w-100'><%= @brand.description %></p>
     </div>
-
-    <div class="brand-menu my-3">
-      <h1>Menu</h1>
-      <%= @brand.menu %>
-    </div>
-
   <% if @location.present? %>
     <div class="direction-link">
       <%= link_to "Direction", map_brands_path(address: @location.address), class: 'direction-link-button' %>

@@ -1,4 +1,4 @@
 class CardStyle < ApplicationRecord
-  has_many :brands, dependent: :destroy
+  belongs_to :brand
   has_one_attached :background
 end
