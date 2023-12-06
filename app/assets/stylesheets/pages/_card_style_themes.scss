@@ -1,4 +1,4 @@
-#gold {
+.loyalty-card .loyalty-card-back.gold {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #e5d060, #e5d060);
   border: 2px solid;
@@ -8,7 +8,7 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#red {
+.loyalty-card .loyalty-card-back.red {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #c34d4d, #c34d4d);
   border: 2px solid;
@@ -18,7 +18,7 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#sky-blue {
+.loyalty-card .loyalty-card-back.sky-blue {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #9ae6fe, #9ae6fe);
   border: 2px solid;
@@ -28,7 +28,7 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#grass {
+.loyalty-card .loyalty-card-back.grass {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #bff9bb, #bff9bb);
   border: 2px solid;
@@ -39,7 +39,7 @@
 }
 
 // <%= card.brand.card_styles[0].theme.downcase %>
-#navy-blue {
+.loyalty-card .loyalty-card-back.navy-blue {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #2d538b, #2d538b);
   border: 2px solid;
@@ -49,7 +49,7 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#purple {
+.loyalty-card .loyalty-card-back.purple {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #4a2a89, #4a2a89);
   border: 2px solid;
@@ -59,17 +59,7 @@
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
 
-#silver {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-  linear-gradient(0deg, #9ae6fe, #9ae6fe);
-  border: 2px solid;
-  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow: 5px 5px 10px 0px #AEAEC01A;
-  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
-  box-shadow: -2px -2px 4px 0px #00000014 inset;
-}
-
-#space-grey {
+.loyalty-card .loyalty-card-back.silver {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #dcdcdc, #dcdcdc);
   border: 2px solid;
@@ -78,7 +68,17 @@
   box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
   box-shadow: -2px -2px 4px 0px #00000014 inset;
 }
-#coral {
+
+.loyalty-card .loyalty-card-back.space-grey {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
+  linear-gradient(0deg, #555555, #555555);
+  border: 2px solid;
+  border-image-source: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 5px 5px 10px 0px #AEAEC01A;
+  box-shadow: 2px 2px 4px 0px #FFFFFF66 inset;
+  box-shadow: -2px -2px 4px 0px #00000014 inset;
+}
+.loyalty-card .loyalty-card-back.coral {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #ff9e9e, #ff9e9e);
   border: 2px solid;

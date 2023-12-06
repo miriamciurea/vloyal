@@ -85,14 +85,23 @@
     left: 0;
     padding: 8px 20px;
     font-size: 20px;
+    i, p {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+    }
   }
 
-  .distance {
+  .distance p {
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 1000;
     padding: 8px 20px;
+    margin-bottom: 0;
   }
 }
 
