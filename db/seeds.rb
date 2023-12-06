@@ -56,18 +56,18 @@ nando_sandwich_bar = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
   reward_type_id: RewardType.find_by(name: "Sandwich").id,
   name: "Nando Sandwich Bar",
-  description: "Francesco and Giovanni in the context have loaded it up with “Goodies”. Better, “Mamma’s Goodies.",
+  description: "Francesco and Giovanni in the context have loaded it up with “Goodies”. Better, “Mammas Goodies.",
   menu: [
     {
-      name: "porchetta",
+      name: "Porchetta",
       price: "£3.0"
     },
     {
-      name: " Mediterranean sandwich",
+      name: " Mediterranean Sandwich",
       price: "£3.5"
     },
     {
-      name: "new panino",
+      name: "Panini",
       price: "£4.0"
     },
     {
@@ -124,15 +124,15 @@ nutmeg_n_koffee = {
       price: "£3.5"
     },
     {
-      name: "Capacinno",
+      name: "Cappuccino",
       price: "£4.0"
     },
     {
-      name: "Expresso",
+      name: "Espresso",
       price: "£4.5"
     },
     {
-      name: "Cafe Latte",
+      name: "Latte",
       price: "£5.0"
     },
     {
@@ -165,15 +165,15 @@ coffee_and_cates = {
       price: "£3.5"
     },
     {
-      name: "Capacinno",
+      name: "Cappuccino",
       price: "£4.0"
     },
     {
-      name: "Expresso",
+      name: "Espresso",
       price: "£4.5"
     },
     {
-      name: "Cafe Latte",
+      name: "Latte",
       price: "£5.0"
     },
     {
@@ -206,15 +206,15 @@ fabrique = {
       price: "£3.5"
     },
     {
-      name: "Capacinno",
+      name: "Cappuccino",
       price: "£4.0"
     },
     {
-      name: "Expresso",
+      name: "Espresso",
       price: "£4.5"
     },
     {
-      name: "Cafe Latte",
+      name: "Latte",
       price: "£5.0"
     },
     {
@@ -247,15 +247,15 @@ rise_and_bloom = {
       price: "£3.5"
     },
     {
-      name: "Capacinno",
+      name: "Cappuccino",
       price: "£4.0"
     },
     {
-      name: "Expresso",
+      name: "Espresso",
       price: "£4.5"
     },
     {
-      name: "Cafe Latte",
+      name: "Latte",
       price: "£5.0"
     },
     {
@@ -288,15 +288,15 @@ legacy_cafe = {
       price: "£3.5"
     },
     {
-      name: "Capacinno",
+      name: "Cappuccino",
       price: "£4.0"
     },
     {
-      name: "Expresso",
+      name: "Espresso",
       price: "£4.5"
     },
     {
-      name: "Cafe Latte",
+      name: "Latte",
       price: "£5.0"
     },
     {
