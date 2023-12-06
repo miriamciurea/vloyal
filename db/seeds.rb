@@ -337,7 +337,7 @@ card_styles = [{theme: 'Gold' , url: 'https://static.wikia.nocookie.net/disney/i
   else
     style_image = URI.open(card_styles[index][:url])
   end
-  card_style.background.attach(io: style_image, filename: "card-style.png", content_type: 'img/png')
+  card_style.background.attach(io: style_image, filename: "card-style.png", content_type: 'image/png')
   card_style.save
   puts "Created #{card_style}"
 end
