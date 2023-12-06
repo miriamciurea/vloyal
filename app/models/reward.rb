@@ -6,7 +6,7 @@ class Reward < ApplicationRecord
 
   def generate_qrcode
     # Get the host
-    host = Rails.application.config.action_controller.default_url_options[:host]
+    host = 'https://vloyal-9cfecae07662.herokuapp.com/'
     reward_id = self.id
     p "#{host}/rewards/#{reward_id}"
     # Create the QRCode object
