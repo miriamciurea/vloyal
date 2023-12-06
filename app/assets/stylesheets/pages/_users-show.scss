@@ -1,6 +1,9 @@
 .profile-page-heading {
   width: 92%;
   margin: auto;
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .general-info {
@@ -35,4 +38,10 @@
     font-size: 2em;
     font-weight: 500;
   }
+}
+
+.profile-clicked {
+  width: 95%;
+  aspect-ratio: 1;
+  top: 3%;
 }
