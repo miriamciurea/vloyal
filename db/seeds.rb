@@ -442,6 +442,7 @@ legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
     puts "Created #{card.id}"
     puts "Creating rewards..."
     reward = Reward.create!(card:)
+    reward.generate_qrcode
     puts "Created #{reward.id}"
   end
 end
