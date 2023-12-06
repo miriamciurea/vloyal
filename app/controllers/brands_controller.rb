@@ -51,6 +51,8 @@ class BrandsController < ApplicationController
     @locations = Location.all
     @brand = Brand.find(params[:id])
     @location = Location.find(params[:id])
+    @categories = Category.all
+    # @category = Category.find(params[:id])
     @page_brands = true
   end
 
