@@ -1,3 +1,6 @@
+<div class="container" style='margin-bottom: 100px'>
+
+
 <%= simple_form_for (@brand) do |f| %>
   <%= f.input :name %>
   <%= f.input :menu, placeholder: "List your menu here" %>
@@ -7,7 +10,7 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.association :category, label_method: :name %>
   <%= f.association :reward_type %>
-  <%= f.association :card_style, label_method: :theme %>
+  <%# f.association :card_style, label_method: :theme %>
   <%= f.simple_fields_for :locations do |locations_form| %>
       <%= locations_form.input :address,
         input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
@@ -18,11 +21,6 @@
   <% end %>
   <%= f.submit %>
 <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+</div>
