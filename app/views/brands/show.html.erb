@@ -8,6 +8,9 @@
 
   <div class="shop-info" style="">
     <div class="brand-detail my-3">
+      <div class="brand-name">
+        <h1><%= @brand.name %></h1>
+      </div>
       <div class="shop-address">
         <%= @location.address %>
       </div>
@@ -21,10 +24,10 @@
       <%= @brand.description %>
     </div>
 
-    <div class="brand-menu my-3">
+    <%# <div class="brand-menu my-3">
       <h1>Menu</h1>
-      <%= @brand.menu %>
-    </div>
+
+    </div> %>
 
   <div class="direction-link">
     <%= link_to "Direction", map_brands_path(address: @location.address), class: 'direction-link-button' %>

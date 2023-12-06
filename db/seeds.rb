@@ -52,6 +52,59 @@ puts "Creating brands..."
 
 images = []
 
+# willow_hair = {
+#   category_id: Category.find_by(name: "Hairdresser").id,
+#   reward_type_id: RewardType.find_by(name: "Haircut").id,
+#   name: "Willow Hair",
+#   description: "Willow Hair is a hairdressing salon which has been established in the heart of Highgate for 20 years. Revered as a sanctuary for clients to relax and experience quality hairdressing delivered by a team of expert hairdressers providing, cutting and styling, colour services including balayage and highlights plus bond and tape hair extensions.",
+#   menu: [
+#     {
+#       name: "Cut & Blow Dry",
+#       price: "£50.0"
+#     },
+#     {
+#       name: "Hair Up Deluxe",
+#       price: "£60.0"
+#     },
+#     {
+#       name: "Balayage",
+#       price: "£70.0"
+#     },
+#     {
+#       name: "Highlights",
+#       price: "£80.0"
+#     }
+#   ].to_json,
+#   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=willow+hair+highgate&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
+#   rating: 5
+# }
+# images << { file: URI.open('https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'willow.jpg' }
+
+# thirty_saloon = {
+#   category_id: Category.find_by(name: "Hairdresser").id,
+#   reward_type_id: RewardType.find_by(name: "Haircut").id,
+#   name: "3thirty Saloon",
+#   description:"Welcome to 3thirty Salon, award winning for 'Best Afro Hair Salon London 2015' followed by 'Most Wanted Salon London 2019'. Here we specialise in the fine art of hair styling, cutting, colouring, connoisseurs of curly hair and afro hair specialist using the latest techniques from balayage, ombre, highlights, free hand highlights to all over bleach and speciality treatments on all hair textures, We pride ourselves as one of the UK’s leading afro hairdressers and natural curl specialist, our unique collective of talented stylists allows us to be at the very forefront delivering diverse hairdressing with huge talents to working with all types of hair textures from European, Afro natural hair to Asian.",
+#   menu: [
+#     {
+#       name: "Short Cuts",
+#       price: "£50.0"
+#     },
+#     {
+#       name: "Flat Iron Tong",
+#       price: "£60.0"
+#     },
+#     {
+#       name: "Curly Perm",
+#       price: "£70.0"
+#     }
+#   ].to_json,
+#   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=3thirty+saloon&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
+#   rating: 4
+# }
+
+# images << { file: URI.open('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: '3thirty.jpg' }
+
 nando_sandwich_bar = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
   reward_type_id: RewardType.find_by(name: "Sandwich").id,
@@ -78,7 +131,7 @@ nando_sandwich_bar = {
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=nando+sandwich+bar&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
   rating: 4
 }
-images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploads/2018/09/nafinia-putra-Kwdp-0pok-I-unsplash-600x400.jpg'), filename: 'nando.jpg' }
+images << { file: URI.open('https://media.istockphoto.com/id/175227656/photo/sandwich-with-prosciutto.jpg?s=612x612&w=0&k=20&c=FKtWD9DJkBiMFRUMtgukYCBIfY8glSFHKCOixr8L5pw='), filename: 'nando.jpg' }
 
 artist_cafe_london = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
@@ -107,7 +160,7 @@ artist_cafe_london = {
   rating: 4
 }
 
-images << { file: URI.open('https://www.countryandtownhouse.com/wp-content/uploads/2018/09/nafinia-putra-Kwdp-0pok-I-unsplash-600x400.jpg'), filename: 'artist.jpg' }
+images << { file: URI.open('https://plus.unsplash.com/premium_photo-1661306459481-5d62a5650776?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'artist.jpg' }
 
 nutmeg_n_koffee = {
   category_id: Category.find_by(name: "Coffee Shop").id,
@@ -344,7 +397,9 @@ end
 # Locations
 
 puts "Creating locations..."
-nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
+# willow_hair = { brand_id: Brand.find_by(name: "Willow Hair").id, address: "1 Highgate High St, Highgate, London N6 5JR", phone_number: "020 8340 1777" }
+# thirty_saloon = { brand_id: Brand.find_by(name: "3thirty Saloon").id, address: "330 Old St, London EC1V 9DR", phone_number: "020 9076 7123" }
+nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "58 Paul St, London EC2A 4LN", phone_number: "020 5897 2341" }
 artist_cafe_london = { brand_id: Brand.find_by(name: "Artist Cafe London").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
 nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
 cates_location = { brand_id: Brand.find_by(name: "Coffee & Cates").id, address: "138 Kingsland Rd, London E2 8DY", phone_number: "020 4783 2398" }
