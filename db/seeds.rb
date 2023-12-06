@@ -11,13 +11,13 @@
 require "open-uri"
 
 puts "Cleaning database..."
+Category.destroy_all
 RewardType.destroy_all
 Brand.destroy_all
-Card.destroy_all
 CardStyle.destroy_all
-Location.destroy_all
-Category.destroy_all
+Card.destroy_all
 Reward.destroy_all
+Location.destroy_all
 User.destroy_all
 
 # Categories
@@ -314,11 +314,13 @@ legacy_cafe = {
 
 images << { file: URI.open('https://charlieontravel.com/wp-content/uploads/2019/08/Flour-Pot-Bakery-Best-Coffee-Shops-Brighton-570x410.jpg'), filename: 'legacy.jpg' }
 
-card_styles = [{ theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
-{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
-{theme: 'Elegant' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
-{theme: 'Contemporary' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'},
-{theme: 'Classic' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713'}]
+card_styles = [
+{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
+{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
+{theme: 'Elegant', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
+{theme: 'Contemporary', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''},
+{theme: 'Classic', url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: ''}
+]
 
 [nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
   brand = Brand.new(attributes)
@@ -340,7 +342,7 @@ end
 # Locations
 
 puts "Creating locations..."
-nando_sandwich_bar= { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
+nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
 artist_cafe_london = { brand_id: Brand.find_by(name: "Artist Cafe London").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
 nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
 cates_location = { brand_id: Brand.find_by(name: "Coffee & Cates").id, address: "138 Kingsland Rd, London E2 8DY", phone_number: "020 4783 2398" }
