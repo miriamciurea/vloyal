@@ -11,16 +11,27 @@ export default class extends Controller {
   flipCard(e) {
     console.log(e)
     console.log(e.currentTarget.classList)
-    if (e.currentTarget.classList.contains('focus')) {
-      if (e.currentTarget.classList.contains('flipped')) {
-        console.log("removing flipped")
-        e.currentTarget.classList.remove('flipped')
-      } else {
-        console.log("add flipped")
-        e.currentTarget.classList.add('flipped')
-      }
+    // if (e.currentTarget.classList.contains('focus')) {
+    //   if (e.currentTarget.classList.contains('flipped')) {
+    //     console.log("removing flipped")
+    //     e.currentTarget.classList.remove('flipped')
+    //   } else {
+    //     console.log("add flipped")
+    //     e.currentTarget.classList.add('flipped')
+    //   }
+    // }
+    if (e.currentTarget.classList.contains("focus") || e.currentTarget.classList.contains("flipped")) {
+      e.currentTarget.classList.remove("flipped")
+      // sleep(50).then(() => { currentTarget.classList.remove("focus"); });
+      e.currentTarget.classList.remove("focus")
+
+    } else {
+      e.currentTarget.classList.add("focus");
+      e.currentTarget.classList.add("flipped");
     }
-    e.currentTarget.classList.add("focus");
+
+
+
 
     this.cardTargets.forEach((card) => {
       // console.log(card);
