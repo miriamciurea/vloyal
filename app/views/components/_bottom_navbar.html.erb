@@ -1,7 +1,9 @@
 <div class="bottom-navbar-container">
   <div class="bottom-navbar">
     <div class="d-flex justify-content-around align-items-center bottom-navbar-left">
+      <div>
       <%= link_to "Rewards", rewards_path, class: "#{@page_rewards ? 'active' : ''} navbar-btn" %>
+      </div>
       <%= link_to "MyWallet", root_path, class: "#{@page_cards ? 'active' : ''} navbar-btn" %>
     </div>
     <div class="d-flex align-items-center justify-content-center bottom-navbar-center">
