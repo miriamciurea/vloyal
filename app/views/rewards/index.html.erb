@@ -1,5 +1,7 @@
-<h1 class="page-title">My Rewards</h1>
-<%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
+<div class="rewards-heading">
+  <h1 class="page-title">My Rewards</h1>
+  <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
+</div>
 
 <div data-controller= "qrprompt" class="controller">
   <% @rewards.reverse.each do |reward| %>

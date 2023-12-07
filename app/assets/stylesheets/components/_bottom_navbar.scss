@@ -13,7 +13,7 @@
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: #FCFCFC;
-  box-shadow: -5px -5px 4px 0px rgba(255, 255, 255, 0.30) inset, 5px 5px 4px 0px rgba(174, 174, 192, 0.20) inset;
+  box-shadow: 5px -5px 4px 0px rgba(255, 255, 255, 0.30) inset, -5px 5px 4px 0px rgba(174, 174, 192, 0.4) inset;
   position: fixed;
   left: 50%;
   transform: translate(-50%, -25%);
@@ -69,4 +69,14 @@
       left: 15%;
     }
   }
+}
+
+.fa-solid.camera-icon {
+  opacity: 14%;
+  color: grey;
+  font-size: 47px;
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
