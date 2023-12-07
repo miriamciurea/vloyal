@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -17,11 +17,13 @@ export default class extends Controller {
       style: "mapbox://styles/anupale07/clpqu6p79015w01r5fsby2a0v"
     });
     this.#addMarkerToMap();
-    this.#fitMapToMarker();
-    this.map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-    }))
+    setTimeout(() => {
+      this.#fitMapToMarker();
+    }, 1000);
+    // this.map.addControl(new MapboxGeocoder({
+    //   accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl
+    // }))
   }
 
 
@@ -63,6 +65,6 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
 
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
-    this.map.fitBounds(bounds, { padding: 124, maxZoom: 15, duration: 2000 })
+    this.map.fitBounds(bounds, { padding: 10, maxZoom: 15, duration: 1500 })
   }
 }
