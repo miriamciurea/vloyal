@@ -36,6 +36,16 @@ $card-offset: ($card-height * 0.75);
   backface-visibility: hidden;
 }
 
+#one-left {
+  animation-name: stretch;
+  animation-duration: 4.0s;
+  animation-timing-function: ease-in-out;
+  animation-direction: reverse;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+
 .loyalty-card-front {
 
   border-radius: 20px;

@@ -26,7 +26,7 @@
         <div class="loyalty-card" data-card-target='card' data-action='click->card#flipCard'>
           <div class="loyalty-card-inner">
 
-            <div class="loyalty-card-front <%= card.brand.card_styles[0].theme.downcase %>" style="background-image: url('<%= cl_image_path card.brand.card_styles[0].background.key %>'); background-size: cover;" >
+            <div class="loyalty-card-front  <%= card.brand.card_styles[0].theme.downcase %>" id="<%= 'one-left' if card.stamps == 7 %>" style="background-image: url('<%= cl_image_path card.brand.card_styles[0].background.key %>'); background-size: cover;" >
 
               <div class="brand-name">
                 <div class="card-front-logo-circle">
@@ -42,7 +42,7 @@
 
             </div>
 
-            <div class="loyalty-card-back <%= card.brand.card_styles[0].theme.downcase %>">
+            <div class="loyalty-card-back <%= card.brand.card_styles[0].theme.downcase %>" id="<%= 'one-left' if card.stamps == 7 %>">
 
                <div class="brand-name">
                 <div class="card-front-logo-circle">
