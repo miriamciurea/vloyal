@@ -423,8 +423,8 @@ mark = { first_name: "Mark", last_name: "O'Connor", email: "mark@lewagon.com", p
 miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com", password: "123456", business: false }
 
 # Cards & Rewards
-tokito_hair = { brand_id: Brand.find_by(name: "Tokito Hair").id, stamps: 8 }
-nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 8 }
+tokito_hair_card = { brand_id: Brand.find_by(name: "Tokito Hair").id, stamps: 6 }
+thirty_saloon_card = { brand_id: Brand.find_by(name: "3thirty Saloon").id, stamps: 4 }
 artist_cafe_london_card = { brand_id: Brand.find_by(name: "Artist Cafe London").id, stamps: 7 }
 nando_sandwich_bar_card = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 5 }
 nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 7 }
@@ -437,16 +437,25 @@ legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
   user = User.create!(attributes)
   puts "Created #{user.first_name}"
   puts "Creating cards..."
-  [tokito_hair, nando_sandwich_bar, artist_cafe_london_card, nando_sandwich_bar_card, nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
+  [tokito_hair_card, thirty_saloon_card, artist_cafe_london_card, nando_sandwich_bar_card, nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
     card = Card.new(card_attributes)
     card.user = user
     card.save!
-    puts "Created #{card.id}"
+    # puts "Created #{card.id}"
     # puts "Creating rewards..."
-    # reward = Reward.create!(card:)
+    # reward = Reward.create!(card: Card.find_by(id: 1), claimed: false)
+    # reward = Reward.create!(card: Card.find_by(3))
     # reward.generate_qrcode
     # puts "Created #{reward.id}"
   end
 end
+
+puts "Creating rewards..."
+reward1 = Reward.create!(card: Card.find_by(id: 37), claimed: false)
+reward2 = Reward.create!(card: Card.find_by(id: 39), claimed: false)
+# reward = Reward.create!(card: Card.find_by(3))
+reward1.generate_qrcode
+reward2.generate_qrcode
+# puts "Created #{reward.id}"
 
 puts "Finished!"
