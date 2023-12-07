@@ -8,15 +8,15 @@
   </p>
   <div class="brands">
     <% brands.each do |brand| %>
-      <div class="position-relative">
+      <div class="brand-wrapper">
         <%= link_to brand_path(brand), class: "names z-3" do %>
         <%# <%= link_to "", brand_path(brand), class: "names position-absolute top-0 bottom-0 start-0 end-0" %>
         <% if brand.photo.attached? %>
-          <div class="brand-container card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, alt: "img-bg", style: " width:100%; height:300px; border-radius: 12px;" %>');"></div>
+          <div class="brand-img card-img-container" style="background-image: url('<%= cl_image_path brand.photo.key, alt: "img-bg", style: " width:100%; height:300px; border-radius: 12px;" %>');"></div>
         <% else %>
-          <div class="brand-container card-img-container" style="background-image: url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+          <div class="brand-img card-img-container" style="background-image: url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
         <% end %>
-        <div class="brand-container z-index-brand">
+        <div class="brand-text z-index-brand">
           <div class="info p-1">
             <div class="title">
               <p><%= brand.name %></p>
