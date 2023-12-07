@@ -129,7 +129,7 @@ nando_sandwich_bar = {
     }
   ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=nando+sandwich+bar&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
-  rating: 4
+  rating: 5
 }
 images << { file: URI.open('https://media.istockphoto.com/id/175227656/photo/sandwich-with-prosciutto.jpg?s=612x612&w=0&k=20&c=FKtWD9DJkBiMFRUMtgukYCBIfY8glSFHKCOixr8L5pw='), filename: 'nando.jpg' }
 
