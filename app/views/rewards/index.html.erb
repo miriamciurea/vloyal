@@ -8,10 +8,10 @@
         <div data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key if reward.qrcode.attached? %>'>
           <div class="reward-brand-name px-3 pt-3" style="background-image: url('<%= cl_image_path reward.card.brand.card_styles[0].background.key %>'); background-size: cover; border-radius: 20px;">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
-          </div>
           <div class="reward-message p-3 d-flex justify-content-between">
             <p><strong>Congratulations!</strong>  You have one free <%= reward.card.brand.category.name.split(" ")[0].downcase %> from <%= reward.card.brand.name %>. Press show to display your QR code.</p>
             <%= link_to "Show", "#",  data: { action: "click->qrprompt#showPrompt"} %><i class="fa-solid fa-circle-chevron-down"></i>
+          </div>
           </div>
         </div>
       </div>
