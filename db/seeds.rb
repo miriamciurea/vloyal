@@ -52,58 +52,58 @@ puts "Creating brands..."
 
 images = []
 
-# willow_hair = {
-#   category_id: Category.find_by(name: "Hairdresser").id,
-#   reward_type_id: RewardType.find_by(name: "Haircut").id,
-#   name: "Willow Hair",
-#   description: "Willow Hair is a hairdressing salon which has been established in the heart of Highgate for 20 years. Revered as a sanctuary for clients to relax and experience quality hairdressing delivered by a team of expert hairdressers providing, cutting and styling, colour services including balayage and highlights plus bond and tape hair extensions.",
-#   menu: [
-#     {
-#       name: "Cut & Blow Dry",
-#       price: "£50.0"
-#     },
-#     {
-#       name: "Hair Up Deluxe",
-#       price: "£60.0"
-#     },
-#     {
-#       name: "Balayage",
-#       price: "£70.0"
-#     },
-#     {
-#       name: "Highlights",
-#       price: "£80.0"
-#     }
-#   ].to_json,
-#   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=willow+hair+highgate&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
-#   rating: 5
-# }
-# images << { file: URI.open('https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'willow.jpg' }
+tokito_hair = {
+  category_id: Category.find_by(name: "Hairdresser").id,
+  reward_type_id: RewardType.find_by(name: "Haircut").id,
+  name: "Tokito Hair",
+  description: "Our talented hair stylists will showcase their exceptional hairdressing skills while snipping and pruning with an innovative caring approach. From a transformative colour change on your locks to signature hair treatments designed to regenerate, repair, and rebuild the core integrity of your tresses.",
+  menu: [
+    {
+      name: "Cut & Blow Dry",
+      price: "£50.0"
+    },
+    {
+      name: "Hair Up Deluxe",
+      price: "£60.0"
+    },
+    {
+      name: "Balayage",
+      price: "£70.0"
+    },
+    {
+      name: "Highlights",
+      price: "£80.0"
+    }
+  ].to_json,
+  website: "https://www.tokitohair.com/",
+  rating: 5
+}
+images << { file: URI.open('https://www.apetogentleman.com/wp-content/uploads/2018/10/Best-Barbers-London.png'), filename: 'tokito.jpg' }
 
-# thirty_saloon = {
-#   category_id: Category.find_by(name: "Hairdresser").id,
-#   reward_type_id: RewardType.find_by(name: "Haircut").id,
-#   name: "3thirty Saloon",
-#   description:"Welcome to 3thirty Salon, award winning for 'Best Afro Hair Salon London 2015' followed by 'Most Wanted Salon London 2019'. Here we specialise in the fine art of hair styling, cutting, colouring, connoisseurs of curly hair and afro hair specialist using the latest techniques from balayage, ombre, highlights, free hand highlights to all over bleach and speciality treatments on all hair textures, We pride ourselves as one of the UK’s leading afro hairdressers and natural curl specialist, our unique collective of talented stylists allows us to be at the very forefront delivering diverse hairdressing with huge talents to working with all types of hair textures from European, Afro natural hair to Asian.",
-#   menu: [
-#     {
-#       name: "Short Cuts",
-#       price: "£50.0"
-#     },
-#     {
-#       name: "Flat Iron Tong",
-#       price: "£60.0"
-#     },
-#     {
-#       name: "Curly Perm",
-#       price: "£70.0"
-#     }
-#   ].to_json,
-#   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=3thirty+saloon&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
-#   rating: 4
-# }
+thirty_saloon = {
+  category_id: Category.find_by(name: "Hairdresser").id,
+  reward_type_id: RewardType.find_by(name: "Haircut").id,
+  name: "3thirty Saloon",
+  description:"Welcome to 3thirty Salon, award winning for 'Best Afro Hair Salon London 2015' followed by 'Most Wanted Salon London 2019'.",
+  menu: [
+    {
+      name: "Short Cuts",
+      price: "£50.0"
+    },
+    {
+      name: "Flat Iron Tong",
+      price: "£60.0"
+    },
+    {
+      name: "Curly Perm",
+      price: "£70.0"
+    }
+  ].to_json,
+  website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=3thirty+saloon&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
+  rating: 4
+}
 
-# images << { file: URI.open('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: '3thirty.jpg' }
+images << { file: URI.open('https://www.apetogentleman.com/wp-content/uploads/2018/10/Dunhill-barber.png'), filename: '3thirty.jpg' }
 
 nando_sandwich_bar = {
   category_id: Category.find_by(name: "Sandwich Shop").id,
@@ -377,7 +377,7 @@ card_styles = [{theme: 'Gold' , url: 'https://static.wikia.nocookie.net/disney/i
 {theme: 'Space-grey' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: 'card-themes/space-grey-card.png'},
 {theme: 'Coral' , url: 'https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest/thumbnail/width/360/height/360?cb=20180813011713', local: 'card-themes/coral-card.png'}]
 
-[nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
+[tokito_hair, thirty_saloon, nando_sandwich_bar, artist_cafe_london, nutmeg_n_koffee, coffee_and_cates, fabrique, rise_and_bloom, legacy_cafe].each_with_index do |attributes, index|
   brand = Brand.new(attributes)
   image = images[index]
   brand.photo.attach(io: image[:file], filename: image[:filename], content_type: "image/png")
@@ -397,8 +397,8 @@ end
 # Locations
 
 puts "Creating locations..."
-# willow_hair = { brand_id: Brand.find_by(name: "Willow Hair").id, address: "1 Highgate High St, Highgate, London N6 5JR", phone_number: "020 8340 1777" }
-# thirty_saloon = { brand_id: Brand.find_by(name: "3thirty Saloon").id, address: "330 Old St, London EC1V 9DR", phone_number: "020 9076 7123" }
+tokito_hair = { brand_id: Brand.find_by(name: "Tokito Hair").id, address: "6 Hackney road E2 7NS", phone_number: "020 9076 7123" }
+thirty_saloon = { brand_id: Brand.find_by(name: "3thirty Saloon").id, address: "330 Old St, London EC1V 9DR", phone_number: "020 9076 7123" }
 nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "58 Paul St, London EC2A 4LN", phone_number: "020 5897 2341" }
 artist_cafe_london = { brand_id: Brand.find_by(name: "Artist Cafe London").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
 nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
@@ -407,7 +407,7 @@ fabrique_location = { brand_id: Brand.find_by(name: "Fabrique").id, address: "38
 bloom_location = { brand_id: Brand.find_by(name: "Rise & Bloom").id, address: "28 Hackney Rd, London E2 7DZ", phone_number: "020 2439 5498" }
 legacy_location = { brand_id: Brand.find_by(name: "Legacy Cafe").id, address: "Cremer St, London E2 8HB", phone_number: "020 4372 3489" }
 
-[nando_sandwich_bar, artist_cafe_london, nutmeg_location, cates_location, fabrique_location, bloom_location, legacy_location].each do |attributes|
+[tokito_hair, thirty_saloon, nando_sandwich_bar, artist_cafe_london, nutmeg_location, cates_location, fabrique_location, bloom_location, legacy_location].each do |attributes|
   location = Location.create!(attributes)
   puts "Created #{location.address}"
 end
@@ -423,6 +423,8 @@ mark = { first_name: "Mark", last_name: "O'Connor", email: "mark@lewagon.com", p
 miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com", password: "123456", business: false }
 
 # Cards & Rewards
+tokito_hair_card = { brand_id: Brand.find_by(name: "Tokito Hair").id, stamps: 6 }
+thirty_saloon_card = { brand_id: Brand.find_by(name: "3thirty Saloon").id, stamps: 4 }
 artist_cafe_london_card = { brand_id: Brand.find_by(name: "Artist Cafe London").id, stamps: 7 }
 nando_sandwich_bar_card = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 5 }
 nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 7 }
@@ -435,16 +437,25 @@ legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
   user = User.create!(attributes)
   puts "Created #{user.first_name}"
   puts "Creating cards..."
-  [artist_cafe_london_card, nando_sandwich_bar_card, nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
+  [tokito_hair_card, thirty_saloon_card, artist_cafe_london_card, nando_sandwich_bar_card, nutmeg_card, cates_card, fabrique_card, bloom_card, legacy_card].each do |card_attributes|
     card = Card.new(card_attributes)
     card.user = user
     card.save!
-    puts "Created #{card.id}"
+    # puts "Created #{card.id}"
     # puts "Creating rewards..."
-    # reward = Reward.create!(card:)
+    # reward = Reward.create!(card: Card.find_by(id: 1), claimed: false)
+    # reward = Reward.create!(card: Card.find_by(3))
     # reward.generate_qrcode
     # puts "Created #{reward.id}"
   end
 end
+
+puts "Creating rewards..."
+reward1 = Reward.create!(card: Card.find_by(id: 37), claimed: false)
+reward2 = Reward.create!(card: Card.find_by(id: 39), claimed: false)
+# reward = Reward.create!(card: Card.find_by(3))
+reward1.generate_qrcode
+reward2.generate_qrcode
+# puts "Created #{reward.id}"
 
 puts "Finished!"
