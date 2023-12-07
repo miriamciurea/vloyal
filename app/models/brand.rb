@@ -2,7 +2,7 @@ class Brand < ApplicationRecord
   # serialize :menu, JSON
   belongs_to :reward_type
   belongs_to :category
-  has_many :card_styles
+  has_many :card_styles, dependent: :destroy
 
   validates :name, :menu, :website, :description, presence: true
   validates :description, length: { minimum: 60 }

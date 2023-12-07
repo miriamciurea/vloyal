@@ -3,11 +3,30 @@
 
 <%= simple_form_for (@brand) do |f| %>
   <%= f.input :name %>
-  <%= f.input :menu, placeholder: "List your menu here" %>
+  <div class="form-label">Menu *</div>
+  <div data-controller='menu'>
+    <div class="brand-menu-form">
+      <%= f.input :menu, wrapper_html: {class: ''},input_html: {data: {menu_target: 'menu'}}%>
+
+      <div class="items" data-menu-target='items'>
+        <div class="item-group" data-menu-target='item'>
+          <div class='w-100'>
+            <label for="name" class='form-label m-1'>Item Name:</label>
+            <input class='form-control m-1' type="text" name='name' data-action='change->menu#processItems'>
+          </div>
+          <div class='w-100'>
+            <label for="price" class='form-label m-1'>Item Price (£):</label>
+            <input class='form-control m-1' type="text" name='price' data-action='change->menu#processItems'>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button data-action='click->menu#newItem' class='btn btn-primary'>New Item</button>
+  </div>
   <%= f.input :website %>
   <%= f.input :description %>
   <%# f.input :rating, as: :integer ???   %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photo, as: :file %>
   <%= f.association :category, label_method: :name %>
   <%= f.association :reward_type %>
   <%# f.association :card_style, label_method: :theme %>
@@ -17,7 +36,10 @@
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
       <%= locations_form.input :phone_number %>
-      <%= locations_form.input :_destroy, as: :boolean %>
+  <% end %>
+  <%= f.simple_fields_for :card_style do |style_form| %>
+      <%= style_form.input :theme, collection: @themes %>
+      <%= style_form.input :background, as: :file %>
   <% end %>
   <%= f.submit %>
 <% end %>
