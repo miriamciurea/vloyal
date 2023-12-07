@@ -10,15 +10,15 @@
     <%= javascript_importmap_tags %>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <%# <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> %>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
   </head>
 
   <body>
-    <%= render "components/top_navbar" %>
+    <%# <%= render "components/top_navbar" %>
     <%# <%= render "shared/flashes" %>
 
-    <div class='top-nav-spacer'></div>
+    <%# <div class='top-nav-spacer'></div> %>
     <div class='will-container'>
       <%= yield %>
     </div>
