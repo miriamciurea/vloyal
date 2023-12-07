@@ -15,10 +15,12 @@
       <% shops_visited << card %>
     <% end %>
     <% shops_visited.sort_by { |card| (card.stamps + (card.rewards.count * 8)) } %>
-    <% if shops_visited.first.rewards.count == 1 %>
-    <!---  <P>You're favourite spot is <strong><%= shops_visited.first.brand.name %></strong>, where you've made <strong><%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %></strong> purchases and earned <strong><%= shops_visited.first.rewards.count %></strong> reward.</p> --->
-    <% else %>
-    <!---  <P>You're favourite spot is <strong><%= shops_visited.first.brand.name %></strong>, where you've made <strong><%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %></strong> purchases and earned <strong><%= shops_visited.first.rewards.count %></strong> rewards. </p> --->
+    <% if shops_visited.first == "" %>
+      <% if shops_visited.first.rewards.count == 1 %>
+        <p>You're favourite spot is <strong><%= shops_visited.first.brand.name%></strong>, where you've made <strong><%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %></strong> purchases and earned <strong><%= shops_visited.first.rewards.count %></strong> reward.</p>
+      <% else %>
+        <p>You're favourite spot is <strong><%= shops_visited.first.brand.name %></strong>, where you've made <strong><%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %></strong> purchases and earned <strong><%= shops_visited.first.rewards.count %></strong> rewards. </p>
+      <% end %>
     <% end %>
   </div>
 
@@ -44,22 +46,30 @@
 
     <div class="profile-info-box" id="box-three"  data-controller-profile-target="profilecard" data-action="click->profile#enlarge">
       <div class="profile-box-number">
+      <% unless shops_visited.first.nil? %>
         <%= (shops_visited.first.stamps + (shops_visited.first.rewards.count * 8)) %>
+        <% else %>
+        <%= 0 %>
+        <% end %>
       </div>
       <div class="profile-box-text">
-        <p>The number of items you've purchased in <strong><%= shops_visited.first.brand.name %></strong></p>
+        <p>The number of items you've purchased in <strong><%= shops_visited.first.nil? ? "is 0." : shops_visited.first.brand.name %></strong></p>
       </div>
     </div>
 
     <div class="profile-info-box" id="box-four" data-controller-profile-target="profilecard" data-action="click->profile#enlarge">
       <div class="profile-box-number">
-        <%= shops_visited.first.rewards.count %>
+        <%= shops_visited.first.nil? ? 0 : shops_visited.first.rewards.count %>
       </div>
       <div class="profile-box-text">
-        <% if shops_visited.first.rewards.count == 0 %>
-          <p> You've earned your first reward in <%= shops_visited.first.brand.name %></p>
-        <% else %>
-          <p> The number of rewards you've earned in <strong><%= shops_visited.first.brand.name %></strong></p>
+      <% if !shops_visited.first.nil? %>
+          <% if shops_visited.first.rewards.count == 0 %>
+            <p> You've earned your first reward in <%= shops_visited.first.brand.name %></p>
+          <% else %>
+            <p> The number of rewards you've earned in <strong><%= shops_visited.first.brand.name %></strong></p>
+          <% end %>
+         <% else %>
+          <p>You don't have any rewards...</p>
         <% end %>
       </div>
     </div>
