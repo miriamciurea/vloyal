@@ -19,7 +19,9 @@
     <%# <%= render "shared/flashes" %>
 
     <div class='top-nav-spacer'></div>
-    <%= yield %>
+    <div class='will-container'>
+      <%= yield %>
+    </div>
 
     <% if user_signed_in? %>
     <%= render "components/bottom_navbar" %>
