@@ -68,7 +68,7 @@
   margin-bottom: 30%;
 }
 .set-height {
-  height: 10vh;
+  height: 15vh;
 }
 
 .qrprompt {
@@ -111,6 +111,9 @@
     line-height: normal;
     text-align: center;
   }
+}
+.reward-title, .stats-title {
+  margin-top: 40% !important;
 }
 // .reward-brand-name.gold {
 //   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
