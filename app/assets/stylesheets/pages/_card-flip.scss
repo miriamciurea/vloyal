@@ -74,19 +74,19 @@ $card-offset: ($card-height * 0.75);
 
 .stamp-area {
   width: 92%;
-    height: 70%;
-    top: 204px;
-    left: 48px;
-    border-radius: 46px;
-    border: 1px;
-    // border: 1px solid #A3ADB2;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4,25%);
-    align-items: center;
-    justify-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  height: 70%;
+  top: 204px;
+  left: 48px;
+  border-radius: 46px;
+  border: 1px;
+  // border: 1px solid #A3ADB2;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   .fa-circle, .fa-circle-xmark, .fa-mug-hot {
     width: 22%;
     height: 20%;
@@ -119,4 +119,9 @@ $card-offset: ($card-height * 0.75);
       }
     }
   }
+}
+
+.stamp-scan {
+  width: 80%;
+  height: 65%;
 }

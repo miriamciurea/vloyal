@@ -26,7 +26,7 @@
       </div>
 
       <% stamps = @card.stamps %>
-      <div class="stamp-area">
+      <div class="stamp-area stamp-scan">
         <% @card.card_styles[0].max_stamps.times do %>
           <% if stamps.positive? %>
             <div class="stamp stamped" data-basic-qr-code-reader-target='stamp'>
