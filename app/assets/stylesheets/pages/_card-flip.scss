@@ -37,12 +37,17 @@ $card-offset: ($card-height * 0.75);
 }
 
 #one-left {
-  animation-name: stretch;
-  animation-duration: 4.0s;
-  animation-timing-function: ease-in-out;
-  animation-direction: reverse;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
+  animation-name: pulse;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-duration: 0.5s;
+  animation-iteration-count: 6;
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  from {box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);}
+  to {box-shadow: 1px 3px 25px 10px rgba(217, 244, 252, 1);}
 }
 
 
