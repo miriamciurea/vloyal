@@ -1,6 +1,6 @@
 <div class="loyalty-card" data-basic-qr-code-reader-target='card'>
  <div class="loyalty-card-inner">
-    <div class="loyalty-card-front" id="<%= @card.brand.card_styles[0].theme.downcase %>" style="background-image: url('<%= cl_image_path @card.brand.card_styles[0].background.key %>'); object-fit: scale-down;";>
+    <div class="loyalty-card-front" style="background-image: url('<%= cl_image_path @card.brand.card_styles[0].background.key %>'); object-fit: scale-down;";>
 
       <div class="brand-name">
         <div class="card-front-logo-circle">
@@ -16,7 +16,7 @@
 
     </div>
 
-    <div class="loyalty-card-back" id="<%= @card.brand.card_styles[0].theme.downcase %>">
+    <div class="loyalty-card-back <%= @card.brand.card_styles[0].theme.downcase %>">
 
         <div class="brand-name">
         <div class="card-front-logo-circle">

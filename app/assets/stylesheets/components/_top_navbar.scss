@@ -6,7 +6,10 @@ $nav-height: 86px;
   z-index: 3;
   top: 0px;
   left: 0px;
-  padding: 40px 43px;
+  padding: 0 43px;
+  // padding-top: 32px;
+  // padding-bottom: 16px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,5 +52,5 @@ $nav-height: 86px;
 }
 
 .top-nav-spacer {
-  height: $nav-height + 40px;
+  height: 10vh
 }

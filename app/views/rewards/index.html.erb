@@ -5,10 +5,8 @@
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
       <div class="whole-card rewards">
-        <% if reward.qrcode.key.present? %>
-        <div data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key%>'>
-        <% end %>
-          <div class="reward-brand-name px-3 pt-3" id="<%= reward.card.brand.card_styles[0].theme.downcase %>">
+        <div data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key if reward.qrcode.attached? %>'>
+          <div class="reward-brand-name px-3 pt-3" style="background-image: url('<%= cl_image_path reward.card.brand.card_styles[0].background.key %>'); background-size: cover; border-radius: 20px;">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
           </div>
           <div class="reward-message p-3 d-flex justify-content-between">
@@ -26,7 +24,7 @@
     </div>
   <% end %>
 
-    <div data-qrprompt-target="prompt" class="prompt qr d-none d-flex justify-content-center" style='position: absolute;
+  <div data-qrprompt-target="prompt" class="prompt qr d-none d-flex justify-content-center" style='position: fixed;
     left: 50%;
     top: 50%;
     width: 100vw;
@@ -36,8 +34,8 @@
     <div class="prompt-div qrprompt" data-action="click->qrprompt#hidePrompt"></div>
     <div class="inner">
       <%= image_tag("prompt-image.png", alt: "prompt-image", class: "prompt-image") %>
-      <img src="" alt="qr_code" data-qrprompt-target='img' class='qr-code'>
-    </div>
+      <img src="" alt="qr_code" data-qrprompt-target="img" class='qr-code' />
     </div>
   </div>
+</div>
 <div class="set-height"></div>

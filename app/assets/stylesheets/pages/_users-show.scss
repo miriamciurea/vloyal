@@ -1,6 +1,9 @@
 .profile-page-heading {
   width: 92%;
   margin: auto;
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .general-info {
@@ -12,7 +15,7 @@
 .profile-boxes-container {
   width: 92%;
   margin: auto;
-  margin-top: 6%;
+  margin-top: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -35,4 +38,26 @@
     font-size: 2em;
     font-weight: 500;
   }
+}
+
+.profile-clicked {
+  width: 95%;
+  aspect-ratio: 1;
+  top: 3%;
+}
+
+#box-one {
+  background-color: #FFA4A4;
+}
+
+#box-two {
+  background-color: #546E7A;
+}
+
+#box-three {
+  background-color: #546E7A;
+}
+
+#box-four {
+  background-color: #FFA4A4;
 }

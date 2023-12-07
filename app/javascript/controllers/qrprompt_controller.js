@@ -19,6 +19,8 @@ export default class extends Controller {
         targetCard = card
       }
     });
+    console.log(this.imgTarget);
+    console.log(targetCard);
     this.imgTarget.src = targetCard.dataset.src
 
     console.log(e);

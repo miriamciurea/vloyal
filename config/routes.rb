@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :brands, only: [:new]
   end
   resources :brands, only: [:index, :show, :create, :update, :edit] do
+    patch :increment, on: :member
     resources :locations, only: [:create]
     collection do
       get "map"
@@ -19,13 +20,13 @@ Rails.application.routes.draw do
     resources :cards, only: [:create]
   end
 
-  patch "brands/:id", to: "brands#increment", as: :increment_stamps
   post "set_user_location", to: "brands#set_user_location"
   get "get_user_location", to: "brands#get_user_location"
   resources :cards, only: [:index, :destroy]
-  resources :rewards, only: [:index]
-  patch "rewards/:id", to: "rewards#claim", as: :claim_reward
-
+  resources :rewards, only: [:index] do
+    patch :claim, on: :member
+  end
+  # patch "rewards/:id", to: "rewards#claim", as: :claim_reward
 
   # Defines the root path route ("/")
   # root "posts#index"

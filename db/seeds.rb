@@ -426,7 +426,7 @@ miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com
 tokito_hair = { brand_id: Brand.find_by(name: "Tokito Hair").id, stamps: 8 }
 nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 8 }
 artist_cafe_london_card = { brand_id: Brand.find_by(name: "Artist Cafe London").id, stamps: 7 }
-nando_sandwich_bar_card = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 7 }
+nando_sandwich_bar_card = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 5 }
 nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 7 }
 cates_card = { brand_id: Brand.find_by(name: "Coffee & Cates").id, stamps: 5 }
 fabrique_card = { brand_id: Brand.find_by(name: "Fabrique").id, stamps: 3 }
@@ -442,9 +442,10 @@ legacy_card = { brand_id: Brand.find_by(name: "Legacy Cafe").id, stamps: 0 }
     card.user = user
     card.save!
     puts "Created #{card.id}"
-    puts "Creating rewards..."
-    reward = Reward.create!(card:)
-    puts "Created #{reward.id}"
+    # puts "Creating rewards..."
+    # reward = Reward.create!(card:)
+    # reward.generate_qrcode
+    # puts "Created #{reward.id}"
   end
 end
 
