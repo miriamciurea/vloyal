@@ -39,6 +39,7 @@ $card-offset: ($card-height * 0.75);
 .loyalty-card-front {
 
   border-radius: 20px;
+  box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
   linear-gradient(0deg, #A4E9FF, #A4E9FF);
   // position: absolute;
