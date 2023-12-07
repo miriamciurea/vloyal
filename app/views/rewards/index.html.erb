@@ -1,11 +1,10 @@
-<h1 class="rewards-title">My Rewards</h1>
+<h1 class="page-title">My Rewards</h1>
 <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
 <div data-controller= "qrprompt" class="controller">
   <% @rewards.each do |reward| %>
     <% if !reward.claimed %>
-      <div class="whole-card rewards">
-        <div data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key if reward.qrcode.attached? %>'>
+        <div class='reward-card' data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key if reward.qrcode.attached? %>'>
           <div class="reward-brand-name px-3 pt-3" style="background-image: url('<%= cl_image_path reward.card.brand.card_styles[0].background.key %>'); background-size: cover; border-radius: 20px;">
             <p><i class="fa-regular fa-circle"></i><%= reward.card.brand.name %></p>
           <div class="reward-message p-3 d-flex justify-content-between">
@@ -14,7 +13,6 @@
           </div>
           </div>
         </div>
-      </div>
     <% end %>
   <% end %>
 
@@ -38,6 +36,6 @@
     </div>
   </div>
 </div>
-<h1 class="rewards-title stats-title">Stats</h1>
+<h1 class="page-title stats-title">Stats</h1>
 <%= render "users/user-show" %>
 <div class="set-height"></div>
