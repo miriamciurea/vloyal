@@ -19,12 +19,32 @@ export default class extends Controller {
     this.#addMarkerToMap();
     setTimeout(() => {
       this.#fitMapToMarker();
-    }, 1000);
+    }, 100);
     // this.map.addControl(new MapboxGeocoder({
     //   accessToken: mapboxgl.accessToken,
     //   mapboxgl: mapboxgl
     // }))
+    // this.setupMap();
   }
+
+  // setupMap() {
+  //   if (geolocation in navigator) {
+  //     navigator.geolocation.getCurrentPosition(position => {
+  //       const userLocation = [position.coords.longitude, position.coords.latitude];
+
+  //       new mapboxgl.Marker()
+  //         .setLngLat(userLocation)
+  //         .setPopup(new mapboxgl.Popup({ closeOnClick: true }).setHTML("<h1> You are here </h1>"))
+  //         .addTo(this.map);
+
+  //       this.map.setCenter(userLocation);
+  //     }, function (error) {
+  //       console.log('Error getting location:', error);
+  //     });
+  //   } else {
+  //     console.log('Geolocation is not supported');
+  //   }
+  // }
 
 
   #addMarkerToMap() {
@@ -65,6 +85,6 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
 
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
-    this.map.fitBounds(bounds, { padding: 10, maxZoom: 15, duration: 1500 })
+    this.map.fitBounds(bounds, { padding: 124, maxZoom: 15, duration: 1500 })
   }
 }
