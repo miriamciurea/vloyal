@@ -2,7 +2,7 @@
 <%=  image_tag 'under-txt-logo.png', alt: "under-text-v", class: "under-txt-logo"%>
 
 <div data-controller= "qrprompt" class="controller">
-  <% @rewards.each do |reward| %>
+  <% @rewards.reverse.each do |reward| %>
     <% if !reward.claimed %>
         <div class='reward-card' data-qrprompt-target='card' data-src='<%= cl_image_path reward.qrcode.key if reward.qrcode.attached? %>'>
           <div class="reward-brand-name px-3 pt-3" style="background-image: url('<%= cl_image_path reward.card.brand.card_styles[0].background.key %>'); background-size: cover; border-radius: 20px;">
