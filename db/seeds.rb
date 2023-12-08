@@ -60,19 +60,19 @@ tokito_hair = {
   menu: [
     {
       name: "Cut & Blow Dry",
-      price: "£50.0"
+      price: "£50.00"
     },
     {
       name: "Hair Up Deluxe",
-      price: "£60.0"
+      price: "£60.00"
     },
     {
       name: "Balayage",
-      price: "£70.0"
+      price: "£70.00"
     },
     {
       name: "Highlights",
-      price: "£80.0"
+      price: "£80.00"
     }
   ].to_json,
   website: "https://www.tokitohair.com/",
@@ -83,20 +83,20 @@ images << { file: URI.open('https://www.apetogentleman.com/wp-content/uploads/20
 thirty_saloon = {
   category_id: Category.find_by(name: "Hairdresser").id,
   reward_type_id: RewardType.find_by(name: "Haircut").id,
-  name: "3thirty Saloon",
+  name: "3thirty Salon",
   description:"Welcome to 3thirty Salon, award winning for 'Best Afro Hair Salon London 2015' followed by 'Most Wanted Salon London 2019'.",
   menu: [
     {
       name: "Short Cuts",
-      price: "£50.0"
+      price: "£50.00"
     },
     {
       name: "Flat Iron Tong",
-      price: "£60.0"
+      price: "£60.00"
     },
     {
       name: "Curly Perm",
-      price: "£70.0"
+      price: "£70.00"
     }
   ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=3thirty+saloon&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
@@ -113,23 +113,23 @@ nando_sandwich_bar = {
   menu: [
     {
       name: "Porchetta",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: " Mediterranean Sandwich",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Panini",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Authentic Sicilian Cannoli",
-      price: "£4.5"
+      price: "£4.50"
     }
   ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=nando+sandwich+bar&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
-  rating: 4
+  rating: 5
 }
 images << { file: URI.open('https://media.istockphoto.com/id/175227656/photo/sandwich-with-prosciutto.jpg?s=612x612&w=0&k=20&c=FKtWD9DJkBiMFRUMtgukYCBIfY8glSFHKCOixr8L5pw='), filename: 'nando.jpg' }
 
@@ -141,19 +141,19 @@ artist_cafe_london = {
   menu: [
     {
       name: "Ham & Cheese",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Chicken & Avocado",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Tuna & Sweetcorn",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Egg & Cress",
-      price: "£4.5"
+      price: "£4.50"
     }
   ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=artist+cafe+london&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
@@ -170,35 +170,35 @@ nutmeg_n_koffee = {
   menu: [
     {
       name: "Flat White",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Americano",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Cappuccino",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Espresso",
-      price: "£4.5"
+      price: "£4.50"
     },
     {
       name: "Latte",
-      price: "£5.0"
+      price: "£5.00"
     },
     {
       name: "Iced Coffee",
-      price: "£5.5"
+      price: "£5.50"
     },
     {
       name: "Affogato",
-      price: "£6.0"
+      price: "£6.00"
     }
   ].to_json,
   website: "https://www.google.com/maps/dir/51.5436735,-0.0910529/nutmeg_n_koffee/@51.5380881,-0.1054934,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x48761d65bfb9e4e7:0xb39fb1b0dc96353d!2m2!1d-0.075763!2d51.5310155?entry=ttu",
-  rating: 5
+  rating: 4
 }
 
 images << { file: URI.open('https://balancecoffee.co.uk/cdn/shop/articles/coffee-shop-london-bridge.jpg?v=1663783874'), filename: 'nutmeg.jpg' }
@@ -211,31 +211,31 @@ coffee_and_cates = {
   menu: [
     {
       name: "Flat White",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Americano",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Cappuccino",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Espresso",
-      price: "£4.5"
+      price: "£4.50"
     },
     {
       name: "Latte",
-      price: "£5.0"
+      price: "£5.00"
     },
     {
       name: "Iced Coffee",
-      price: "£5.5"
+      price: "£5.50"
     },
     {
       name: "Affogato",
-      price: "£6.0"
+      price: "£6.00"
     }
   ].to_json,
   website: "https://www.google.com/maps/place/Coffee+%26+Cates/@51.5326409,-0.0794862,17z/data=!3m1!4b1!4m6!3m5!1s0x48761d7735d40a75:0xfe1f5a67002a65d2!8m2!3d51.5326409!4d-0.0769113!16s%2Fg%2F11sgchnwwj?entry=ttu",
@@ -252,31 +252,31 @@ fabrique = {
   menu: [
     {
       name: "Flat White",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Americano",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Cappuccino",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Espresso",
-      price: "£4.5"
+      price: "£4.50"
     },
     {
       name: "Latte",
-      price: "£5.0"
+      price: "£5.00"
     },
     {
       name: "Iced Coffee",
-      price: "£5.5"
+      price: "£5.50"
     },
     {
       name: "Affogato",
-      price: "£6.0"
+      price: "£6.00"
     }
   ].to_json,
   website: "https://www.google.com/maps/place/Fabrique+Bakery+Hoxton/@51.5317721,-0.0768924,17.01z/data=!4m6!3m5!1s0x48761cbebd55d781:0xf2797818b76e4a10!8m2!3d51.5320634!4d-0.0757079!16s%2Fg%2F124sqdszc?entry=ttu",
@@ -293,31 +293,31 @@ rise_and_bloom = {
   menu: [
     {
       name: "Flat White",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Americano",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Cappuccino",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Espresso",
-      price: "£4.5"
+      price: "£4.50"
     },
     {
       name: "Latte",
-      price: "£5.0"
+      price: "£5.00"
     },
     {
       name: "Iced Coffee",
-      price: "£5.5"
+      price: "£5.50"
     },
     {
       name: "Affogato",
-      price: "£6.0"
+      price: "£6.00"
     }
   ].to_json,
   website: "https://www.google.com/maps/place/Rise+%26+Bloom/@51.5277068,-0.0811676,17z/data=!3m1!4b1!4m6!3m5!1s0x48761d9c623f8dc7:0x52f654e11e4054f0!8m2!3d51.5277036!4d-0.0762967!16s%2Fg%2F11tjlsgm2f?entry=ttu",
@@ -334,31 +334,31 @@ legacy_cafe = {
   menu: [
     {
       name: "Flat White",
-      price: "£3.0"
+      price: "£3.00"
     },
     {
       name: "Americano",
-      price: "£3.5"
+      price: "£3.50"
     },
     {
       name: "Cappuccino",
-      price: "£4.0"
+      price: "£4.00"
     },
     {
       name: "Espresso",
-      price: "£4.5"
+      price: "£4.50"
     },
     {
       name: "Latte",
-      price: "£5.0"
+      price: "£5.00"
     },
     {
       name: "Iced Coffee",
-      price: "£5.5"
+      price: "£5.50"
     },
     {
       name: "Affogato",
-      price: "£6.0"
+      price: "£6.00"
     }
   ].to_json,
   website: "https://www.google.com/maps?sca_esv=585953107&output=search&q=legacy+cafe+hoxton&source=lnms&entry=mc&sa=X&ved=2ahUKEwiO_pL2geeCAxVzQ0EAHTHrAOAQ0pQJegQIDBAB",
@@ -398,7 +398,7 @@ end
 
 puts "Creating locations..."
 tokito_hair = { brand_id: Brand.find_by(name: "Tokito Hair").id, address: "6 Hackney road E2 7NS", phone_number: "020 9076 7123" }
-thirty_saloon = { brand_id: Brand.find_by(name: "3thirty Saloon").id, address: "330 Old St, London EC1V 9DR", phone_number: "020 9076 7123" }
+thirty_saloon = { brand_id: Brand.find_by(name: "3thirty Salon").id, address: "330 Old St, London EC1V 9DR", phone_number: "020 9076 7123" }
 nando_sandwich_bar = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, address: "58 Paul St, London EC2A 4LN", phone_number: "020 5897 2341" }
 artist_cafe_london = { brand_id: Brand.find_by(name: "Artist Cafe London").id, address: "1-3 Rivington St, London EC2A 3DT", phone_number: "020 4372 3489" }
 nutmeg_location = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, address: "Hoxton Station, Geffrye St, London E2 8FF", phone_number: "020 8439 1749" }
@@ -424,7 +424,7 @@ miriam = { first_name: "Miriam", last_name: "Ciurea", email: "miriam@lewagon.com
 
 # Cards & Rewards
 tokito_hair_card = { brand_id: Brand.find_by(name: "Tokito Hair").id, stamps: 6 }
-thirty_saloon_card = { brand_id: Brand.find_by(name: "3thirty Saloon").id, stamps: 4 }
+thirty_saloon_card = { brand_id: Brand.find_by(name: "3thirty Salon").id, stamps: 4 }
 artist_cafe_london_card = { brand_id: Brand.find_by(name: "Artist Cafe London").id, stamps: 7 }
 nando_sandwich_bar_card = { brand_id: Brand.find_by(name: "Nando Sandwich Bar").id, stamps: 5 }
 nutmeg_card = { brand_id: Brand.find_by(name: "Nutmeg n' Koffee").id, stamps: 7 }
