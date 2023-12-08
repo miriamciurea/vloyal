@@ -85,14 +85,34 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 8px 20px;
+    // padding: 8px 20px;
+    overflow: hidden;
+    margin: 8px 20px;
     font-size: 20px;
-    i {
-      margin-bottom: 1px;
-      &.added {
-        font-size: 1.4rem;
-        color: forestgreen;
-        opacity: 0.8;
+    .duo {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+      // border: 1px dashed red;
+      transition: transform .3s ease;
+      p {
+        margin: 0;
+        width: fit-content;
+        transition: opacity .3s;
+      }
+      i {
+        margin-bottom: 1px;
+      }
+    }
+    &.checked {
+      font-size: 1.4rem;
+      color: forestgreen;
+      opacity: 0.8;
+      .duo {
+        transform: translateX(-50px);
+        p {
+          opacity: 0;
+        }
       }
     }
   }
