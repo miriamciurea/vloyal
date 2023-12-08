@@ -25,15 +25,15 @@
               <%= brand.rating %> <i class="fa-solid fa-star"></i>
             </div>
         <% end %>
-            <div class="add">
               <% if current_user.cards.where(brand_id: brand.id).length > 0 %>
-                <i class="fa-solid fa-circle-check"></i>
+                <div class="add checked" data-controller="check-icon" data-check-icon-url-value="<%= brand_cards_path(brand) %>">
+                  <div class="duo"> <p>Add</p> <i class="fa-solid fa-circle-check"></i></div>
+                </div>
               <% else %>
-                <%= link_to brand_cards_url(brand), data: {controller: "check-icon", turbo_method: :post, action: 'click->check-icon#flip'}, style: "color: black;" do %>
-                  <p>Add <i class="fa-solid fa-circle-plus"></i></p>
-                <% end %>
+                <div class="add" data-controller="check-icon" data-check-icon-url-value="<%= brand_cards_path(brand) %>">
+                  <div class="duo" data-action="click->check-icon#check"> <p>Add</p> <i class="fa-solid fa-circle-plus" data-check-icon-target="icon"></i></div>
+                </div>
               <% end %>
-            </div>
             <%# <%= link_to brand_path(brand), class: "names z-3" do %>
               <div class="distance">
                 <% brand.locations.each do |loc| %>
